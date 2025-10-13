@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Artefatos - Cápsula do Tempo</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .table-container {
+      overflow-x: auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px;
+    }
+    caption {
+      caption-side: top;
+      font-weight: bold;
+      text-align: left;
+      padding: 10px;
+      font-size: 1.1em;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    th {
+      background-color: #1e293b;
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background-color: #f3f4f6;
+    }
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      th {
+        display: none;
+      }
+      tr {
+        margin-bottom: 15px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      }
+      td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 15px;
+      }
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #374151;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Catálogo de Artefatos — Cápsula do Tempo</h1>
+
+  <div class="table-container" role="region" aria-label="Tabela de artefatos encontrados">
+    <table role="table" aria-describedby="descricao-tabela">
+      <caption id="descricao-tabela">Tabela com os artefatos catalogados pelos arqueólogos digitais.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Categoria</th>
+          <th scope="col">Artefato</th>
+          <th scope="col">Peso (kg)</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Categoria">Manuscrito</td>
+          <td data-label="Artefato">Mapa Antigo</td>
+          <td data-label="Peso (kg)">0.8</td>
+          <td data-label="Status">Em avaliação</td>
+        </tr>
+        <tr>
+          <td data-label="Categoria">Manuscrito</td>
+          <td data-label="Artefato">Diário de Bordo</td>
+          <td data-label="Peso (kg)">1.2</td>
+          <td data-label="Status">Analisado</td>
+        </tr>
+        <tr>
+          <td data-label="Categoria">Joalheria</td>
+          <td data-label="Artefato">Amuleto de Jade (Pequeno)</td>
+          <td data-label="Peso (kg)">0.3</td>
+          <td data-label="Status">Analisado</td>
+        </tr>
+        <tr>
+          <td data-label="Categoria">Joalheria</td>
+          <td data-label="Artefato">Amuleto de Jade (Grande)</td>
+          <td data-label="Peso (kg)">0.6</td>
+          <td data-label="Status">Em avaliação</td>
+        </tr>
+        <tr>
+          <td data-label="Categoria">Ferramenta</td>
+          <td data-label="Artefato">Bússola Criptografada</td>
+          <td data-label="Peso (kg)">0.9</td>
+          <td data-label="Status">Pendente</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
