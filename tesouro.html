@@ -13,6 +13,7 @@
         <li>Relatório de Descoberta</li>
         <li>Análise dos Artefatos</li>
         <li>Próximos Passos</li>
+        <li>Cadastro de Voluntários</li>
     </ol>
 
     <h2>Relatório de Descoberta</h2>
@@ -34,6 +35,60 @@
         <p>
             
         </p>
+        <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Voluntários</title>
+  <style>
+    body {font-family: Arial, sans-serif; background: #f5f5f5; margin: 20px;}
+    form {background: white; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto;}
+    label {display: block; margin-top: 10px; font-weight: bold;}
+    input, button {margin-top: 5px; padding: 8px; width: 100%; box-sizing: border-box;}
+    .inline {display: inline-block; width: auto; margin-right: 10px;}
+  </style>
+</head>
+<body>
+
+  <h1>Cadastro de Voluntários</h1>
+  <form>
+    <label for="nome">Nome completo:</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="senha">Crie uma senha:</label>
+    <input type="password" id="senha" name="senha" required>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label>Gênero:</label>
+    <label class="inline"><input type="radio" name="genero" value="masculino"> Masculino</label>
+    <label class="inline"><input type="radio" name="genero" value="feminino"> Feminino</label>
+
+    <label><input type="checkbox" name="aceite"> Aceito participar das expedições</label>
+
+    <label for="telefone">Telefone:</label>
+    <input type="tel" id="telefone" name="telefone" placeholder="(00) 90000-0000">
+
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade" min="18" max="100">
+
+    <label for="nascimento">Data de nascimento:</label>
+    <input type="date" id="nascimento" name="nascimento">
+
+    <label for="arquivo">Anexar arquivo (opcional):</label>
+    <input type="file" id="arquivo" name="arquivo">
+
+    <input type="hidden" name="tipoCadastro" value="voluntario">
+
+    <button type="submit">Enviar</button>
+    <button type="reset">Limpar</button>
+  </form>
+
+</body>
+</html>
+
             <table border="2" width="600" height="200">
               <li><strong>Tabela com os artefatos catalogados pelos arqueólogos digitais</strong></li>
               <thead>
