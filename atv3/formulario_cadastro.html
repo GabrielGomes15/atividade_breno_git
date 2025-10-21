@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Formulário de Anamnese - Clínica TecnoVida</title>
+</head>
+<body>
+
+    <form action="#" method="post">
+        <h1>Formulário de Anamnese Digital</h1>
+        <p>Clínica de Saúde e Bem-Estar "TecnoVida"</p>
+
+        <fieldset>
+            <legend>Seção 1: Dados Pessoais</legend>
+
+            <div class="form-group">
+                <label for="nome_completo">1. Nome Completo:</label>
+                <input type="text" id="nome_completo" name="nome_completo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="data_nascimento">2. Data de Nascimento:</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" required>
+            </div>
+
+            <div class="form-group">
+                <label for="genero">3. Gênero:</label>
+                <select id="genero" name="genero" required>
+                    <option value="">Selecione...</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="prefiro_nao_dizer">Prefiro Não Dizer</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cpf">4. CPF (apenas números):</label>
+                <input type="number" id="cpf" name="cpf" required min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="email_pessoal">5. E-mail:</label>
+                <input type="email" id="email_pessoal" name="email_pessoal" required>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Seção 2: Histórico de Saúde</legend>
+
+            <div class="form-group">
+                <label>6. Possui alguma doença crônica?</label>
+                <div class="radio-group">
+                    <input type="radio" id="doenca_sim" name="doenca_cronica" value="sim" required>
+                    <label for="doenca_sim">Sim</label>
+                    <input type="radio" id="doenca_nao" name="doenca_cronica" value="nao">
+                    <label for="doenca_nao">Não</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="medicamentos">7. Quais medicamentos você utiliza regularmente? (Liste-os)</label>
+                <textarea id="medicamentos" name="medicamentos"></textarea>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label for="fuma">8. Você fuma?</label>
+                <div>
+                    <input type="checkbox" id="fuma" name="fuma" value="sim" value="Não">
+                    <label for="fuma">Sim</label>
+                    <input type="checkbox" id="fuma" name="fuma" value="Não">
+                    <label for="fuma">Não</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="altura">9. Altura (em cm):</label>
+                <input type="number" id="altura" name="altura" min="50" max="300" step="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="peso">10. Peso (em kg):</label>
+                <input type="number" id="peso" name="peso" min="10" max="500" step="0.1" required>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Seção 3: Detalhes da Consulta</legend>
+
+            <div class="form-group">
+                <label for="motivo_consulta">11. Qual é o principal motivo da sua consulta?</label>
+                <textarea id="motivo_consulta" name="motivo_consulta" required></textarea>
+                </div>
+
+            <div class="form-group">
+                <label for="frequencia_exercicios">12. Com que frequência você pratica exercícios físicos?</label>
+                <select id="frequencia_exercicios" name="frequencia_exercicios" required>
+                    <option value="">Selecione...</option>
+                    <option value="diariamente">Diariamente</option>
+                    <option value="semanalmente">Semanalmente</option>
+                    <option value="raramente">Raramente</option>
+                    <option value="nunca">Nunca</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="data_ultima_consulta">13. Data da Última Consulta (aproximada):</label>
+                <input type="date" id="data_ultima_consulta" name="data_ultima_consulta">
+            </div>
+
+            <div class="form-group">
+                <label>14. Prefere ser contatado por:</label>
+                <div class="radio-group">
+                    <input type="radio" id="contato_telefone" name="forma_contato" value="telefone" required>
+                    <label for="contato_telefone">Telefone</label>
+
+                    <input type="radio" id="contato_email" name="forma_contato" value="email">
+                    <label for="contato_email">E-mail</label>
+                </div>
+            </div>
+        </fieldset>
+
+        <button type="submit">15. Enviar Formulário de Anamnese</button>
+
+    </form>
+</body>
+</html>
