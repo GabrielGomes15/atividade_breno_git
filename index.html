@@ -1,122 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <!-- Adiciona a viewport para design responsivo -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Páginas da turma</title>
-    
-    <!-- Início do Bloco de Estilo (CSS) -->
-    <style>
-        /* Define fontes e cores básicas para a página */
-        body {
-            /* Usa uma fonte de sistema moderna e limpa */
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            background-color: #f4f7f6; /* Fundo cinza bem claro */
-            color: #333; /* Cor do texto principal */
-            margin: 0;
-            padding: 20px; /* Espaçamento nas laterais */
-            display: flex;
-            justify-content: center; /* Centraliza o conteúdo horizontalmente */
-            align-items: flex-start; /* Alinha o conteúdo no topo */
-            min-height: 100vh; /* Garante que o body ocupe pelo menos a altura da tela */
-            box-sizing: border-box;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <title>Páginas da turma</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #f2f2f2;
+                text-align: center;
+                margin: 40px;
+            }
 
-        /* Container principal para o conteúdo */
-        .container {
-            background-color: #ffffff; /* Fundo branco para o "card" */
-            border-radius: 12px; /* Cantos arredondados */
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
-            padding: 24px 32px;
-            max-width: 600px; /* Largura máxima do conteúdo */
-            width: 100%;
-            box-sizing: border-box;
-            margin-top: 40px; /* Margem do topo para não colar na borda */
-        }
+            h1 {
+                color: #333;
+                border-bottom: 2px solid #0077cc;
+                display: inline-block;
+                padding-bottom: 5px;
+            }
 
-        /* Estilo para o Título Principal */
-        h1 {
-            color: #2c3e50; /* Cor azul-cinza escuro */
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 24px;
-            font-size: 2rem; /* 32px */
-        }
+            h2 {
+                color: #0077cc;
+            }
 
-        /* Estilo para os Subtítulos */
-        h2 {
-            color: #34495e; /* Cor azul-cinza (um pouco mais claro) */
-            border-bottom: 2px solid #ecf0f1; /* Linha sutil abaixo do título */
-            padding-bottom: 8px;
-            margin-top: 32px; /* Espaçamento acima */
-            margin-bottom: 20px; /* Espaçamento abaixo */
-            font-size: 1.5rem; /* 24px */
-        }
+            ul {
+                list-style: none;
+                padding: 0;
+            }
 
-        /* Remove os estilos padrão da lista */
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
+            li {
+                margin: 8px 0;
+            }
 
-        /* Espaçamento entre os itens da lista */
-        li {
-            margin-bottom: 12px;
-        }
+            a {
+                text-decoration: none;
+                color: #0077cc;
+                font-weight: bold;
+            }
 
-        /* Estilo dos links (transformando em "botões") */
-        li a {
-            display: block; /* Faz o link ocupar a largura toda do 'li' */
-            background-color: #3498db; /* Cor de fundo azul */
-            color: #ffffff; /* Cor do texto */
-            text-decoration: none; /* Remove o sublinhado */
-            padding: 14px 18px; /* Espaçamento interno (altura e largura) */
-            border-radius: 8px; /* Cantos arredondados */
-            font-weight: 500; /* Peso da fonte */
-            text-align: center; /* Centraliza o texto */
-            
-            /* Animação suave para hover */
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        /* Efeito ao passar o mouse (hover) ou focar (focus) */
-        li a:hover, li a:focus {
-            background-color: #2980b9; /* Azul mais escuro */
-            transform: translateY(-2px); /* Leve elevação */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra para dar profundidade */
-        }
-        
-        /* Estilo especial para o link do Github */
-        .github-link a {
-            background-color: #333; /* Cor escura para o Github */
-        }
-        
-        /* Hover do link do Github */
-        .github-link a:hover, .github-link a:focus {
-            background-color: #1a1a1a; /* Mais escuro no hover */
-        }
-    </style>
-    <!-- Fim do Bloco de Estilo -->
-    
-</head>
-<body>
-
-    <!-- Container principal -->
-    <div class="container">
+            a:hover {
+                color: #005999;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
         <h1>Meus websites e atividades</h1>
-        
-        <!-- Link do Github (HTML corrigido e movido para uma lista) -->
-        <h2>Links Úteis</h2>
-        <ul>
-            <!-- Adicionei uma classe para estilizar o Github de forma diferente -->
-            <li class="github-link">
-                <a href="https://github.com/GabrielGomes15/atividade_breno_git" target="_blank" rel="noopener noreferrer">Github</a>
-            </li>
-        </ul>
-
-        <!-- Links do Aluno -->
+        <li><a href="https://github.com/GabrielGomes15/atividade_breno_git">Github</a></li>
         <h2>Gabriel Gomes</h2>
         <ul>
             <li><a href="menu.html">Exemplo</a></li>
@@ -124,7 +53,5 @@
             <li><a href="atv2/tabela_dos_times.html">Atividade 2</a></li>
             <li><a href="atv3/formulario_cadastro.html">Atividade 3</a></li>
         </ul>
-    </div>
-
-</body>
+    </body>
 </html>
