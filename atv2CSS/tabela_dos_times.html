@@ -1,6 +1,74 @@
 <!DOCTYPE html>
 <table border="1" width="900" height="400">
     <li><strong>Tabela do Brasileirão</strong></li>
+    <style>
+      body {
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: #f3f6f9;
+          text-align: center;
+          margin: 40px;
+      }
+
+      li {
+          list-style: none;
+          font-size: 28px;
+          font-weight: bold;
+          color: #1a73e8;
+          margin-bottom: 20px;
+      }
+
+      table {
+          width: 90%;
+          margin: 0 auto;
+          border-collapse: collapse;
+          background-color: white;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+          border-radius: 8px;
+          overflow: hidden;
+      }
+
+      thead {
+          background-color: #1a73e8;
+          color: white;
+      }
+
+      th, td {
+          padding: 10px;
+          text-align: center;
+          border: 1px solid #ddd;
+      }
+
+      tr:nth-child(even) {
+          background-color: #f8f9fa;
+      }
+
+      tr:hover {
+          background-color: #e3f2fd;
+      }
+
+      td:first-child {
+          text-align: left;
+          font-weight: bold;
+      }
+
+      tbody tr:nth-child(-n+4) td:first-child {
+          color: #2e7d32;
+      }
+
+      tbody tr:nth-last-child(-n+4) td:first-child {
+          color: #c62828; 
+      }
+
+      td[data-label="ÚLT. JOGOS"] {
+          font-weight: bold;
+      }
+
+      td[data-label="ÚLT. JOGOS"]::before {
+          content: "⚽ ";
+          color: #1a73e8;
+      }
+
+  </style>
     <thead>
       <tr>
         <th scope="col">Classificação</th>
