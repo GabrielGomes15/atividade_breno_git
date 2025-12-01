@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem Replicada - Escura e Caixa Maior</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background-image: url('imagemATV4.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative; 
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); 
+            z-index: 1;
+        }
+
+        .text-overlay-container {
+            width: 100%;
+            max-width: 900px; 
+            padding-top: 250px;
+            box-sizing: border-box;
+            position: relative; 
+            z-index: 2; 
+        }
+
+        .text-overlay {
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo da caixa de texto */
+            color: red; /* Cor do texto */
+            padding: 30px;
+            text-align: left;
+            font-size: 22px; 
+            line-height: 1.6;
+            border-radius: 2px;
+            box-shadow:
+            4px 4px 0px rgba(0, 0, 0, 0.7),
+            10px 10px 15px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="text-overlay-container">
+        <div class="text-overlay">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat
+            cupiditate facere cumque ratione odio doloremque deserunt dignissimos
+            sunt eum alias voluptatum repellendus, quis, dolores perspiciatis enim
+            vero nam quisquam possimus.
+        </div>
+    </div>
+</body>
+</html>
