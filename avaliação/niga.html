@@ -4,342 +4,311 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flamengo - Site Oficial</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <style>
-        /* --- RESET E FONTES --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'DIN Next', 'Roboto', 'Arial', sans-serif; }
-        
+        /* --- RESET GERAL --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'DIN Next', 'Roboto', Arial, sans-serif; }
+
         :root {
-            --red-fla: #C3281E; /* Vermelho Oficial */
-            --black-fla: #111111;
+            --fla-red: #C3281E;
+            --fla-black: #161616;
+            --icon-color: #222222; /* Cor escura original */
             --gray-light: #f3f3f3;
-            --gray-text: #666666;
+            --text-gray: #666666;
             --white: #ffffff;
         }
 
-        body { background-color: var(--white); overflow-x: hidden; }
-        a { text-decoration: none; color: inherit; }
+        body { background-color: #f4f4f4; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
-        img { width: 100%; display: block; object-fit: cover; }
+        img { display: block; width: 100%; object-fit: cover; }
 
-        /* --- HEADER --- */
-        header { width: 100%; position: relative; z-index: 100; }
-
-        /* Barra Vermelha (Topo) */
-        .top-bar {
-            background-color: var(--red-fla);
-            height: 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%;
-            color: white;
-            font-size: 0.8rem;
-            font-weight: bold;
-            text-transform: uppercase;
+        /* =========================================
+           HEADER
+           ========================================= */
+        header {
+            width: 100%;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
         }
 
-        .top-left { display: flex; gap: 20px; align-items: center; margin-left: 100px; /* Espaço para o logo */ }
-        .top-right { display: flex; gap: 15px; align-items: center; }
-        .top-right i { font-size: 1rem; cursor: pointer; }
-        .sponsor-top { height: 20px; width: auto; opacity: 0.8; }
-
-        /* Barra Preta (Navegação) */
-        .nav-bar {
-            background-color: var(--black-fla);
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 5%;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            font-size: 0.85rem;
-            color: white;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-left: 60px; /* Compensar logo */
-        }
-
-        .nav-links li { cursor: pointer; display: flex; align-items: center; gap: 5px; }
-        .nav-links li:hover { color: var(--red-fla); }
-        .nav-links i { font-size: 0.6rem; margin-top: 2px; }
-
-        /* O Escudo Centralizado */
-        .main-logo {
+        /* O Logo Flutuante */
+        .main-logo-container {
             position: absolute;
-            top: 0;
-            left: 10%; /* Ajustado conforme a foto */
-            width: 80px;
-            height: 90px;
+            top: 0px; 
+            left: 100px;
             z-index: 101;
-            background: transparent; /* A imagem deve ser um PNG transparente */
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+        }
+        .main-logo-container img {
+            width: 90px;
+            height: auto;
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5));
         }
 
-        /* --- HERO SECTION (Notícias Principais) --- */
+        /* Barra Vermelha Superior */
+        .top-red-bar {
+            background-color: var(--fla-red);
+            height: 75px;
+            display: flex;
+            align-items: center;
+            padding-left: 240px;
+            padding-right: 40px;
+            position: relative;
+        }
+
+        .red-bar-content {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; 
+            gap: 50px; 
+        }
+
+        .call-to-action { display: flex; gap: 20px; }
+        .call-to-action a {
+            color: white;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .call-to-action a:last-child { opacity: 0.8; }
+
+        .top-right-area { display: flex; align-items: center; gap: 25px; }
+
+        /* BETANO */
+        .sponsor-placeholder {
+            font-style: italic; 
+            font-weight: 900; 
+            color: var(--icon-color); 
+            font-size: 1.2rem; 
+            letter-spacing: -1px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .sponsor-placeholder:hover {
+            color: white;
+        }
+        
+        /* ADIDAS (CORRIGIDO PARA SVG) */
+        .adidas-icon { 
+            height: 25px; 
+            width: auto; 
+            color: var(--icon-color); /* Começa preto/cinza */
+            cursor: pointer;
+            transition: color 0.3s ease; /* Transição suave */
+        }
+        /* Efeito Hover: Fica Branco */
+        .adidas-icon:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex; gap: 15px; color: var(--icon-color); font-size: 1rem;
+            align-items: center; border-left: 1px solid rgba(0,0,0,0.1);
+            padding-left: 20px; margin-left: 10px;
+        }
+        .social-icons i { transition: color 0.3s; cursor: pointer; }
+        .social-icons i:hover { color: white; }
+
+        .lang-flag {
+            position: absolute; top: 5px; right: 40px; font-size: 0.7rem;
+            display: flex; align-items: center; gap: 5px; cursor: pointer;
+        }
+
+        /* Barra Preta Inferior */
+        .bottom-black-bar {
+            background-color: var(--fla-black);
+            height: 45px;
+            display: flex;
+            align-items: center;
+            padding-left: 240px;
+        }
+
+        .nav-menu { display: flex; gap: 25px; list-style: none; }
+        .nav-menu li a {
+            color: #e0e0e0; font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; display: flex; align-items: center; gap: 5px; letter-spacing: 0.5px;
+        }
+        .nav-menu li a:hover { color: white; }
+
+        /* =========================================
+           CORPO DO SITE
+           ========================================= */
+        
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            height: 450px; /* Altura fixa para impacto visual */
+            height: 450px;
             width: 100%;
         }
 
         .hero-item {
             position: relative;
             height: 100%;
+            width: 100%;
             overflow: hidden;
             cursor: pointer;
         }
 
-        .hero-item img {
-            height: 100%;
-            width: 100%;
-            transition: transform 0.5s;
-        }
-
+        .hero-item img { height: 100%; width: 100%; transition: transform 0.5s; object-fit: cover; }
         .hero-item:hover img { transform: scale(1.05); }
 
         .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 70%;
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 70%;
             background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 30px;
+            display: flex; flex-direction: column; justify-content: flex-end; padding: 30px;
         }
 
         .tag {
-            background-color: var(--red-fla);
-            color: white;
-            padding: 4px 10px;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 10px;
-            width: fit-content;
+            background-color: var(--fla-red); color: white; padding: 4px 10px;
+            text-transform: uppercase; font-size: 0.7rem; font-weight: bold;
+            display: inline-block; margin-bottom: 10px; width: fit-content;
         }
 
         .hero-title {
-            color: white;
-            font-size: 1.8rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            line-height: 1.1;
-            margin-bottom: 10px;
+            color: white; font-size: 1.8rem; font-weight: 900;
+            text-transform: uppercase; line-height: 1.1; margin-bottom: 10px;
         }
+        
+        .hero-desc { color: #ddd; font-size: 0.9rem; line-height: 1.4; max-width: 90%; }
 
-        .hero-desc {
-            color: #ddd;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            max-width: 90%;
-        }
-
-        /* --- INFO STRIP (Próximo Jogo / Classificação) --- */
         .match-strip {
-            background-color: var(--gray-light);
-            padding: 20px 5%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            border-bottom: 1px solid #ddd;
+            background-color: var(--gray-light); padding: 20px 5%;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; border-bottom: 1px solid #ddd;
         }
-
+        
         .strip-col h3 {
-            font-size: 0.8rem;
-            color: var(--gray-text);
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            font-weight: bold;
-            border-left: 4px solid var(--red-fla);
-            padding-left: 10px;
+            font-size: 0.8rem; color: var(--text-gray); text-transform: uppercase;
+            margin-bottom: 5px; font-weight: bold; border-left: 4px solid var(--fla-red); padding-left: 10px;
         }
-
+        
         .strip-col .match-info {
-            font-size: 1.2rem;
-            font-weight: 900;
-            color: #333;
-            text-transform: uppercase;
-            margin-top: 10px;
+            font-size: 1.2rem; font-weight: 900; color: #333; text-transform: uppercase; margin-top: 10px;
         }
-
+        
         .strip-col .sub-info { font-size: 0.8rem; color: #777; margin-top: 5px; }
 
-        /* Tabela simplificada */
-        .mini-table { width: 100%; font-size: 0.85rem; margin-top: 10px; }
+        .mini-table { width: 100%; font-size: 0.85rem; margin-top: 10px; border-collapse: collapse; }
         .mini-table tr td { padding: 5px 0; color: #555; }
         .mini-table .pos { font-weight: bold; width: 20px; }
-        .mini-table .team { font-weight: bold; color: black; }
+        .mini-table .team { font-weight: bold; color: black; display: flex; align-items: center; gap: 5px;}
 
-        /* --- SEÇÃO DE MEIO (Remo/Futebol) --- */
         .content-section {
-            padding: 40px 5%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            padding: 40px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
         }
 
         .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px;
         }
+        .section-header h2 { font-size: 1.2rem; text-transform: uppercase; color: #333; font-weight: 800; }
+        .section-header a { font-size: 0.7rem; color: var(--fla-red); font-weight: bold; text-transform: uppercase; }
 
-        .section-header h2 {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            color: #333;
-            font-weight: 800;
-        }
+        .news-card-large { position: relative; height: 350px; width: 100%; }
+        .news-card-large .overlay { height: 60%; }
 
-        .section-header a {
-            font-size: 0.7rem;
-            color: var(--red-fla);
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+        .flatv-section { padding: 0 5% 40px 5%; }
+        .video-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;}
+        .video-item { display: flex; gap: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .video-thumb { width: 150px; height: 85px; background: #000; flex-shrink: 0; }
+        .video-info h4 { font-size: 0.9rem; font-weight: bold; text-transform: uppercase; margin-bottom: 5px;}
+        .video-info p { font-size: 0.8rem; color: #666; }
 
-        .news-card-large {
-            position: relative;
-            height: 350px;
-        }
-        
-        .news-card-large .overlay { height: 50%; } /* Menor gradiente */
+        .sponsors-section { background-color: #1a1a1a; padding: 40px 5%; text-align: center; }
+        .sponsor-title { color: var(--fla-red); font-size: 0.8rem; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
+        .sponsor-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; align-items: center; margin-bottom: 40px; }
+        .sponsor-grid h2, .sponsor-grid h4 { opacity: 0.6; } 
 
-        /* --- GRID INFERIOR (Basquete, FutFem, FlaTV) --- */
-        .lower-grid {
-            padding: 0 5% 40px 5%;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1.2fr; /* Coluna da TV maior */
-            gap: 20px;
-        }
-
-        .video-list { margin-top: 10px; }
-        .video-item {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-        }
-        .video-thumb { width: 120px; height: 70px; background: #333; position: relative; }
-        .video-info h4 { font-size: 0.9rem; font-weight: bold; text-transform: uppercase; }
-        .video-info p { font-size: 0.8rem; color: #666; margin-top: 5px; }
-
-        /* --- PATROCINADORES --- */
-        .sponsors-section {
-            background-color: #1a1a1a;
-            padding: 40px 5%;
-            text-align: center;
-        }
-        
-        .sponsor-title {
-            color: var(--red-fla);
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .sponsor-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .sponsor-logo {
-            filter: grayscale(100%) brightness(200%); /* Efeito branco/prata */
-            height: 30px;
-            width: auto;
-            opacity: 0.7;
-        }
-
-        /* --- RODAPÉ ENDEREÇOS --- */
         .footer-address {
-            background-color: var(--red-fla);
-            color: white;
-            padding: 30px 5%;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
+            background-color: var(--fla-red); color: white; padding: 30px 5%;
+            display: flex; justify-content: space-between; font-size: 0.8rem;
         }
-
         .address-col h4 { font-weight: 900; margin-bottom: 10px; font-size: 1rem; }
         .address-col p { line-height: 1.6; opacity: 0.9; }
 
-        /* Responsividade Básica */
-        @media (max-width: 768px) {
-            .hero-grid, .match-strip, .content-section, .lower-grid, .footer-address { grid-template-columns: 1fr; display: grid; }
-            .nav-links { display: none; } /* Esconder menu no mobile para simplificar */
-            .main-logo { left: 50%; transform: translateX(-50%); }
-            .top-left { margin-left: 0; }
+        @media (max-width: 1024px) {
+            .top-red-bar, .bottom-black-bar { padding-left: 20px; padding-right: 20px; }
+            .main-logo-container { display: none; }
+            .call-to-action { font-size: 0.8rem; }
+            .hero-grid, .match-strip, .content-section, .footer-address, .video-list { grid-template-columns: 1fr; }
+            .nav-menu { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg" alt="CRF Logo" class="main-logo">
-
     <header>
-        <div class="top-bar">
-            <div class="top-left">
-                <a href="#">SEJA SÓCIO-TORCEDOR</a>
-                <a href="#">ACESSE O FLA-PRÊMIOS</a>
-            </div>
-            <div class="top-right">
-                <span>BETANO</span>
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fas fa-search"></i>
-                <i class="fas fa-user"></i>
+        <div class="main-logo-container">
+            <a href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg" alt="CRF">
+            </a>
+        </div>
+
+        <div class="lang-flag">
+            <i class="fas fa-flag" style="color: green;"></i> <i class="fas fa-chevron-down" style="color: black; font-size: 0.6rem;"></i>
+        </div>
+
+        <div class="top-red-bar">
+            <div class="red-bar-content">
+                <div class="call-to-action">
+                    <a href="#">Seja Sócio-Torcedor</a>
+                    <a href="#">Acesse o Fla-Prêmios</a>
+                </div>
+
+                <div class="top-right-area">
+                    <span class="sponsor-placeholder">Betano</span>
+                    
+                    <svg class="https://www.flamengo.com.br/img/logos/adidas.png" viewBox="0 0 50 32" fill="currentColor">
+                        <path d="M12.5 32L0 32L8.5 21L21 21L12.5 32Z"/>
+                        <path d="M26.5 32L14 32L22.5 10.5L35 10.5L26.5 32Z"/>
+                        <path d="M40.5 32L28 32L36.5 0L49 0L40.5 32Z"/>
+                    </svg>
+
+                    <div class="social-icons">
+                        <i class="fas fa-user-friends"></i> 
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fa-brands fa-x-twitter"></i> 
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-tiktok"></i>
+                        <i class="fas fa-search" style="margin-left: 10px;"></i>
+                    </div>
+                </div>
             </div>
         </div>
-        <nav class="nav-bar">
-            <ul class="nav-links">
-                <li>Futebol <i class="fas fa-chevron-down"></i></li>
-                <li>Ingressos</li>
-                <li>Sócio-Torcedor</li>
-                <li>Basquete <i class="fas fa-chevron-down"></i></li>
-                <li>Olímpicos <i class="fas fa-chevron-down"></i></li>
-                <li>Fla Prêmios</li>
-                <li>Loja <i class="fas fa-chevron-down"></i></li>
-                <li>Clube <i class="fas fa-chevron-down"></i></li>
+
+        <div class="bottom-black-bar">
+            <ul class="nav-menu">
+                <li><a href="#">Futebol <i class="fas fa-caret-down"></i></a></li>
+                <li><a href="#">Ingressos</a></li>
+                <li><a href="#">Sócio-Torcedor</a></li>
+                <li><a href="#">Basquete <i class="fas fa-caret-down"></i></a></li>
+                <li><a href="#">Olímpicos <i class="fas fa-caret-down"></i></a></li>
+                <li><a href="#">Fla Prêmios</a></li>
+                <li><a href="#">Loja <i class="fas fa-caret-down"></i></a></li>
+                <li><a href="#">Clube <i class="fas fa-caret-down"></i></a></li>
             </ul>
-        </nav>
+        </div>
     </header>
 
     <section class="hero-grid">
         <article class="hero-item">
-            <img src="libertadores.webp" alt="Tetracampeão">
+            <img src="https://placehold.co/900x600/111/333?text=LIBERTADORES" alt="Tetracampeão">
             <div class="overlay">
                 <span class="tag">FUTEBOL</span>
                 <h1 class="hero-title">FLAMENGO VENCE PALMEIRAS E SE TORNA O PRIMEIRO BRASILEIRO TETRACAMPEÃO DA LIBERTADORES</h1>
-                <p class="hero-desc">Com gol de Danilo, Rubro-Negro faz história em Lima mais uma vez e pinta a América de vermelho e preto pela quarta vez na história.</p>
+                <p class="hero-desc">Com gol de Danilo, Rubro-Negro faz história em Lima mais uma vez.</p>
             </div>
         </article>
 
         <article class="hero-item">
-            <img src="filipeluis.webp" alt="Festa">
+            <img src="https://placehold.co/900x600/C3281E/white?text=FESTA+DA+TORCIDA" alt="Festa">
             <div class="overlay">
                 <span class="tag">FUTEBOL</span>
-                <h1 class="hero-title">NOS BRAÇOS DA NAÇÃO! FLAMENGO COMEMORA O TETRA DA LIBERTADORES NAS RUAS DO RIO DE JANEIRO</h1>
-                <p class="hero-desc">Acompanhado por milhares de torcedores, elenco rubro-negro desfila em trio elétrico no Centro da cidade.</p>
+                <h1 class="hero-title">NOS BRAÇOS DA NAÇÃO! FLAMENGO COMEMORA O TETRA NAS RUAS DO RIO DE JANEIRO</h1>
             </div>
         </article>
     </section>
@@ -351,32 +320,32 @@
             <div class="match-info">PINHEIROS X FLAMENGO</div>
             <div class="sub-info">GINÁSIO HENRIQUE VILLABOIM - 03/12 - 20:00</div>
             <div style="margin-top:10px; display:flex; gap:10px; align-items:center;">
-                <img src="Esporte_Clube_Pinheiros.svg.png" style="width:40px; height:40px; border-radius:50%;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Esporte_Clube_Pinheiros.png" style="width:40px; height:auto;">
                 <span style="font-weight:bold;">X</span>
-                <img src="Flamengo-RJ_(BRA).png" style="width:30px; height:30px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg" style="width:35px; height:auto;">
             </div>
         </div>
         <div class="strip-col">
             <h3>CLASSIFICAÇÃO</h3>
-            <span style="color:var(--red-fla); font-size:0.7rem; font-weight:bold;">CAMPEONATO BRASILEIRO 2025</span>
+            <span style="color:var(--fla-red); font-size:0.7rem; font-weight:bold;">CAMPEONATO BRASILEIRO 2025</span>
             <table class="mini-table">
                 <tr>
                     <td class="pos">1</td>
-                    <td class="team"><img src="Flamengo-RJ_(BRA).png" style="width:15px; display:inline; vertical-align:middle;"> FLA</td>
+                    <td class="team"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg" style="width:15px;"> FLA</td>
                     <td>75 P</td>
                     <td>38 J</td>
                     <td>22 V</td>
                 </tr>
                 <tr>
                     <td class="pos">2</td>
-                    <td class="team"><img src="Palmeiras_logo.svg.webp" style="width:15px; display:inline; vertical-align:middle;"> PAL</td>
+                    <td class="team"><img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Palmeiras_logo.svg" style="width:15px;"> PAL</td>
                     <td>70 P</td>
                     <td>38 J</td>
                     <td>21 V</td>
                 </tr>
                 <tr>
                     <td class="pos">3</td>
-                    <td class="team"><img src="Logo_oficial_do_Cruzeiro.png" style="width:15px; display:inline; vertical-align:middle;"> CRU</td>
+                    <td class="team"><img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Cruzeiro_Esporte_Clube_%28logo%29.svg" style="width:15px;"> CRU</td>
                     <td>69 P</td>
                     <td>38 J</td>
                     <td>19 V</td>
@@ -395,8 +364,7 @@
                 <img src="https://placehold.co/600x400/333/fff?text=Remo+Campeao" alt="Remo">
                 <div class="overlay">
                     <span class="tag">REMO E CANOAGEM</span>
-                    <h3 class="hero-title" style="font-size:1.3rem;">É CAMPEÃO! FLAMENGO VENCE SEXTA REGATA E CONQUISTA O ESTADUAL DE REMO DE FORMA INVICTA</h3>
-                    <p class="hero-desc" style="font-size:0.8rem;">Conquista marca o 56º título carioca do Esporte Fundador Rubro-Negro.</p>
+                    <h3 class="hero-title" style="font-size:1.3rem;">É CAMPEÃO! FLAMENGO VENCE SEXTA REGATA</h3>
                 </div>
             </div>
         </div>
@@ -410,60 +378,61 @@
                 <img src="https://placehold.co/600x400/C3281E/000?text=Bandeira+CRF" alt="Futebol">
                 <div class="overlay">
                     <span class="tag">FUTEBOL</span>
-                    <h3 class="hero-title" style="font-size:1.3rem;">AGENDA DO FUTEBOL PROFISSIONAL (01/12 A 03/12)</h3>
+                    <h3 class="hero-title" style="font-size:1.3rem;">AGENDA DO FUTEBOL PROFISSIONAL</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="lower-grid">
-        <div>
+    <section class="content-section" style="padding-top: 0;">
+        <div class="news-column">
             <div class="section-header">
                 <h2>BASQUETE</h2>
                 <a href="#">VEJA TODAS</a>
             </div>
-            <div class="hero-item" style="height: 250px;">
-                <img src="https://placehold.co/400x300/111/fff?text=Basquete" alt="NBB">
+            <div class="news-card-large hero-item">
+                <img src="https://placehold.co/600x400/111/fff?text=Basquete" alt="NBB">
                 <div class="overlay">
                     <span class="tag">BASQUETE</span>
-                    <h4 style="color:white; font-weight:bold;">FLAMENGO VENCE RIO CLARO NA ABERTURA DA RODADA DUPLA E SEGUE LÍDER DO NBB</h4>
+                    <h3 class="hero-title" style="font-size:1.3rem;">FLAMENGO VENCE RIO CLARO</h3>
+                    <p class="hero-desc">Mengão faz a alegria da torcida e confirma favoritismo.</p>
                 </div>
             </div>
         </div>
 
-        <div>
+        <div class="news-column">
             <div class="section-header">
                 <h2>FUTEBOL FEMININO</h2>
                 <a href="#">VEJA TODAS</a>
             </div>
-            <div class="hero-item" style="height: 250px;">
-                <img src="https://placehold.co/400x300/C3281E/fff?text=Futebol+Feminino" alt="FutFem">
+            <div class="news-card-large hero-item">
+                <img src="https://placehold.co/600x400/C3281E/fff?text=Futebol+Feminino" alt="FutFem">
                 <div class="overlay">
                     <span class="tag">FUTEBOL FEMININO</span>
-                    <h4 style="color:white; font-weight:bold;">FLAMENGO VAI DISPUTAR A WORLD SEVENS FOOTBALL NOS ESTADOS UNIDOS</h4>
+                    <h3 class="hero-title" style="font-size:1.3rem;">FLAMENGO NA WORLD SEVENS FOOTBALL</h3>
                 </div>
             </div>
         </div>
-
-        <div>
-            <div class="section-header">
-                <h2>FLAMENGO TV</h2>
-                <a href="#">VEJA TODOS</a>
-            </div>
-            <div class="video-list">
-                <div class="video-item">
-                    <div class="video-thumb"><img src="https://placehold.co/120x70/000/fff?text=Play"></div>
-                    <div class="video-info">
-                        <h4>BASTIDORES - SPORT 1X5 FLA</h4>
-                        <p>Mengão goleia o Sport e reassume a liderança.</p>
-                    </div>
+    </section>
+    
+    <section class="flatv-section">
+        <div class="section-header">
+            <h2>FLAMENGO TV</h2>
+            <a href="#">VEJA TODOS</a>
+        </div>
+        <div class="video-list">
+            <div class="video-item">
+                <div class="video-thumb"><img src="https://placehold.co/150x85/000/fff?text=Play" style="height:100%"></div>
+                <div class="video-info">
+                    <h4>BASTIDORES - SPORT 1X5 FLA</h4>
+                    <p>Mengão goleia o Sport e reassume a liderança.</p>
                 </div>
-                <div class="video-item">
-                    <div class="video-thumb"><img src="https://placehold.co/120x70/000/fff?text=Play"></div>
-                    <div class="video-info">
-                        <h4>BASTIDORES - FLA 3X2 SANTOS</h4>
-                        <p>Com emoção no fim, Mengão vence o Santos.</p>
-                    </div>
+            </div>
+            <div class="video-item">
+                <div class="video-thumb"><img src="https://placehold.co/150x85/000/fff?text=Play" style="height:100%"></div>
+                <div class="video-info">
+                    <h4>BASTIDORES - FLA 3X2 SANTOS</h4>
+                    <p>Com emoção no fim, Mengão vence o Santos.</p>
                 </div>
             </div>
         </div>
@@ -497,6 +466,7 @@
             <h4 style="color:#888;">Brahma</h4>
         </div>
     </div>
+
 
 </body>
 </html>
