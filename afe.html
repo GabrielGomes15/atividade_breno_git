@@ -1,165 +1,223 @@
-<!-- Segundo código refeito para ficar IGUAL ao primeiro -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flamengo Oficial</title>
+    <title>Flamengo Header</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* --- RESET E VARIÁVEIS --- */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'DIN Next', 'Roboto', Arial, sans-serif; }
 
         :root {
-            --fla-red: #C3281E;
+            --fla-red: #C3281E; /* Vermelho mais fechado do print */
             --fla-black: #161616;
-            --text-gray: #666;
-            --bg-gray: #f4f4f4;
-            --icon-dark: #111;
+            --icon-color: #222222; /* Cor escura dos ícones no vermelho */
         }
 
-        body { background-color: var(--bg-gray); overflow-x: hidden; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
-        img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        body { background-color: #f4f4f4; }
 
-        /* --- HEADER --- */
-        header { width: 100%; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 1000; }
+        /* Container Principal do Header */
+        header {
+            width: 100%;
+            position: relative; /* Necessário para o logo flutuar */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
 
-        .main-logo { position: absolute; top: 0; left: 80px; z-index: 101; width: 85px; filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3)); }
-        .lang-flag { position: absolute; top: 5px; right: 40px; font-size: 0.7rem; color: #FFD700; display: flex; gap: 5px; align-items: center; cursor: pointer; }
-
+        /* --- BARRA VERMELHA (SUPERIOR) --- */
         .top-red-bar {
             background-color: var(--fla-red);
-            height: 60px;
+            height: 75px; /* Altura exata para caber os elementos */
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            gap: 60px;
-            padding-left: 220px;
+            padding-left: 240px; /* Espaço reservado para o Logo à esquerda */
             padding-right: 40px;
             position: relative;
         }
 
-        .header-links { display: flex; gap: 20px; }
-        .header-links a { color: white; font-weight: 900; font-size: 0.9rem; text-transform: uppercase; }
-        .header-links a:hover { opacity: 0.8; }
+        .red-bar-content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        .header-icons { display: flex; align-items: center; gap: 25px; color: var(--icon-dark); font-weight: bold; }
+        /* Textos da Esquerda (Sócio / Prêmios) */
+        .call-to-action {
+            display: flex;
+            gap: 20px;
+        }
 
-        .betano-logo, .adidas-logo { color: var(--icon-dark); cursor: pointer; transition: color 0.3s ease; }
-        .betano-logo:hover, .adidas-logo:hover { color: white; }
-        .adidas-logo { font-size: 1.8rem; }
+        .call-to-action a {
+            color: white;
+            font-weight: 900; /* Fonte bem grossa */
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
 
-        .separator { border-left: 1px solid rgba(0,0,0,0.3); height: 20px; }
+        .call-to-action a:last-child {
+            opacity: 0.9; /* Leve diferença visual */
+        }
 
-        .social-icons { display: flex; gap: 15px; align-items: center; }
-        .social-icons i { cursor: pointer; color: var(--icon-dark); transition: color 0.3s ease; }
+        /* Área da Direita (Logos e Ícones) */
+        .top-right-area {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* Logos de Patrocínio (Betano / Adidas) simulados com texto/ícone */
+        .sponsor-placeholder {
+            font-style: italic;
+            font-weight: 900;
+            color: var(--icon-color);
+            font-size: 1.2rem;
+            letter-spacing: -1px;
+        }
+        
+        .adidas-icon {
+            height: 25px; 
+            width: auto;
+            color: var(--icon-color);
+        }
+
+        /* Ícones Sociais e Ferramentas */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            color: var(--icon-color);
+            font-size: 1rem;
+            align-items: center;
+            border-left: 1px solid rgba(0,0,0,0.1);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+        
+        .social-icons i { cursor: pointer; transition: 0.2s; }
         .social-icons i:hover { color: white; }
 
-        .bottom-black-bar { background-color: var(--fla-black); height: 45px; display: flex; align-items: center; padding-left: 220px; }
-        .nav-menu { display: flex; gap: 20px; }
-        .nav-menu a { color: #ccc; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; display: flex; align-items: center; gap: 5px; }
-        .nav-menu a:hover { color: white; }
-
-        /* --- CONTEÚDO DO SITE --- */
-
-        .container { max-width: 1400px; margin: 0 auto; padding: 40px 5%; }
-
-        .section-header {
-            display: flex; justify-content: space-between; align-items: flex-end;
-            border-bottom: 1px solid #ccc; padding-bottom: 8px; margin-bottom: 20px;
+        /* Bandeira do Brasil (Posicionada absoluta no topo direito) */
+        .lang-flag {
+            position: absolute;
+            top: 5px;
+            right: 40px;
+            font-size: 0.7rem;
+            color: #FFD700; /* Amarelo */
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
         }
-        .section-header h2 { font-size: 1.4rem; text-transform: uppercase; color: #333; font-weight: 800; line-height: 1; }
-        .section-header a { font-size: 0.7rem; color: var(--fla-red); font-weight: bold; text-transform: uppercase; }
 
-        .card { position: relative; height: 350px; background: #000; overflow: hidden; }
-        .card:hover img { transform: scale(1.05); transition: transform 0.5s; }
-        .card img { transition: transform 0.5s; opacity: 0.8; }
-
-        .overlay {
-            position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); pointer-events: none;
+        /* --- BARRA PRETA (NAVEGAÇÃO) --- */
+        .bottom-black-bar {
+            background-color: var(--fla-black);
+            height: 45px;
+            display: flex;
+            align-items: center;
+            padding-left: 240px; /* Mesmo alinhamento do logo */
         }
-        .tag { background: var(--fla-red); color: white; padding: 4px 8px; font-size: 0.65rem; font-weight: bold; text-transform: uppercase; display: inline-block; margin-bottom: 10px; }
-        .card-title { color: white; font-size: 1.2rem; font-weight: 900; text-transform: uppercase; line-height: 1.2; }
-        .card-desc { color: #ddd; font-size: 0.8rem; margin-top: 5px; line-height: 1.4; display: none; }
 
-        .grid-half { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
-
-        .flatv-container { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
-        .main-video { height: 450px; position: relative; }
-        .main-video .card-title { font-size: 1.8rem; }
-
-        .video-list { display: flex; flex-direction: column; gap: 15px; }
-        .video-item { display: flex; gap: 15px; background: white; padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; }
-        .video-thumb { width: 140px; height: 80px; position: relative; }
-        .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
-        .video-info h4 { font-size: 0.9rem; font-weight: 800; text-transform: uppercase; color: #333; margin-bottom: 5px; }
-        .video-info p { font-size: 0.8rem; color: #666; line-height: 1.3; }
-
-        /* --- RODAPÉ --- */
-        .footer-white-bar { background-color: white; padding: 40px 0; text-align: center; border-top: 1px solid #eee; }
-        .footer-logos { display: flex; justify-content: center; gap: 40px; align-items: center; margin-bottom: 20px; }
-        .nacao-logo { height: 60px; width: auto; }
-
-        .footer-red-bar {
-            background-color: var(--fla-red); color: white; padding: 40px 10%;
-            display: flex; justify-content: space-between; font-size: 0.85rem;
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
         }
-        .address-box h4 { font-weight: 900; font-size: 1rem; margin-bottom: 8px; }
-        .address-box p { line-height: 1.6; opacity: 0.9; }
 
-        @media (max-width: 768px) {
-            .top-red-bar { padding: 0 20px; gap: 20px; justify-content: space-between; }
-            .bottom-black-bar { padding-left: 20px; }
-            .main-logo { left: 20px; width: 60px; }
-            .header-links, .nav-menu, .lang-flag { display: none; }
-            .grid-half, .flatv-container, .footer-red-bar { grid-template-columns: 1fr; display: grid; gap: 20px; }
-            .footer-red-bar { text-align: center; }
-            .address-box[style*="right"] { text-align: center !important; }
+        .nav-menu li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu li a:hover { color: white; }
+        
+        /* Setinha para baixo (Dropdown) */
+        .fa-caret-down { font-size: 0.6rem; margin-top: 1px; }
+
+        /* --- O LOGO FLUTUANTE --- */
+        .main-logo-container {
+            position: absolute;
+            top: 10px; /* Começa um pouco abaixo do topo */
+            left: 100px; /* Distância da borda esquerda da tela */
+            z-index: 100; /* Fica acima das barras */
+        }
+
+        .main-logo-container img {
+            width: 90px; /* Tamanho do escudo */
+            height: auto;
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5));
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 1024px) {
+            .top-red-bar, .bottom-black-bar { padding-left: 140px; }
+            .main-logo-container { left: 30px; }
+            .call-to-action a { font-size: 0.8rem; }
+            .sponsor-placeholder { display: none; } /* Esconde patrocinadores se faltar espaço */
         }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg" class="main-logo" alt="CRF">
-    <div class="lang-flag"><i class="fas fa-flag"></i> <i class="fas fa-chevron-down" style="font-size: 0.6rem; color: #111;"></i></div>
-
-    <div class="top-red-bar">
-        <div class="header-links">
-            <a href="#">Seja Sócio-Torcedor</a>
-            <a href="#">Acesse o Fla-Prêmios</a>
+    <header>
+        <div class="main-logo-container">
+            <a href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg" alt="CRF">
+            </a>
         </div>
-        <div class="header-icons">
-            <span class="betano-logo">Betano</span>
-            <i class="fab fa-adidas adidas-logo"></i>
-            <div class="separator"></div>
-            <div class="social-icons">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-x-twitter"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-youtube"></i>
-                <i class="fab fa-tiktok"></i>
-                <i class="fas fa-search" style="margin-left: 10px;"></i>
+
+        <div class="lang-flag">
+            <i class="fas fa-flag" style="color: green;"></i> <i class="fas fa-chevron-down" style="color: black; font-size: 0.6rem;"></i>
+        </div>
+
+        <div class="top-red-bar">
+            <div class="red-bar-content">
+                <div class="call-to-action">
+                    <a href="#">Seja Sócio-Torcedor</a>
+                    <a href="#">Acesse o Fla-Prêmios</a>
+                </div>
+
+                <div class="top-right-area">
+                    <span class="sponsor-placeholder">Betano</span>
+                    
+                    <svg class="adidas-icon" viewBox="0 0 50 32" fill="currentColor">
+                        <path d="M12.5 32L0 32L8.5 21L21 21L12.5 32Z"/>
+                        <path d="M26.5 32L14 32L22.5 10.5L35 10.5L26.5 32Z"/>
+                        <path d="M40.5 32L28 32L36.5 0L49 0L40.5 32Z"/>
+                    </svg>
+
+                    <div class="social-icons">
+                        <i class="fas fa-user-friends" title="Sócio"></i> <i class="fab fa-facebook-f"></i>
+                        <i class="fa-brands fa-x-twitter"></i> <i class="fab fa-instagram"></i>
+                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-tiktok"></i>
+                        <i class="fas fa-search" style="margin-left: 10px;"></i>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="bottom-black-bar">
-        <nav class="nav-menu">
-            <a href="#">Futebol <i class="fas fa-caret-down"></i></a>
-            <a href="#">Ingressos</a>
-            <a href="#">Sócio-Torcedor</a>
-            <a href="#">Basquete <i class="fas fa-caret-down"></i></a>
-            <a href="#">Olímpicos <i class="fas fa-caret-down"></i></a>
-            <a href="#">Fla Prêmios</a>
-            <a href="#">Loja <i class="fas fa-caret-down"></i></a>
-            <a href="#">Clube <i class="fas fa-caret-down"></i></a>
-        </nav>
-    </div>
-</header>
+        <div class="bottom-black-bar">
+            <ul class="nav-menu">
+                <li><a href="#">Futebol <i class="fas fa-caret-down"></i></a></li>
+                <li><a href="#">Ingressos</a></li>
+                <li><a href="#">Sócio-Torcedor</a></li>
+                <li><a href="#">Basquete <i class="fas fa-caret-down"></i></a></li>
+                <li><a href="#">Olímpicos <i class="fas fa-caret-down"></i></a></li>
+                <li><a href="#">Fla Prêmios</a></li>
+                <li><a href="#">Loja <i class="fas fa-caret-down"></i></a></li>
+                <li><a href="#">Clube <i class="fas fa-caret-down"></i></a></li>
+            </ul>
+        </div>
+    </header>
 
 </body>
 </html>
