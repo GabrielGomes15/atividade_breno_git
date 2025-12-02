@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
+        /* --- RESET GERAL --- */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'DIN Next', 'Roboto', Arial, sans-serif; }
 
         :root {
@@ -23,7 +24,7 @@
         ul { list-style: none; }
         img { display: block; width: 100%; object-fit: cover; }
 
-
+        /* HEADER */
         header { width: 100%; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; }
 
         .main-logo-container { position: absolute; top: 0px; left: 100px; z-index: 101; }
@@ -54,6 +55,7 @@
         .nav-menu li a { color: #e0e0e0; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; display: flex; align-items: center; gap: 5px; letter-spacing: 0.5px; }
         .nav-menu li a:hover { color: white; }
 
+        /* BODY CONTENT */
         .hero-grid { display: grid; grid-template-columns: 1fr 1fr; height: 450px; width: 100%; }
         .hero-item { position: relative; height: 100%; width: 100%; overflow: hidden; cursor: pointer; }
         .hero-item img { height: 100%; width: 100%; transition: transform 0.5s; object-fit: cover; }
@@ -80,85 +82,72 @@
         .news-card-large { position: relative; height: 350px; width: 100%; }
         .news-card-large .overlay { height: 60%; }
 
-
+        /* FLAMENGO TV (ESTILO DA FOTO) */
         .flatv-section { padding: 0 5% 40px 5%; }
+        .flatv-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 30px; }
         
-        .flatv-grid {
-            display: grid;
-            grid-template-columns: 1.6fr 1fr;
-            gap: 30px;
-        }
-
-        .featured-video {
-            position: relative;
-            cursor: pointer;
-        }
-        .featured-video img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .play-overlay-box {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background-color: rgba(0,0,0,0.85);
-            color: white;
-            padding: 8px 25px;
-            font-size: 1.5rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .featured-video { position: relative; cursor: pointer; }
+        .featured-video img { width: 100%; height: auto; display: block; }
+        .play-overlay-box { position: absolute; bottom: 20px; left: 20px; background-color: rgba(0,0,0,0.85); color: white; padding: 8px 25px; font-size: 1.5rem; font-weight: 500; display: flex; align-items: center; justify-content: center; }
         .featured-info { margin-top: 10px; }
         .featured-title { font-size: 1.1rem; font-weight: 900; text-transform: uppercase; color: #333; margin-bottom: 5px; }
         .featured-desc { font-size: 0.85rem; color: #666; line-height: 1.4; }
 
-
-        .side-video-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .side-video-item {
-            display: flex;
-            gap: 15px;
-            cursor: pointer;
-        }
-        .side-video-thumb {
-            width: 160px;
-            height: 90px;
-            flex-shrink: 0;
-            position: relative;
-        }
+        .side-video-list { display: flex; flex-direction: column; gap: 20px; }
+        .side-video-item { display: flex; gap: 15px; cursor: pointer; }
+        .side-video-thumb { width: 160px; height: 90px; flex-shrink: 0; position: relative; }
         .side-video-thumb img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .side-video-title { 
-            font-size: 1rem; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            color: var(--fla-red); 
-            line-height: 1.1;
-            margin-bottom: 5px;
-        }
+        .side-video-title { font-size: 1rem; font-weight: 900; text-transform: uppercase; color: var(--fla-red); line-height: 1.1; margin-bottom: 5px; }
         .side-video-desc { font-size: 0.8rem; color: #666; line-height: 1.3; }
 
-        .sponsors-section { background-color: #1a1a1a; padding: 40px 5%; text-align: center; }
-        .sponsor-title { color: var(--fla-red); font-size: 0.8rem; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
-        .sponsor-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; align-items: center; margin-bottom: 40px; }
-        .sponsor-grid h2, .sponsor-grid h4 { opacity: 0.6; } 
-
+        /* FOOTER RED (ADDRESS) */
         .footer-address { background-color: var(--fla-red); color: white; padding: 30px 5%; display: flex; justify-content: space-between; font-size: 0.8rem; }
         .address-col h4 { font-weight: 900; margin-bottom: 10px; font-size: 1rem; }
         .address-col p { line-height: 1.6; opacity: 0.9; }
 
+        /* --- FOOTER SPONSORS (PATROCINADORES DO OUTRO CÓDIGO) --- */
+        .footer-sponsors {
+            background-color: black;
+            padding: 50px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .sponsor-section-title {
+            color: var(--fla-red);
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 30px 0 20px 0;
+            font-size: 16px;
+        }
+
+        .sponsor-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .sponsor-grid img {
+            max-height: 45px; /* Altura padrão das logos */
+            width: auto;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+        
+        .sponsor-grid img:hover { opacity: 1; }
+
+        /* RESPONSIVO */
         @media (max-width: 1024px) {
             .top-red-bar, .bottom-black-bar { padding-left: 20px; padding-right: 20px; }
             .main-logo-container { display: none; }
             .call-to-action { font-size: 0.8rem; }
             .hero-grid, .match-strip, .content-section, .footer-address, .flatv-grid { grid-template-columns: 1fr; }
             .nav-menu { display: none; }
+            .side-video-thumb { width: 120px; height: 70px; }
         }
     </style>
 </head>
@@ -214,15 +203,15 @@
 
     <section class="hero-grid">
         <article class="hero-item">
-            <img src="libertadores.webp" alt="Tetracampeão">
+            <img src="https://images.flamengo.com.br/public/images/artigos/bodies/1764633059.jpg" alt="Tetracampeão">
             <div class="overlay">
                 <span class="tag">FUTEBOL</span>
-                <h1 class="hero-title">FLAMENGO VENCE PALMEIRAS E SE TORNA O PRIMEIRO BRASILEIRO TETRACAMPEÃO DA LIBERTADORES</h1>
+                <h1 class="hero-title">APÓS O TETRA DA AMÉRICA, FLAMENGO SE REAPRESENTA COM FOCO NA RETA FINAL</h1>
                 <p class="hero-desc">Com gol de Danilo, Rubro-Negro faz história em Lima mais uma vez.</p>
             </div>
         </article>
         <article class="hero-item">
-            <img src="filipeluis.webp" alt="Festa">
+            <img src="https://images.flamengo.com.br/public/images/artigos/bodies/1764540925.jpeg" alt="Festa">
             <div class="overlay">
                 <span class="tag">FUTEBOL</span>
                 <h1 class="hero-title">NOS BRAÇOS DA NAÇÃO! FLAMENGO COMEMORA O TETRA NAS RUAS DO RIO DE JANEIRO</h1>
@@ -237,7 +226,7 @@
             <div class="match-info">PINHEIROS X FLAMENGO</div>
             <div class="sub-info">GINÁSIO HENRIQUE VILLABOIM - 03/12 - 20:00</div>
             <div style="margin-top:10px; display:flex; gap:10px; align-items:center;">
-                <img src="Logo_oficial_do_Cruzeiro.png" style="width:40px; height:auto;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Esporte_Clube_Pinheiros.svg" style="width:40px; height:auto;">
                 <span style="font-weight:bold;">X</span>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg" style="width:35px; height:auto;">
             </div>
@@ -248,45 +237,24 @@
             <table class="mini-table">
                 <tr>
                     <td class="pos">1</td>
-                    <td class="team"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg" style="width:15px;"> FLA</td>
+                    <td class="team"><img src="https://images.flamengo.com.br/public/images/escudos/1524865930.png" style="width:20px;"> FLA</td>
                     <td>75 P</td>
                     <td>38 J</td>
                     <td>22 V</td>
                 </tr>
                 <tr>
                     <td class="pos">2</td>
-                    <td class="team"><img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Palmeiras_logo.svg" style="width:15px;"> PAL</td>
+                    <td class="team"><img src="https://images.flamengo.com.br/public/images/escudos/1522775388.png" style="width:20px;"> PAL</td>
                     <td>70 P</td>
                     <td>38 J</td>
                     <td>21 V</td>
                 </tr>
                 <tr>
                     <td class="pos">3</td>
-                    <td class="team"><img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Cruzeiro_Esporte_Clube_%28logo%29.svg" style="width:15px;"> CRU</td>
+                    <td class="team"><img src="https://images.flamengo.com.br/public/images/escudos/1522775401.png" style="width:20px;"> CRU</td>
                     <td>69 P</td>
                     <td>38 J</td>
                     <td>19 V</td>
-                </tr>
-                <tr>
-                    <td class="pos">4</td>
-                    <td class="team"><img src="Mirassol_FC_logo.png" style="width:15px;"> MIR</td>
-                    <td>63 P</td>
-                    <td>36 J</td>
-                    <td>17 V</td>
-                </tr>
-                <tr>
-                    <td class="pos">5</td>
-                    <td class="team"><img src="Escudo_Botafogo.png" style="width:15px;"> BOT</td>
-                    <td>59 P</td>
-                    <td>36 J</td>
-                    <td>17 V</td>
-                </tr>
-                <tr>
-                    <td class="pos">6</td>
-                    <td class="team"><img src="Fluminense_FC_escudo.png" style="width:15px;"> FLU</td>
-                    <td>58 P</td>
-                    <td>36 J</td>
-                    <td>17 V</td>
                 </tr>
             </table>
         </div>
@@ -299,11 +267,10 @@
                 <a href="#">VEJA TODAS AS NOTÍCIAS</a>
             </div>
             <div class="news-card-large hero-item">
-                <img src="campeões.webp" alt="Remo">
+                <img src="https://placehold.co/600x400/333/fff?text=Remo+Campeao" alt="Remo">
                 <div class="overlay">
                     <span class="tag">REMO E CANOAGEM</span>
                     <h3 class="hero-title" style="font-size:1.3rem;">É CAMPEÃO! FLAMENGO VENCE SEXTA REGATA</h3>
-                    <p class="hero-desc">Conquista marca o 56° título carioca do Esporte Fundador Rubro-Negro; o décimo sem perder nenhuma regata</p>
                 </div>
             </div>
         </div>
@@ -316,8 +283,7 @@
                 <img src="https://placehold.co/600x400/C3281E/000?text=Bandeira+CRF" alt="Futebol">
                 <div class="overlay">
                     <span class="tag">FUTEBOL</span>
-                    <h3 class="hero-title" style="font-size:1.3rem;">PELO FLAMENGO. VARELA REGISTRA AS DUAS MAIORES VELOCIDADES DA FINAL</h3>
-                    <p class="hero-desc">Lateral atingiu a maior velocidade da decisão aos 92' e esteve entre os atletas mais participativos em pressão, recuperação e construção ofensiva</p>
+                    <h3 class="hero-title" style="font-size:1.3rem;">AGENDA DO FUTEBOL PROFISSIONAL</h3>
                 </div>
             </div>
         </div>
@@ -414,23 +380,110 @@
         </div>
     </div>
 
-    <div class="sponsors-section">
-        <h3 class="sponsor-title">PATROCINADORES</h3>
-        <div class="sponsor-grid">
-            <h2 style="color:#aaa;">Betano</h2>
-            <h2 style="color:#aaa;">Adidas</h2>
-            <h2 style="color:#aaa;">BRB</h2>
-            <h2 style="color:#aaa;">Mercado Livre</h2>
-            <h2 style="color:#aaa;">Pixbet</h2>
+    <footer class="footer-sponsors">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+            
+            <p class="sponsor-section-title">PATROCINADORES</p>
+            <div class="sponsor-grid">
+                <a href="https://kg-br.com/C.ashx?btag=a_60988b_10007c_&affid=40845&siteid=60988&adid=10007&c=">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/175578758679.png" alt="Betano">
+                </a>
+                <a href="https://www.adidas.com.br/flamengo">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/171415452996.png" alt="Adidas">
+                </a>
+                <a href="https://nacaobrbfla.brb.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/17141546968.png" alt="BRB">
+                </a>
+                <a href="https://www.assistcard.com/br">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/171415499953.png" alt="Assist Card">
+                </a>
+                <a href="https://hapvida.solutionsbeneficios.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/175398283556.png" alt="Hapvida">
+                </a>
+                <a href="https://www.brahma.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/171415518459.png" alt="Brahma">
+                </a>
+                <a href="https://ze.onelink.me/qZhP/mkwf7qmr">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/173386226090.png" alt="Ze Delivery">
+                </a>
+                <a href="https://indrive.com/pt-br">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/172545956936.png" alt="InDrive">
+                </a>
+                <a href="https://shopee.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/173695170490.png" alt="Shopee">
+                </a>
+                <a href="https://www.abcdaconstrucao.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/172737618810.png" alt="ABC">
+                </a>
+                <a href="https://www.fantokens.com/trade/flamengo-fan-token">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/175320601356.png" alt="Socios">
+                </a>
+                <a href="https://www.texaco.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/171415587142.png" alt="Texaco">
+                </a>
+                <a href="https://eletrobras.com/pt/Paginas/Home.aspx">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/176159609323.png" alt="Eletrobras">
+                </a>
+                <a href="https://www.loja.avanutri.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/174301410822.png" alt="Avanutri">
+                </a>
+                <a href="http://www.rededor.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/171415665768.png" alt="Rede DOr">
+                </a>
+                <a href="http://portal.estacio.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/171415685989.png" alt="Estacio">
+                </a>
+                <a href="https://www.ortobom.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/175500586014.png" alt="Ortobom">
+                </a>
+                <a href="https://www.vale.com/pt/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/171415715547.png" alt="Vale">
+                </a>
+            </div>
+
+            <p class="sponsor-section-title">PARCEIROS</p>
+            <div class="sponsor-grid">
+                <a href="https://www.granado.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/171882195293.png" alt="Granado">
+                </a>
+                <a href="https://recreiochristianschool.com/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/173582599173.png" alt="Recreio">
+                </a>
+                <a href="http://sistemaeliterio.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/171882184676.png" alt="Elite">
+                </a>
+                <a href="https://www.instagram.com/tntenergydrink/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/172202008926.png" alt="TNT">
+                </a>
+                <a href="https://escolaflamengo.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/173748745124.png" alt="Escola Fla">
+                </a>
+                <a href="https://pinheiroguimaraes.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/174438299922.png" alt="Pinheiro">
+                </a>
+                <a href="https://www.medley.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/175641013619.png" alt="Medley">
+                </a>
+                <a href="https://mmalugueldecarros.com.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/176468111033.png" alt="MMA">
+                </a>
+            </div>
+
+            <p class="sponsor-section-title">APOIO</p>
+            <div class="sponsor-grid">
+                <a href="javascript:">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/17625374571.png" alt="Apoio 1">
+                </a>
+                <a href="http://cbclubes.org.br/">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/176418125198.png" alt="CBC">
+                </a>
+                <a href="https://www.gov.br/cidadania/pt-br/noticias-e-conteudos/esporte">
+                    <img src="https://images.flamengo.com.br/public/images/patrocinadores-parceiros-apoio/176418147857.png" alt="Gov">
+                </a>
+            </div>
+
         </div>
-        
-        <h3 class="sponsor-title">PARCEIROS</h3>
-        <div class="sponsor-grid">
-            <h4 style="color:#888;">ABC da Construção</h4>
-            <h4 style="color:#888;">TIM</h4>
-            <h4 style="color:#888;">Brahma</h4>
-        </div>
-    </div>
+    </footer>
 
 </body>
 </html>
