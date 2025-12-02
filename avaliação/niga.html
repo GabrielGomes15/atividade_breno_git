@@ -82,7 +82,7 @@
         .news-card-large { position: relative; height: 350px; width: 100%; }
         .news-card-large .overlay { height: 60%; }
 
-        /* FLAMENGO TV (ESTILO DA FOTO) */
+        /* FLAMENGO TV */
         .flatv-section { padding: 0 5% 40px 5%; }
         .flatv-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 30px; }
         
@@ -100,12 +100,73 @@
         .side-video-title { font-size: 1rem; font-weight: 900; text-transform: uppercase; color: var(--fla-red); line-height: 1.1; margin-bottom: 5px; }
         .side-video-desc { font-size: 0.8rem; color: #666; line-height: 1.3; }
 
+        /* --- FOTOS SECTION --- */
+        .photos-section { padding: 0 5% 40px 5%; }
+        .photos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .photo-card { cursor: pointer; }
+        .photo-card img { width: 100%; height: 220px; object-fit: cover; margin-bottom: 10px; transition: opacity 0.3s; }
+        .photo-card:hover img { opacity: 0.8; }
+        
+        .photo-date { color: var(--fla-red); font-size: 0.75rem; font-weight: 900; margin-bottom: 5px; display: block; }
+        .photo-title { font-size: 1.1rem; font-weight: 900; text-transform: uppercase; color: #333; line-height: 1.1; margin-bottom: 5px; }
+        .photo-credit { font-size: 0.75rem; color: #999; font-style: normal; }
+
+        /* --- MASTER SPONSORS (NOVO) --- */
+        .master-sponsors-section {
+            padding: 20px 5% 60px 5%;
+            background-color: #ffffff; /* Fundo branco para destacar os boxes */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .master-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .master-box {
+            border: 1px solid #dcdcdc; /* Borda cinza suave */
+            width: 280px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background: white;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        .master-box:hover {
+            border-color: var(--fla-red);
+        }
+
+        .master-box img {
+            max-width: 80%;
+            max-height: 60px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .certisign-logo {
+            margin-top: 30px;
+            max-width: 100px;
+            opacity: 0.9;
+        }
+
+
         /* FOOTER RED (ADDRESS) */
         .footer-address { background-color: var(--fla-red); color: white; padding: 30px 5%; display: flex; justify-content: space-between; font-size: 0.8rem; }
         .address-col h4 { font-weight: 900; margin-bottom: 10px; font-size: 1rem; }
         .address-col p { line-height: 1.6; opacity: 0.9; }
 
-        /* --- FOOTER SPONSORS (PATROCINADORES DO OUTRO CÓDIGO) --- */
+        /* --- FOOTER SPONSORS --- */
         .footer-sponsors {
             background-color: black;
             padding: 50px 0;
@@ -132,7 +193,7 @@
         }
 
         .sponsor-grid img {
-            max-height: 45px; /* Altura padrão das logos */
+            max-height: 45px; 
             width: auto;
             opacity: 0.9;
             transition: opacity 0.3s;
@@ -145,9 +206,12 @@
             .top-red-bar, .bottom-black-bar { padding-left: 20px; padding-right: 20px; }
             .main-logo-container { display: none; }
             .call-to-action { font-size: 0.8rem; }
-            .hero-grid, .match-strip, .content-section, .footer-address, .flatv-grid { grid-template-columns: 1fr; }
+            .hero-grid, .match-strip, .content-section, .footer-address, .flatv-grid, .photos-grid { grid-template-columns: 1fr; }
             .nav-menu { display: none; }
             .side-video-thumb { width: 120px; height: 70px; }
+            .photo-card { margin-bottom: 20px; }
+            .photo-card img { height: auto; aspect-ratio: 16/9; }
+            .master-box { width: 100%; max-width: 300px; }
         }
     </style>
 </head>
@@ -256,6 +320,27 @@
                     <td>38 J</td>
                     <td>19 V</td>
                 </tr>
+                <tr>
+                    <td class="pos">4</td>
+                    <td class="team"><img src="Mirassol_FC_logo.png" style="width:20px;"> MIR</td>
+                    <td>63 P</td>
+                    <td>36 J</td>
+                    <td>17 V</td>
+                </tr>
+                <tr>
+                    <td class="pos">5</td>
+                    <td class="team"><img src="Escudo_Botafogo.png" style="width:20px;"> BOT</td>
+                    <td>59 P</td>
+                    <td>36 J</td>
+                    <td>16 V</td>
+                </tr>
+                <tr>
+                    <td class="pos">4</td>
+                    <td class="team"><img src="Fluminense_FC_escudo.png" style="width:20px;"> MIR</td>
+                    <td>58 P</td>
+                    <td>36 J</td>
+                    <td>17 V</td>
+                </tr>
             </table>
         </div>
     </section>
@@ -267,10 +352,11 @@
                 <a href="#">VEJA TODAS AS NOTÍCIAS</a>
             </div>
             <div class="news-card-large hero-item">
-                <img src="https://placehold.co/600x400/333/fff?text=Remo+Campeao" alt="Remo">
+                <img src="campeões.webp" alt="Remo">
                 <div class="overlay">
                     <span class="tag">REMO E CANOAGEM</span>
-                    <h3 class="hero-title" style="font-size:1.3rem;">É CAMPEÃO! FLAMENGO VENCE SEXTA REGATA</h3>
+                    <h3 class="hero-title" style="font-size:1.3rem;">É CAMPEÃO! FLAMENGO VENCE SEXTA REGATA E CONQUISTA O ESTADUAL DE REMO DE FORMA INVICTA</h3>
+                    <p class="hero-desc">Conquista marca o 56º título carioca do Esporte Fundador Rubro-Negro; o décimo sem perder nenhuma regata</p>
                 </div>
             </div>
         </div>
@@ -280,10 +366,11 @@
                 <a href="#">VEJA TODAS AS NOTÍCIAS</a>
             </div>
             <div class="news-card-large hero-item">
-                <img src="https://placehold.co/600x400/C3281E/000?text=Bandeira+CRF" alt="Futebol">
+                <img src="rapaz.webp" alt="Futebol">
                 <div class="overlay">
                     <span class="tag">FUTEBOL</span>
-                    <h3 class="hero-title" style="font-size:1.3rem;">AGENDA DO FUTEBOL PROFISSIONAL</h3>
+                    <h3 class="hero-title" style="font-size:1.3rem;">PELO FLAMENGO, VARELA REGISTRA AS DUAS MAIORES VELOCIDADES DA FINAL</h3>
+                    <p class="hero-desc">Lateral atingiu a maior velocidade da decisão aos 92' e esteve entre os atletas mais participativos em pressão, recuperação e construção ofensiva</p>
                 </div>
             </div>
         </div>
@@ -293,27 +380,28 @@
         <div class="news-column">
             <div class="section-header">
                 <h2>BASQUETE</h2>
-                <a href="#">VEJA TODAS</a>
+                <a href="#">VEJA TODAS AS NOTÍCIAS</a>
             </div>
             <div class="news-card-large hero-item">
-                <img src="https://placehold.co/600x400/111/fff?text=Basquete" alt="NBB">
+                <img src="basquete.webp" alt="NBB">
                 <div class="overlay">
                     <span class="tag">BASQUETE</span>
-                    <h3 class="hero-title" style="font-size:1.3rem;">FLAMENGO VENCE RIO CLARO</h3>
-                    <p class="hero-desc">Mengão faz a alegria da torcida e confirma favoritismo.</p>
+                    <h3 class="hero-title" style="font-size:1.3rem;">FLAMENGO VENCE RIO CLARO NA ABERTURA DA RODADA DUPLA E SEGUE LÍDER DO NBB</h3>
+                    <p class="hero-desc">Na prévia da partida entre Flamengo e RB Bragantino no Maracanã, Mengão faz a alegria da torcida e confirma favoritismo contra equipe paulista</p>
                 </div>
             </div>
         </div>
         <div class="news-column">
             <div class="section-header">
                 <h2>FUTEBOL FEMININO</h2>
-                <a href="#">VEJA TODAS</a>
+                <a href="#">VEJA TODAS AS NOTÍCIAS</a>
             </div>
             <div class="news-card-large hero-item">
-                <img src="https://placehold.co/600x400/C3281E/fff?text=Futebol+Feminino" alt="FutFem">
+                <img src="mulheres.webp" alt="FutFem">
                 <div class="overlay">
                     <span class="tag">FUTEBOL FEMININO</span>
-                    <h3 class="hero-title" style="font-size:1.3rem;">FLAMENGO NA WORLD SEVENS FOOTBALL</h3>
+                    <h3 class="hero-title" style="font-size:1.3rem;">FLAMENGO VAI DISPUTAR A WORLD SEVENS FOOTBALL NOS ESTADOS UNIDOS</h3>
+                    <p class="hero-desc">Torneio de Fut7 será na próxima semana e o Rubro-Negro está no grupo A, com Kansas City, Tigres-MEX e Toronto-CAN</p>
                 </div>
             </div>
         </div>
@@ -328,8 +416,7 @@
         <div class="flatv-grid">
             <div class="featured-video-container">
                 <div class="featured-video">
-                    <img src="https://placehold.co/800x450/000/fff?text=BASTIDORES+3x0" alt="Destaque">
-                    <div class="play-overlay-box">Play</div>
+                    <img src="jogadores.webp" alt="Destaque">
                 </div>
                 <div class="featured-info">
                     <h3 class="featured-title">BASTIDORES - FLA 3X0 RB BRAGANTINO</h3>
@@ -340,7 +427,7 @@
             <div class="side-video-list">
                 <div class="side-video-item">
                     <div class="side-video-thumb">
-                        <img src="https://placehold.co/160x90/333/fff?text=Video+1">
+                        <img src="brunohenrique.webp">
                     </div>
                     <div class="side-video-info">
                         <h4 class="side-video-title">BASTIDORES - SPORT 1X5 FLA</h4>
@@ -349,24 +436,72 @@
                 </div>
                 <div class="side-video-item">
                     <div class="side-video-thumb">
-                        <img src="https://placehold.co/160x90/333/fff?text=Video+2">
+                        <img src="pernavoadora.webp">
                     </div>
                     <div class="side-video-info">
                         <h4 class="side-video-title">BASTIDORES - FLA 3X2 SANTOS</h4>
-                        <p class="side-video-desc">Com emoção no fim, Mengão vence o Santos na briga pelo título.</p>
+                        <p class="side-video-desc">Com emoção no fim, Mengão vence o Santos na briga pelo título brasileiro. Veja os lances na FlamengoTV</p>
                     </div>
                 </div>
                 <div class="side-video-item">
                     <div class="side-video-thumb">
-                        <img src="https://placehold.co/160x90/333/fff?text=Video+3">
+                        <img src="brunohenriquebraços.webp">
                     </div>
                     <div class="side-video-info">
                         <h4 class="side-video-title">BASTIDORES - FLA 3X0 SPORT</h4>
-                        <p class="side-video-desc">Com dois gols de Bruno Henrique e golaço de falta de Arrascaeta.</p>
+                        <p class="side-video-desc">Com dois gols de Bruno Henrique e golaço de falta de Arrascaeta, Mengão vence o Sport no Maraca. Veja os lances na FlamengoTV</p>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="photos-section">
+        <div class="section-header">
+            <h2>FOTOS</h2>
+            <a href="#">VEJA TODOS AS FOTOS</a>
+        </div>
+        <div class="photos-grid">
+            <div class="photo-card">
+                <img src="brasileirão.webp" alt="Fluminense x Flamengo">
+                <span class="photo-date">19/11/2025</span>
+                <h3 class="photo-title">FLUMINENSE X FLAMENGO - CAMPEONATO BRASILEIRO - MARACANÃ - 19-11-2025</h3>
+                <p class="photo-credit">Gilvan de Souza/Flamengo</p>
+            </div>
+            <div class="photo-card">
+                <img src="homememulher.webp" alt="Evento Solene">
+                <span class="photo-date">17/11/2025</span>
+                <h3 class="photo-title">EVENTO SOLENE 130 ANOS DO FLAMENGO - 17-11-2025</h3>
+                <p class="photo-credit">Gilvan de Souza/Flamengo</p>
+            </div>
+            <div class="photo-card">
+                <img src="brunohenrique.webp" alt="Sport x Flamengo">
+                <span class="photo-date">16/11/2025</span>
+                <h3 class="photo-title">SPORT X FLAMENGO - CAMPEONATO BRASILEIRO - ARENA PERNAMBUCO - 15-11-2025</h3>
+                <p class="photo-credit">Gilvan de Souza/Flamengo</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="master-sponsors-section">
+        <div class="master-row">
+            <div class="master-box">
+                <img src="betano.png" alt="Betano">
+            </div>
+            <div class="master-box">
+                <img src="adidaslogo.webp" alt="Adidas">
+            </div>
+            <div class="master-box">
+                <img src="brb.webp" alt="BRB">
+            </div>
+        </div>
+        <div class="master-row">
+            <div class="master-box">
+                <img src="nacao.webp" alt="Nação" style="height: 50px;">
+            </div>
+        </div>
+
+        <img class="certisign-logo" src="seloSeguroCertiSign.png" alt="Site Seguro Certisign">
     </section>
 
     <div class="footer-address">
