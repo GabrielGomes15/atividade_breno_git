@@ -1,22 +1,32 @@
 /* =========================================
-   RESET E CONFIGURAÇÕES GERAIS
+   RESET E VARIÁVEIS GERAIS
    ========================================= */
    * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
   
-  body {
-    background-color: #121212; /* Fundo preto padrão */
-    color: #ffffff;
+  :root {
+    --cor-head: #121216;
+    --cor-etapa: #0f1113;
+    --cor-legend: #bfbfbf;
+    --accent: #00d3ff; /* Azul Ciano Original */
+    --react-blue: #61dafb; /* Azul React */
+    --max-width: 1200px;
+  }
+  
+  html, body {
+    font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #000;
+    color: #e6e6e6;
+    -webkit-font-smoothing: antialiased;
     line-height: 1.5;
   }
   
   a {
+    color: var(--react-blue);
     text-decoration: none;
-    color: #61dafb; /* Azul React */
     transition: 0.2s;
   }
   
@@ -24,9 +34,10 @@
     text-decoration: underline;
   }
   
-  /* Container padrão para limitar a largura */
-  .wrapper {
-    max-width: 1200px;
+  /* Container padrão */
+  .wrapper, .Continuidade1 {
+    width: 100%;
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 20px;
   }
@@ -35,12 +46,12 @@
      HEADER (TOPO)
      ========================================= */
   .Naomuda {
-    background-color: #0b66c2; /* Azul da faixa de aviso */
+    background-color: #0b66c2;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 10px 16px;
+    font-size: 15px;
     font-weight: bold;
-    font-size: 14px;
   }
   
   .Naomuda a {
@@ -49,154 +60,158 @@
   }
   
   .black {
-    background-color: rgba(36, 37, 38, 0.9); /* Fundo semi-transparente */
+    background-color: rgba(18, 18, 22, 0.9); /* Transparência suave */
     backdrop-filter: blur(10px);
-    height: 60px;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
+    justify-content: space-between; /* Espaçamento melhorado */
+    padding: 12px 28px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
   
-  .logo img {
-    height: 35px;
-  }
+  .logo { display: flex; align-items: center; }
+  .logo img { height: 34px; width: 34px; }
   
-  .tex p {
-    font-weight: bold;
+  .tex {
+    color: white;
     font-size: 18px;
+    font-weight: 700;
     margin-left: 10px;
+    margin-right: 20px;
   }
   
   .text {
     display: flex;
-    gap: 20px;
-  }
-  
-  .text p {
-    color: #e4e6eb;
-    cursor: pointer;
+    gap: 22px;
     font-size: 15px;
+    color: var(--cor-legend);
+    align-items: center;
   }
   
-  .text p:hover {
-    color: #61dafb;
-  }
+  .text p { cursor: pointer; transition: color 0.2s; }
+  .text p:hover { color: var(--react-blue); }
   
   .logosInicial {
     display: flex;
     align-items: center;
     gap: 15px;
+    margin-left: auto;
+    margin-right: 15px;
   }
   
   .logosInicial img {
     height: 24px;
     width: 24px;
-    filter: invert(1); /* Deixa ícones brancos */
+    filter: invert(1);
     cursor: pointer;
   }
   
   .searchBox input {
-    background-color: #3a3b3c;
-    border: none;
+    width: 160px;
+    height: 34px;
     border-radius: 20px;
-    padding: 8px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #3a3b3c;
+    padding: 6px 15px;
+    font-size: 14px;
     color: white;
     outline: none;
   }
   
   /* =========================================
-     ETAPA 2: HERO (Banner Principal)
+     SEÇÃO 2: HERO (Banner Principal)
      ========================================= */
   .etapa2 {
-    background-color: #1c1c1e;
-    padding: 60px 20px 80px;
+    padding: 80px 20px 100px;
     text-align: center;
-    background-image: radial-gradient(circle at 50% 0%, #2a2a2e 0%, #121212 100%);
+    background: radial-gradient(circle at 50% 0%, #2a2a2e 0%, #121212 100%);
   }
   
   .linkss {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
+    gap: 16px;
+    margin-bottom: 36px;
   }
   
   .linkss button {
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #444;
-    padding: 5px 12px;
-    border-radius: 4px;
     display: flex;
+    gap: 10px;
     align-items: center;
-    gap: 8px;
-    font-size: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 20px;
     cursor: pointer;
+    font-size: 13px;
   }
   
-  .linkss button img {
-    width: 14px;
-    filter: invert(1);
+  .linkss button img { width: 16px; filter: invert(1); }
+  
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .hero-logo {
-    width: 100px;
-    height: 100px;
-    animation: spin 20s linear infinite;
+    width: 90px;
+    height: 90px;
     margin-bottom: 20px;
+    animation: spin 20s linear infinite;
   }
   
-  @keyframes spin {
-    100% { transform: rotate(360deg); }
-  }
+  @keyframes spin { 100% { transform: rotate(360deg); } }
   
   .textH2 h1 {
-    font-size: 60px;
-    color: #61dafb;
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--react-blue);
     margin-bottom: 10px;
+    line-height: 1.1;
   }
   
   .textP2 p {
+    color: var(--cor-legend);
     font-size: 24px;
-    color: #b0b3b8;
     margin-bottom: 40px;
   }
   
   .hero-cta {
     display: flex;
+    gap: 15px;
     justify-content: center;
-    gap: 20px;
   }
   
   .btn-primary {
-    background-color: #61dafb;
+    background-color: var(--react-blue);
     color: #000;
     border: none;
-    padding: 12px 24px;
+    padding: 14px 28px;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
   }
   
   .btn-secondary {
-    background-color: transparent;
+    background: transparent;
     color: #fff;
-    border: 1px solid #61dafb;
-    padding: 12px 24px;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 14px 28px;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
   }
   
   /* =========================================
-     ETAPA 3: CÓDIGO E DISPOSITIVOS (Ajustado)
+     SEÇÃO 3: DEMO DE CÓDIGO (Lado a Lado)
      ========================================= */
   .etapa3 {
     padding: 80px 20px;
@@ -206,24 +221,26 @@
   .textH3 h1 {
     font-size: 40px;
     text-align: center;
+    color: #fff;
     margin-bottom: 20px;
   }
   
   .textP3 {
     text-align: center;
+    color: var(--cor-legend);
     font-size: 18px;
-    color: #b3b3b3;
-    margin-bottom: 50px;
+    max-width: 800px;
+    margin: 0 auto 50px;
   }
   
-  /* Área central com iframe e celular lado a lado */
+  /* Flexbox para colocar código e celular lado a lado */
   .demo-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    margin-bottom: 40px;
-    flex-wrap: wrap; /* Para telas menores */
+    gap: 50px; /* Espaço entre código e celular */
+    margin-bottom: 50px;
+    flex-wrap: wrap; /* Quebra linha no mobile */
   }
   
   .demo-iframe {
@@ -232,26 +249,27 @@
     height: 400px;
     background: #1e1e1e;
     border: 1px solid #333;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
   }
   
   .devices-img {
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
     height: auto;
+    object-fit: contain;
   }
   
-  .textP31 {
+  .textP31 p {
     text-align: center;
+    font-size: 18px;
+    color: var(--cor-legend);
     max-width: 800px;
     margin: 0 auto;
-    font-size: 18px;
-    color: #b3b3b3;
   }
   
   /* =========================================
-     ETAPA 4: FEATURE / DISSECTION
+     SEÇÃO 4: FEATURE / DISSECÇÃO
      ========================================= */
   .etapa4 {
     background-color: #18191a;
@@ -259,12 +277,12 @@
     text-align: center;
   }
   
-  .textH4 h1 { font-size: 36px; margin-bottom: 20px; }
-  .textP4 { max-width: 800px; margin: 0 auto 40px; font-size: 18px; color: #b3b3b3; }
-  .img4 img { max-width: 100%; width: 800px; }
+  .textH4 h1 { font-size: 36px; color: #fff; margin-bottom: 20px; }
+  .textP4 { max-width: 800px; margin: 0 auto 40px; font-size: 18px; color: var(--cor-legend); }
+  .img4 img { max-width: 100%; width: 800px; margin-top: 20px; }
   
   /* =========================================
-     ETAPA 5: FRAMEWORKS E CARDS
+     SEÇÃO 5: CARDS / FRAMEWORKS
      ========================================= */
   .etapa5 {
     padding: 80px 20px;
@@ -272,10 +290,10 @@
   }
   
   .textH5, .text5 { text-align: center; margin-bottom: 40px; }
-  .textH5 h1 { font-size: 36px; }
-  .text5 p { font-size: 18px; color: #b3b3b3; }
+  .textH5 h1 { font-size: 36px; color: white; }
+  .text5 p { font-size: 18px; color: var(--cor-legend); }
   
-  /* Grid de cards */
+  /* Grid responsivo para os cards */
   .img5 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -286,18 +304,18 @@
   
   .i5 {
     background-color: #1c1c1e;
-    padding: 20px;
+    padding: 24px;
     border-radius: 12px;
     border: 1px solid #333;
     text-align: center;
   }
   
-  .i5 img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; }
+  .i5 img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
   .texth5 h2 { font-size: 20px; color: #fff; margin-bottom: 10px; }
   .p5 p { color: #aaa; font-size: 15px; }
   
   /* =========================================
-     ETAPA 6: VÍDEOS (Ajustado)
+     SEÇÃO 6: VÍDEOS (Lado a Lado e Visíveis)
      ========================================= */
   .etapa6 {
     background-color: #0f1113;
@@ -305,33 +323,38 @@
     text-align: center;
   }
   
-  .textH6 h1 { font-size: 40px; margin-bottom: 15px; }
-  .textP6 { margin-bottom: 50px; font-size: 18px; color: #b3b3b3; }
+  .textH6 h1 { font-size: 40px; color: white; margin-bottom: 15px; }
+  .textP6 { margin-bottom: 50px; font-size: 18px; color: var(--cor-legend); }
   
+  /* Container Flex para os vídeos */
   .vid61 {
     display: flex;
     justify-content: center;
     gap: 30px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Importante para mobile */
+    width: 100%;
   }
   
   .vid61 video {
     width: 100%;
-    max-width: 500px;
+    max-width: 500px; /* Tamanho máximo do vídeo */
+    aspect-ratio: 16/9; /* Formato Widescreen */
+    background: #000;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    border: 1px solid #333;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    outline: none;
   }
   
   /* =========================================
-     ETAPA 7: COMUNIDADE E VITRINE (Ajustado)
+     SEÇÃO 7: COMUNIDADE E VITRINE (Grid)
      ========================================= */
   .etapa7 {
     padding: 100px 20px;
     background-color: #000;
   }
   
-  .textH7 h1 { text-align: center; font-size: 36px; margin-bottom: 50px; }
+  .textH7 h1 { text-align: center; font-size: 36px; color: white; margin-bottom: 60px; }
   
   .content7 {
     display: flex;
@@ -339,104 +362,99 @@
     gap: 60px;
     max-width: 1100px;
     margin: 0 auto;
-    align-items: flex-start;
+    align-items: flex-start; /* Alinha no topo */
   }
   
   .textP71, .textP72 { flex: 1; }
-  .textP71 p, .textP72 p { font-size: 17px; color: #b3b3b3; margin-bottom: 20px; }
+  .textP71 p, .textP72 p { font-size: 17px; color: var(--cor-legend); margin-bottom: 24px; }
   
-  /* Grid de ícones dos apps */
+  /* Grade perfeita para os ícones */
   .showcase {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr); /* 5 colunas iguais */
     gap: 15px;
+    margin-top: 20px;
   }
   
   .social-icon {
     width: 100%;
     aspect-ratio: 1;
     background-color: #1a1a1f;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 12px;
+    border-radius: 12px;
     object-fit: contain;
-    transition: transform 0.2s;
+    transition: transform 0.2s, background-color 0.2s;
   }
   
   .social-icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     background-color: #2a2a2f;
   }
   
   /* =========================================
-     COVER CTA (Fim da página)
+     COVER CTA & FOOTER
      ========================================= */
   #cover {
-    background-image: url('https://reactnative.dev/assets/images/cta-bg-pattern-2d71376cb45831f0706617efae88b244.png');
+    background-image: url("https://reactnative.dev/assets/images/cta-bg-pattern-2d71376cb45831f0706617efae88b244.png");
     background-size: cover;
     padding: 100px 20px;
     text-align: center;
+    position: relative;
   }
+  /* Overlay escuro para ler melhor o texto */
+  #cover::after {
+    content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 0;
+  }
+  .continuidade { position: relative; z-index: 1; }
   
-  .textH8 h1 { font-size: 36px; margin: 20px 0; }
+  .textH8 h1 { font-size: 36px; margin: 20px 0; color: white; }
   .butao button {
-    background-color: #61dafb;
+    background-color: var(--react-blue);
     border: none;
-    padding: 15px 30px;
+    padding: 15px 35px;
     font-size: 18px;
     font-weight: bold;
     border-radius: 30px;
     cursor: pointer;
   }
   
-  /* =========================================
-     FOOTER
-     ========================================= */
   .footer {
-    background-color: #121212;
+    background-color: #050505;
     padding: 60px 20px;
-    border-top: 1px solid #333;
+    border-top: 1px solid #222;
   }
   
   .colunas {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    gap: 40px;
     max-width: 1100px;
     margin: 0 auto;
   }
   
-  .titulo {
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 15px;
-    font-size: 14px;
-  }
+  .coluna { display: flex; flex-direction: column; gap: 10px; min-width: 140px; }
+  .titulo { font-weight: bold; color: #fff; font-size: 14px; margin-bottom: 5px; }
+  .coluna p { color: #888; font-size: 14px; cursor: pointer; }
+  .coluna p:not(.titulo):hover { color: var(--react-blue); }
   
-  .coluna p {
-    color: #888;
-    font-size: 14px;
-    cursor: pointer;
-    margin-bottom: 8px;
-  }
-  
-  .coluna p:not(.titulo):hover { color: #61dafb; }
-  
-  .meta-area {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
+  .meta-area { text-align: center; margin-top: 60px; }
   .meta-logo { width: 50px; margin-bottom: 10px; }
-  .copy { color: #666; font-size: 12px; }
+  .copy { color: #555; font-size: 12px; }
   
   /* =========================================
      RESPONSIVIDADE (CELULARES)
      ========================================= */
   @media (max-width: 900px) {
-    .black { padding: 0 10px; }
-    .text { display: none; /* Esconde menu no celular */ }
-    .demo-row { flex-direction: column-reverse; }
+    .black { padding: 0 15px; }
+    .text { display: none; } /* Menu some no celular */
+    
+    .textH2 h1 { font-size: 40px; }
+    
+    .demo-row { flex-direction: column-reverse; } /* Celular em cima, código embaixo */
+    
     .content7 { flex-direction: column; }
     .showcase { grid-template-columns: repeat(4, 1fr); }
-    .textH2 h1 { font-size: 40px; }
+    
+    .vid61 video { width: 100%; height: auto; }
   }
