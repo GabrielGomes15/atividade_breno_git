@@ -1,0 +1,442 @@
+/* =========================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #121212; /* Fundo preto padrão */
+    color: #ffffff;
+    line-height: 1.5;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #61dafb; /* Azul React */
+    transition: 0.2s;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Container padrão para limitar a largura */
+  .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* =========================================
+     HEADER (TOPO)
+     ========================================= */
+  .Naomuda {
+    background-color: #0b66c2; /* Azul da faixa de aviso */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .Naomuda a {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .black {
+    background-color: rgba(36, 37, 38, 0.9); /* Fundo semi-transparente */
+    backdrop-filter: blur(10px);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+  }
+  
+  .logo img {
+    height: 35px;
+  }
+  
+  .tex p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 10px;
+  }
+  
+  .text {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .text p {
+    color: #e4e6eb;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  .text p:hover {
+    color: #61dafb;
+  }
+  
+  .logosInicial {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .logosInicial img {
+    height: 24px;
+    width: 24px;
+    filter: invert(1); /* Deixa ícones brancos */
+    cursor: pointer;
+  }
+  
+  .searchBox input {
+    background-color: #3a3b3c;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    color: white;
+    outline: none;
+  }
+  
+  /* =========================================
+     ETAPA 2: HERO (Banner Principal)
+     ========================================= */
+  .etapa2 {
+    background-color: #1c1c1e;
+    padding: 60px 20px 80px;
+    text-align: center;
+    background-image: radial-gradient(circle at 50% 0%, #2a2a2e 0%, #121212 100%);
+  }
+  
+  .linkss {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+  
+  .linkss button {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 5px 12px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .linkss button img {
+    width: 14px;
+    filter: invert(1);
+  }
+  
+  .hero-logo {
+    width: 100px;
+    height: 100px;
+    animation: spin 20s linear infinite;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes spin {
+    100% { transform: rotate(360deg); }
+  }
+  
+  .textH2 h1 {
+    font-size: 60px;
+    color: #61dafb;
+    margin-bottom: 10px;
+  }
+  
+  .textP2 p {
+    font-size: 24px;
+    color: #b0b3b8;
+    margin-bottom: 40px;
+  }
+  
+  .hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #61dafb;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #61dafb;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* =========================================
+     ETAPA 3: CÓDIGO E DISPOSITIVOS (Ajustado)
+     ========================================= */
+  .etapa3 {
+    padding: 80px 20px;
+    background-color: #121212;
+  }
+  
+  .textH3 h1 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .textP3 {
+    text-align: center;
+    font-size: 18px;
+    color: #b3b3b3;
+    margin-bottom: 50px;
+  }
+  
+  /* Área central com iframe e celular lado a lado */
+  .demo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Para telas menores */
+  }
+  
+  .demo-iframe {
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  
+  .devices-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+  
+  .textP31 {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: #b3b3b3;
+  }
+  
+  /* =========================================
+     ETAPA 4: FEATURE / DISSECTION
+     ========================================= */
+  .etapa4 {
+    background-color: #18191a;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .textH4 h1 { font-size: 36px; margin-bottom: 20px; }
+  .textP4 { max-width: 800px; margin: 0 auto 40px; font-size: 18px; color: #b3b3b3; }
+  .img4 img { max-width: 100%; width: 800px; }
+  
+  /* =========================================
+     ETAPA 5: FRAMEWORKS E CARDS
+     ========================================= */
+  .etapa5 {
+    padding: 80px 20px;
+    background-color: #121212;
+  }
+  
+  .textH5, .text5 { text-align: center; margin-bottom: 40px; }
+  .textH5 h1 { font-size: 36px; }
+  .text5 p { font-size: 18px; color: #b3b3b3; }
+  
+  /* Grid de cards */
+  .img5 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .i5 {
+    background-color: #1c1c1e;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    text-align: center;
+  }
+  
+  .i5 img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; }
+  .texth5 h2 { font-size: 20px; color: #fff; margin-bottom: 10px; }
+  .p5 p { color: #aaa; font-size: 15px; }
+  
+  /* =========================================
+     ETAPA 6: VÍDEOS (Ajustado)
+     ========================================= */
+  .etapa6 {
+    background-color: #0f1113;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .textH6 h1 { font-size: 40px; margin-bottom: 15px; }
+  .textP6 { margin-bottom: 50px; font-size: 18px; color: #b3b3b3; }
+  
+  .vid61 {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .vid61 video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+  }
+  
+  /* =========================================
+     ETAPA 7: COMUNIDADE E VITRINE (Ajustado)
+     ========================================= */
+  .etapa7 {
+    padding: 100px 20px;
+    background-color: #000;
+  }
+  
+  .textH7 h1 { text-align: center; font-size: 36px; margin-bottom: 50px; }
+  
+  .content7 {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+  
+  .textP71, .textP72 { flex: 1; }
+  .textP71 p, .textP72 p { font-size: 17px; color: #b3b3b3; margin-bottom: 20px; }
+  
+  /* Grid de ícones dos apps */
+  .showcase {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+  }
+  
+  .social-icon {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #1a1a1f;
+    padding: 10px;
+    border-radius: 10px;
+    object-fit: contain;
+    transition: transform 0.2s;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.1);
+    background-color: #2a2a2f;
+  }
+  
+  /* =========================================
+     COVER CTA (Fim da página)
+     ========================================= */
+  #cover {
+    background-image: url('https://reactnative.dev/assets/images/cta-bg-pattern-2d71376cb45831f0706617efae88b244.png');
+    background-size: cover;
+    padding: 100px 20px;
+    text-align: center;
+  }
+  
+  .textH8 h1 { font-size: 36px; margin: 20px 0; }
+  .butao button {
+    background-color: #61dafb;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+  
+  /* =========================================
+     FOOTER
+     ========================================= */
+  .footer {
+    background-color: #121212;
+    padding: 60px 20px;
+    border-top: 1px solid #333;
+  }
+  
+  .colunas {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .titulo {
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  .coluna p {
+    color: #888;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 8px;
+  }
+  
+  .coluna p:not(.titulo):hover { color: #61dafb; }
+  
+  .meta-area {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .meta-logo { width: 50px; margin-bottom: 10px; }
+  .copy { color: #666; font-size: 12px; }
+  
+  /* =========================================
+     RESPONSIVIDADE (CELULARES)
+     ========================================= */
+  @media (max-width: 900px) {
+    .black { padding: 0 10px; }
+    .text { display: none; /* Esconde menu no celular */ }
+    .demo-row { flex-direction: column-reverse; }
+    .content7 { flex-direction: column; }
+    .showcase { grid-template-columns: repeat(4, 1fr); }
+    .textH2 h1 { font-size: 40px; }
+  }
