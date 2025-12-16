@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>React Native - Learn once, write anywhere</title>
   <link rel="stylesheet" href="Native.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -62,11 +63,36 @@
       </div>
 
       <div class="hero-devices-container">
-        <img 
-          src="https://reactnative.dev/img/homepage/heros/hero-dark.webp" 
-          alt="Ilustração de dispositivos (notebook, celulares, tablet) com logotipos das plataformas Windows, Apple, Android e navegadores" 
-          class="hero-devices-img" 
-        />
+         <div class="devices-css-wrapper">
+            <div class="device laptop">
+                <div class="screen"></div>
+                <div class="base"></div>
+                <div class="device-icons">
+                    <i class="fab fa-windows" style="color: #0078d7;"></i>
+                    <i class="fab fa-microsoft" style="color: #f25022;"></i>
+                </div>
+            </div>
+            <div class="device phone">
+                <div class="screen"></div>
+                <div class="device-icons">
+                    <i class="fab fa-android" style="color: #3ddc84;"></i>
+                </div>
+            </div>
+            <div class="device phone">
+                <div class="screen"></div>
+                <div class="device-icons">
+                    <i class="fab fa-apple" style="color: #fff;"></i>
+                </div>
+            </div>
+            <div class="device tablet">
+                <div class="screen"></div>
+                <div class="device-icons">
+                    <i class="fab fa-chrome" style="color: #ea4335;"></i>
+                    <i class="fab fa-firefox" style="color: #ff7139;"></i>
+                    <i class="fab fa-safari" style="color: #007aff;"></i>
+                </div>
+            </div>
+         </div>
       </div>
 
     </div>
@@ -84,11 +110,12 @@
       </div>
 
       <div class="demo-row">
-        <iframe src="about:blank" title="Editor de Código" class="demo-iframe"></iframe>
+        <iframe src="ajns.js" title="Iframe Example" class="demo-iframe"></iframe>
         <img src="https://reactnative.dev/img/homepage/devices-dark.png" alt="celular com app" class="devices-img" />
       </div>
 
       <div class="textP31">
+        <img src="raposa.png"/>
         <p><strong>Escrito em JavaScript, renderizado com código nativo.</strong> Os elementos primitivos do React são
           renderizados na interface do usuário da plataforma nativa, o que significa que seu aplicativo usa as mesmas
           APIs da plataforma nativa que outros aplicativos.</p>

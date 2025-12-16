@@ -44,7 +44,7 @@
   
   /* =========================================
        HEADER (TOPO)
-     ========================================= */
+       ========================================= */
   .Naomuda {
     background-color: #0b66c2;
     color: white;
@@ -124,8 +124,8 @@
   
   
   /* =========================================
-     SEÇÃO 2: HERO SECTION (Atualizado com Dispositivos)
-     ========================================= */
+      SEÇÃO 2: HERO SECTION (Atualizado com Dispositivos CSS)
+      ========================================= */
   .hero-section {
     background-color: #101214; /* Fundo Dark Mode oficial */
     padding-top: 80px;
@@ -138,6 +138,8 @@
       linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
+    /* Adicionado min-height para garantir espaço para os devices */
+    min-height: 80vh;
   }
   
   .hero-container {
@@ -215,28 +217,88 @@
     background-color: rgba(255,255,255,0.1);
   }
   
-  /* 4. Imagem dos Dispositivos */
+  /* 4. Dispositivos feitos em CSS (Nova Implementação) */
   .hero-devices-container {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    position: relative;
   }
-  
-  .hero-devices-img {
-    width: 100%;
-    max-width: 1100px;
-    height: auto;
-    display: block;
-    /* Mascara para fundir a base com o fundo preto */
+
+  .devices-css-wrapper {
+    display: flex;
+    align-items: flex-end; /* Alinha pela base */
+    gap: 20px;
+    /* Máscara para desaparecer suavemente no fundo preto */
     mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    padding-bottom: 10px;
   }
+  
+  .device {
+    background: #282c34;
+    border: 2px solid #3e4450;
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  
+  .screen {
+    width: 90%;
+    background-color: #363b45;
+    border-radius: 4px;
+    margin-bottom: auto;
+    margin-top: 15px;
+  }
+  
+  .device-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 1.5rem;
+  }
+  
+  /* Estilos Específicos de cada Device */
+  .laptop {
+    width: 280px;
+    height: 180px;
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    z-index: 1;
+  }
+  .laptop .screen { height: 75%; }
+  .laptop .base {
+    position: absolute;
+    bottom: -15px;
+    width: 340px;
+    height: 15px;
+    background: #3e4450;
+    border-radius: 0 0 15px 15px;
+  }
+  
+  .phone {
+    width: 90px;
+    height: 180px;
+    border-radius: 16px;
+  }
+  .phone .screen { height: 70%; width: 85%; }
+  
+  .tablet {
+    width: 200px;
+    height: 160px;
+  }
+  .tablet .screen { height: 70%; }
   
   
   /* =========================================
-     SEÇÃO 3: DEMO DE CÓDIGO (Lado a Lado)
-     ========================================= */
+      SEÇÃO 3: DEMO DE CÓDIGO (Lado a Lado)
+      ========================================= */
   .etapa3 {
     padding: 80px 20px;
     background-color: #121212;
@@ -292,8 +354,8 @@
   }
   
   /* =========================================
-     SEÇÃO 4: FEATURE / DISSECÇÃO
-     ========================================= */
+      SEÇÃO 4: FEATURE / DISSECÇÃO
+      ========================================= */
   .etapa4 {
     background-color: #18191a;
     padding: 80px 20px;
@@ -305,8 +367,8 @@
   .img4 img { max-width: 100%; width: 800px; margin-top: 20px; }
   
   /* =========================================
-     SEÇÃO 5: CARDS / FRAMEWORKS
-     ========================================= */
+      SEÇÃO 5: CARDS / FRAMEWORKS
+      ========================================= */
   .etapa5 {
     padding: 80px 20px;
     background-color: #121212;
@@ -337,8 +399,8 @@
   .p5 p { color: #aaa; font-size: 15px; }
   
   /* =========================================
-     SEÇÃO 6: VÍDEOS (Estilo Thumbnail)
-     ========================================= */
+      SEÇÃO 6: VÍDEOS (Estilo Thumbnail)
+      ========================================= */
   .etapa6 {
     padding: 80px 20px;
     background-color: #000;
@@ -381,8 +443,8 @@
   }
   
   /* =========================================
-     SEÇÃO 7: COMUNIDADE E VITRINE
-     ========================================= */
+      SEÇÃO 7: COMUNIDADE E VITRINE
+      ========================================= */
   .etapa7 {
     padding: 100px 20px;
     background-color: #000;
@@ -425,8 +487,8 @@
   }
   
   /* =========================================
-     COVER CTA & FOOTER
-     ========================================= */
+      COVER CTA & FOOTER
+      ========================================= */
   #cover {
     background-image: url("https://reactnative.dev/assets/images/cta-bg-pattern-2d71376cb45831f0706617efae88b244.png");
     background-size: cover;
@@ -481,8 +543,8 @@
   .copy { color: #555; font-size: 12px; }
   
   /* =========================================
-     RESPONSIVIDADE
-     ========================================= */
+      RESPONSIVIDADE
+      ========================================= */
   @media (max-width: 900px) {
     .black { padding: 0 15px; }
     .text { display: none; }
@@ -491,6 +553,9 @@
     .hero-text h1 { font-size: 40px; }
     .hero-buttons { flex-direction: column; width: 100%; }
     
+    /* Escala os dispositivos CSS em telas menores */
+    .devices-css-wrapper { transform: scale(0.6); }
+
     .demo-row { flex-direction: column-reverse; }
     
     .content7 { flex-direction: column; }
