@@ -11,7 +11,7 @@
     --cor-head: #121216;
     --cor-etapa: #0f1113;
     --cor-legend: #bfbfbf;
-    --accent: #00d3ff; /* Azul Ciano Original */
+    --accent: #00d3ff;
     --react-blue: #61dafb; /* Azul React */
     --max-width: 1200px;
   }
@@ -43,7 +43,7 @@
   }
   
   /* =========================================
-     HEADER (TOPO)
+       HEADER (TOPO)
      ========================================= */
   .Naomuda {
     background-color: #0b66c2;
@@ -60,12 +60,12 @@
   }
   
   .black {
-    background-color: rgba(18, 18, 22, 0.9); /* Transparência suave */
+    background-color: rgba(18, 18, 22, 0.9);
     backdrop-filter: blur(10px);
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Espaçamento melhorado */
+    justify-content: space-between;
     padding: 12px 28px;
     position: sticky;
     top: 0;
@@ -122,93 +122,117 @@
     outline: none;
   }
   
+  
   /* =========================================
-     SEÇÃO 2: HERO (Banner Principal)
+     SEÇÃO 2: HERO SECTION (Atualizado com Dispositivos)
      ========================================= */
-  .etapa2 {
-    padding: 80px 20px 100px;
+  .hero-section {
+    background-color: #101214; /* Fundo Dark Mode oficial */
+    padding-top: 80px;
+    padding-bottom: 0;
     text-align: center;
-    background: radial-gradient(circle at 50% 0%, #2a2a2e 0%, #121212 100%);
+    position: relative;
+    overflow: hidden;
+    /* Grade sutil no fundo */
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
   }
   
-  .linkss {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 36px;
-  }
-  
-  .linkss button {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: #fff;
-    padding: 8px 14px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 13px;
-  }
-  
-  .linkss button img { width: 16px; filter: invert(1); }
-  
-  .hero-content {
+  .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 2;
+    position: relative;
   }
   
-  .hero-logo {
-    width: 90px;
-    height: 90px;
-    margin-bottom: 20px;
+  /* 1. Logo Girando */
+  .hero-logo-spin {
+    width: 100px;
+    height: 100px;
     animation: spin 20s linear infinite;
+    margin-bottom: 24px;
   }
   
-  @keyframes spin { 100% { transform: rotate(360deg); } }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
   
-  .textH2 h1 {
+  /* 2. Textos do Hero */
+  .hero-text h1 {
     font-size: 56px;
-    font-weight: 800;
-    color: var(--react-blue);
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
     margin-bottom: 10px;
-    line-height: 1.1;
   }
   
-  .textP2 p {
-    color: var(--cor-legend);
+  .hero-text p {
     font-size: 24px;
+    color: #b3b3b3;
     margin-bottom: 40px;
   }
   
-  .hero-cta {
+  /* 3. Botões do Hero */
+  .hero-buttons {
     display: flex;
-    gap: 15px;
-    justify-content: center;
+    gap: 16px;
+    margin-bottom: 60px;
   }
   
-  .btn-primary {
-    background-color: var(--react-blue);
+  .btn-cyan {
+    background-color: #61dafb;
     color: #000;
     border: none;
-    padding: 14px 28px;
-    font-size: 16px;
+    padding: 12px 28px;
+    font-size: 18px;
     font-weight: bold;
     border-radius: 50px;
     cursor: pointer;
+    transition: opacity 0.2s;
   }
   
-  .btn-secondary {
-    background: transparent;
+  .btn-cyan:hover { opacity: 0.9; }
+  
+  .btn-dark {
+    background-color: transparent;
     color: #fff;
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 14px 28px;
-    font-size: 16px;
+    border: 1px solid #444;
+    padding: 12px 28px;
+    font-size: 18px;
     font-weight: bold;
     border-radius: 50px;
     cursor: pointer;
+    transition: background-color 0.2s;
   }
+  
+  .btn-dark:hover {
+    background-color: rgba(255,255,255,0.1);
+  }
+  
+  /* 4. Imagem dos Dispositivos */
+  .hero-devices-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .hero-devices-img {
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    display: block;
+    /* Mascara para fundir a base com o fundo preto */
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  }
+  
   
   /* =========================================
      SEÇÃO 3: DEMO DE CÓDIGO (Lado a Lado)
@@ -233,14 +257,13 @@
     margin: 0 auto 50px;
   }
   
-  /* Flexbox para colocar código e celular lado a lado */
   .demo-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px; /* Espaço entre código e celular */
+    gap: 50px;
     margin-bottom: 50px;
-    flex-wrap: wrap; /* Quebra linha no mobile */
+    flex-wrap: wrap;
   }
   
   .demo-iframe {
@@ -293,7 +316,6 @@
   .textH5 h1 { font-size: 36px; color: white; }
   .text5 p { font-size: 18px; color: var(--cor-legend); }
   
-  /* Grid responsivo para os cards */
   .img5 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -314,55 +336,52 @@
   .texth5 h2 { font-size: 20px; color: #fff; margin-bottom: 10px; }
   .p5 p { color: #aaa; font-size: 15px; }
   
-/* =========================================
-   6. VÍDEOS (CORREÇÃO PARA IFRAME)
-   ========================================= */
-   .etapa6 {
+  /* =========================================
+     SEÇÃO 6: VÍDEOS (Estilo Thumbnail)
+     ========================================= */
+  .etapa6 {
     padding: 80px 20px;
-    background-color: #000; /* Fundo preto para destaque */
+    background-color: #000;
     text-align: center;
   }
   
   .textH6 h1 {
     font-size: 40px;
     margin-bottom: 20px;
-    color: var(--accent-color);
+    color: var(--accent); /* Corrigido var name */
   }
   
   .textP6 p {
     font-size: 18px;
-    color: var(--legend-color);
+    color: var(--cor-legend); /* Corrigido var name */
     margin-bottom: 40px;
   }
   
-  /* Container dos vídeos */
   .vid61 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px; /* Espaço entre os vídeos */
-    flex-wrap: wrap; /* Permite que caiam para baixo em telas menores */
+    gap: 30px;
+    flex-wrap: wrap;
   }
   
-  /* Estilo específico para o IFRAME do YouTube */
-  .vid61 iframe {
+  .vid61 img {
     width: 100%;
-    max-width: 560px; /* Largura padrão do YouTube */
-    height: 315px;    /* Altura proporcional 16:9 */
-    border: 1px solid #333;
+    max-width: 560px;
+    height: auto;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    transition: transform 0.3s ease;
+    cursor: pointer;
   }
   
-  /* Ajuste para celulares */
-  @media (max-width: 768px) {
-    .vid61 iframe {
-      height: 220px; /* Altura menor no celular */
-    }
+  .vid61 img:hover {
+    transform: scale(1.05);
+    border-color: var(--accent);
   }
   
   /* =========================================
-     SEÇÃO 7: COMUNIDADE E VITRINE (Grid)
+     SEÇÃO 7: COMUNIDADE E VITRINE
      ========================================= */
   .etapa7 {
     padding: 100px 20px;
@@ -377,16 +396,15 @@
     gap: 60px;
     max-width: 1100px;
     margin: 0 auto;
-    align-items: flex-start; /* Alinha no topo */
+    align-items: flex-start;
   }
   
   .textP71, .textP72 { flex: 1; }
   .textP71 p, .textP72 p { font-size: 17px; color: var(--cor-legend); margin-bottom: 24px; }
   
-  /* Grade perfeita para os ícones */
   .showcase {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 colunas iguais */
+    grid-template-columns: repeat(5, 1fr);
     gap: 15px;
     margin-top: 20px;
   }
@@ -416,22 +434,27 @@
     text-align: center;
     position: relative;
   }
-  /* Overlay escuro para ler melhor o texto */
+  
   #cover::after {
     content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 0;
   }
-  .continuidade { position: relative; z-index: 1; }
   
-  .textH8 h1 { font-size: 36px; margin: 20px 0; color: white; }
-  .butao button {
+  /* Botão do Cover final (ainda usa estilo antigo para diferenciar) */
+  .btn-primary {
     background-color: var(--react-blue);
+    color: #000;
     border: none;
     padding: 15px 35px;
     font-size: 18px;
     font-weight: bold;
     border-radius: 30px;
     cursor: pointer;
+    position: relative; 
+    z-index: 2;
   }
+  
+  .textH8 h1 { font-size: 36px; margin: 20px 0; color: white; position: relative; z-index: 2;}
+  .etapa2 { position: relative; z-index: 2; } /* Ajuste para o cover funcionar */
   
   .footer {
     background-color: #050505;
@@ -458,18 +481,18 @@
   .copy { color: #555; font-size: 12px; }
   
   /* =========================================
-     RESPONSIVIDADE (CELULARES)
+     RESPONSIVIDADE
      ========================================= */
   @media (max-width: 900px) {
     .black { padding: 0 15px; }
-    .text { display: none; } /* Menu some no celular */
+    .text { display: none; }
     
-    .textH2 h1 { font-size: 40px; }
+    /* Ajuste Hero Mobile */
+    .hero-text h1 { font-size: 40px; }
+    .hero-buttons { flex-direction: column; width: 100%; }
     
-    .demo-row { flex-direction: column-reverse; } /* Celular em cima, código embaixo */
+    .demo-row { flex-direction: column-reverse; }
     
     .content7 { flex-direction: column; }
     .showcase { grid-template-columns: repeat(4, 1fr); }
-    
-    .vid61 video { width: 100%; height: auto; }
   }

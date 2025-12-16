@@ -1,0 +1,240 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+    background-color: #1b1b1d; /* Cor escura de fundo similar à imagem */
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* --- Header / Navbar --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #20232a;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #61dafb; /* Azul React */
+}
+
+.logo i {
+    font-size: 1.5rem;
+}
+
+.logo span {
+    color: #fff;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #61dafb;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-bar {
+    background-color: #30343c;
+    padding: 6px 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #999;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.search-bar .shortcut {
+    background: #404756;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.actions i {
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* --- Main Hero Section --- */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px; /* Efeito de Grid no fundo */
+    min-height: 100vh;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 60px;
+}
+
+/* Logo Animado Central */
+.hero-logo {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 20px;
+}
+
+.react-logo-svg {
+    width: 100%;
+    height: 100%;
+    animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #b3b3b3;
+    margin-bottom: 40px;
+}
+
+/* Botões */
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+button {
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background-color: #61dafb;
+    color: #000;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #606770;
+}
+
+/* --- Devices Illustration (Simulação com CSS) --- */
+.devices-container {
+    display: flex;
+    align-items: flex-end; /* Alinha pela base */
+    gap: 20px;
+    opacity: 0.8;
+}
+
+.device {
+    background: #282c34;
+    border: 2px solid #3e4450;
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.screen {
+    width: 90%;
+    background-color: #363b45;
+    border-radius: 4px;
+    margin-bottom: auto;
+    margin-top: 15px;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+/* Estilos Específicos de cada Device */
+.laptop {
+    width: 280px;
+    height: 180px;
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    z-index: 1;
+}
+.laptop .screen { height: 75%; }
+.laptop .base {
+    position: absolute;
+    bottom: -15px;
+    width: 340px;
+    height: 15px;
+    background: #3e4450;
+    border-radius: 0 0 15px 15px;
+}
+
+.phone {
+    width: 90px;
+    height: 180px;
+    border-radius: 16px;
+}
+.phone .screen { height: 70%; width: 85%; }
+
+.tablet {
+    width: 200px;
+    height: 160px;
+}
+.tablet .screen { height: 70%; }
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+    nav, .actions { display: none; } /* Esconde menu no mobile para simplificar */
+    h1 { font-size: 2.5rem; }
+    .devices-container { transform: scale(0.6); }
+}
