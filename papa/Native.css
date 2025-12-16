@@ -314,36 +314,51 @@
   .texth5 h2 { font-size: 20px; color: #fff; margin-bottom: 10px; }
   .p5 p { color: #aaa; font-size: 15px; }
   
-  /* =========================================
-     SEÇÃO 6: VÍDEOS (Lado a Lado e Visíveis)
-     ========================================= */
-  .etapa6 {
-    background-color: #0f1113;
+/* =========================================
+   6. VÍDEOS (CORREÇÃO PARA IFRAME)
+   ========================================= */
+   .etapa6 {
     padding: 80px 20px;
+    background-color: #000; /* Fundo preto para destaque */
     text-align: center;
   }
   
-  .textH6 h1 { font-size: 40px; color: white; margin-bottom: 15px; }
-  .textP6 { margin-bottom: 50px; font-size: 18px; color: var(--cor-legend); }
+  .textH6 h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+  }
   
-  /* Container Flex para os vídeos */
+  .textP6 p {
+    font-size: 18px;
+    color: var(--legend-color);
+    margin-bottom: 40px;
+  }
+  
+  /* Container dos vídeos */
   .vid61 {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap; /* Importante para mobile */
-    width: 100%;
+    align-items: center;
+    gap: 30px; /* Espaço entre os vídeos */
+    flex-wrap: wrap; /* Permite que caiam para baixo em telas menores */
   }
   
-  .vid61 video {
+  /* Estilo específico para o IFRAME do YouTube */
+  .vid61 iframe {
     width: 100%;
-    max-width: 500px; /* Tamanho máximo do vídeo */
-    aspect-ratio: 16/9; /* Formato Widescreen */
-    background: #000;
+    max-width: 560px; /* Largura padrão do YouTube */
+    height: 315px;    /* Altura proporcional 16:9 */
+    border: 1px solid #333;
     border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    outline: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+  
+  /* Ajuste para celulares */
+  @media (max-width: 768px) {
+    .vid61 iframe {
+      height: 220px; /* Altura menor no celular */
+    }
   }
   
   /* =========================================
