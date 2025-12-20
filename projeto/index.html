@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Fisioterapia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png" alt="Logo">
+                <h2>FISI + TERAPIA</h2>
+            </div>
+
+            <div class="menu-nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-check"></i> Agendamentos</a></li>
+                    <li><a href="#"><i class="fas fa-check-double"></i> Check-in</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="#"><i class="fas fa-user-md"></i> Profissionais</a></li>
+                    <li><a href="#"><i class="fas fa-file-medical"></i> Avaliações e Prontuários</a></li>
+                    <li><a href="#"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
+                    <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Mensalidades</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Relatórios</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Configurações</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <header class="main-header">
+            <h3>Bem-vindo(a), Dr(a). Silva</h3>
+            <div class="user-info">
+                <span>Perfil</span> | <a href="login.html" style="color: var(--danger);">Sair</a>
+            </div>
+        </header>
+
+        <main class="content">
+            <h1 class="page-title">Visão Geral</h1>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Pacientes Hoje</h3>
+                    <div class="number">12</div>
+                </div>
+                <div class="card">
+                    <h3>Check-ins Realizados</h3>
+                    <div class="number">8</div>
+                </div>
+                <div class="card">
+                    <h3>Receita do Mês</h3>
+                    <div class="number" style="color: var(--success);">R$ 15.400</div>
+                </div>
+                <div class="card">
+                    <h3>Avaliações Pendentes</h3>
+                    <div class="number" style="color: var(--danger);">3</div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h3 style="margin-bottom: 15px; color: var(--primary-color);">Próximos Agendamentos</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                            <th>Paciente</th>
+                            <th>Profissional</th>
+                            <th>Status</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09:00</td>
+                            <td>Ana Souza</td>
+                            <td>Dr. Pedro</td>
+                            <td>Confirmado</td>
+                            <td><button>Ver</button></td>
+                        </tr>
+                        <tr>
+                            <td>10:30</td>
+                            <td>Carlos Lima</td>
+                            <td>Dra. Julia</td>
+                            <td>Aguardando Check-in</td>
+                            <td><button>Check-in</button></td>
+                        </tr>
+                        <tr>
+                            <td>13:00</td>
+                            <td>Maria Oliveira</td>
+                            <td>Dr. Pedro</td>
+                            <td>Avaliação</td>
+                            <td><button>Iniciar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
