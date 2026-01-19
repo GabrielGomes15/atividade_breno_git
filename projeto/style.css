@@ -1,16 +1,23 @@
-/* --- Variáveis de Cores (Baseadas na Logo) --- */
+/* =========================================
+   1. VARIÁVEIS E RESET
+   ========================================= */
 :root {
-    --primary-color: #1a404b; /* Azul Petróleo Escuro da Logo */
+    /* --- Suas Cores Originais --- */
+    --primary-color: #1a404b;   /* Azul Petróleo Escuro da Logo */
     --secondary-color: #2c6e80; /* Tom mais claro para hover */
-    --bg-color: #e8e6e1; /* Fundo bege claro da imagem */
+    --bg-color: #e8e6e1;        /* Fundo bege claro sólido */
     --white: #ffffff;
     --text-color: #333333;
     --text-light: #777777;
-    --danger: #e74c3c;
-    --success: #2ecc71;
+    
+    /* --- Cores Funcionais Adicionais (Usadas nas novas abas) --- */
+    --danger: #e74c3c;          /* Vermelho (Erro/Despesa/Ocupado) */
+    --success: #2ecc71;         /* Verde (Sucesso/Receita/Disponível) */
+    --warning: #f39c12;         /* Laranja (Pendente/Atenção) */
+    --border-radius: 8px;       /* Arredondamento padrão dos cards */
 }
 
-/* --- Reset Básico e Tipografia --- */
+/* Reset Básico e Tipografia */
 * {
     margin: 0;
     padding: 0;
@@ -19,15 +26,118 @@
 }
 
 body {
+    /* Garante o fundo bege sólido, sem imagem de logo gigante */
     background-color: var(--bg-color);
     color: var(--text-color);
+    line-height: 1.6;
 }
 
-/* --- Utilitários --- */
-a { text-decoration: none; }
+/* Utilitários */
+a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
-/* --- TELA DE LOGIN (Centralizada com Flexbox) --- */
+/* =========================================
+   2. COMPONENTES GERAIS (Botões, Inputs, Badges)
+   ========================================= */
+
+/* Botão Primário (Azul Petróleo) */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Botão Outline (Borda colorida, fundo transparente) */
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color: #555;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+.btn-outline:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: rgba(26, 64, 75, 0.05);
+}
+
+/* Botão Ícone Pequeno (Usado em tabelas) */
+.btn-icon {
+    background: none;
+    border: none;
+    color: #777;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 5px;
+    transition: 0.2s;
+}
+.btn-icon:hover { color: var(--primary-color); }
+
+/* Inputs e Selects Padrão do Sistema */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    outline: none;
+}
+.form-control:focus { border-color: var(--primary-color); }
+
+/* Badges (Etiquetas coloridas de status) */
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+}
+.badge.success { background-color: #d4edda; color: #155724; }
+.badge.danger { background-color: #f8d7da; color: #721c24; }
+.badge.warning { background-color: #fff3cd; color: #856404; }
+
+/* Barra de Ações no Topo das Páginas (Filtros e Botões) */
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   3. TELA DE LOGIN (Centralizada)
+   ========================================= */
 .login-container {
     display: flex;
     justify-content: center;
@@ -46,58 +156,24 @@ ul { list-style: none; }
     text-align: center;
 }
 
-.logo-img {
-    max-width: 150px;
-    margin-bottom: 20px;
-}
+.logo-img { max-width: 150px; margin-bottom: 20px; }
+.form-group { margin-bottom: 15px; text-align: left; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: var(--primary-color); }
 
-.form-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 12px;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
-}
-
-.btn-primary:hover {
-    background-color: var(--secondary-color);
-}
-
-/* --- LAYOUT DO DASHBOARD (CSS Grid) --- */
+/* =========================================
+   4. LAYOUT PRINCIPAL DO DASHBOARD (Grid)
+   ========================================= */
 .dashboard-container {
     display: grid;
-    grid-template-columns: 260px 1fr; /* Sidebar fixa, Conteúdo fluido */
-    grid-template-rows: 60px 1fr; /* Header fixo, Conteúdo fluido */
+    grid-template-columns: 260px 1fr; /* Sidebar fixa | Conteúdo fluido */
+    grid-template-rows: 60px 1fr; /* Header fixo | Conteúdo fluido */
     grid-template-areas: 
         "sidebar header"
         "sidebar content";
-    height: 100vh;
+    min-height: 100vh;
 }
 
-/* --- Sidebar --- */
+/* --- Sidebar (Menu Lateral) --- */
 .sidebar {
     grid-area: sidebar;
     background-color: var(--primary-color);
@@ -110,37 +186,44 @@ ul { list-style: none; }
 .sidebar-header {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     margin-bottom: 40px;
 }
 
-.sidebar-header img {
+/* Placeholder para logo se não tiver imagem */
+.logo-placeholder {
+    font-size: 1.5rem;
+    background: rgba(255,255,255,0.1);
     width: 40px;
-    height: auto;
-    filter: brightness(0) invert(1); /* Torna a logo branca */
-}
-
-.sidebar-header h2 {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.menu-nav ul li {
-    margin-bottom: 15px;
-}
-
-.menu-nav ul li a {
-    color: #ccc;
+    height: 40px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.sidebar-header img {
+    width: 40px; height: auto;
+    filter: brightness(0) invert(1); /* Torna a logo branca se for imagem */
+}
+
+.sidebar-header h2 { font-size: 1.2rem; font-weight: bold; }
+
+.menu-nav ul li { margin-bottom: 10px; }
+
+.menu-nav ul li a {
+    color: #bdc3c7; /* Cinza claro para itens inativos */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
     border-radius: 5px;
     transition: 0.3s;
+    font-size: 0.95rem;
 }
 
 .menu-nav ul li a:hover, .menu-nav ul li a.active {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255,255,255,0.15); /* Fundo translúcido ao passar o mouse */
     color: var(--white);
 }
 
@@ -153,78 +236,153 @@ ul { list-style: none; }
     align-items: center;
     padding: 0 30px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    z-index: 10;
 }
 
-.user-info {
-    font-weight: bold;
-    color: var(--primary-color);
-}
+.user-info { font-weight: bold; color: var(--primary-color); }
 
-/* --- Área de Conteúdo --- */
+/* --- Área de Conteúdo Principal --- */
 .content {
     grid-area: content;
     padding: 30px;
-    overflow-y: auto;
+    overflow-y: auto; /* Permite rolagem apenas no conteúdo */
 }
 
-.page-title {
-    margin-bottom: 25px;
-    color: var(--primary-color);
-}
+.page-title { margin-bottom: 25px; color: var(--primary-color); }
 
-/* Cards de Resumo (Flexbox) */
+/* =========================================
+   5. ESTILOS GERAIS DE CARDS E TABELAS
+   ========================================= */
+
+/* Grid de Cards (Resumo do Dashboard) */
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .card {
     background: var(--white);
     padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    border-left: 5px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--primary-color); /* Borda colorida à esquerda */
+    position: relative;
 }
 
-.card h3 {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    margin-bottom: 10px;
-}
+.card h3 { font-size: 0.9rem; color: var(--text-light); margin-bottom: 5px; }
+.card .number { font-size: 1.8rem; font-weight: bold; color: var(--text-color); }
+.card .sub-text { font-size: 0.8rem; margin-top: 5px; color: #888; }
 
-.card .number {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--text-color);
-}
-
-/* Tabelas */
+/* Estilos de Tabela Padrão */
 .table-container {
     background: var(--white);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow-x: auto; /* Rolagem horizontal se a tabela for muito larga */
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+table th, table td { text-align: left; padding: 15px; border-bottom: 1px solid #eee; vertical-align: middle; }
+table th { color: var(--primary-color); font-weight: 600; font-size: 0.9rem; }
+table tr:hover { background-color: #f9f9f9; }
 
-table th, table td {
-    text-align: left;
-    padding: 12px;
-    border-bottom: 1px solid #eee;
-}
+/* =========================================
+   6. ESTILOS ESPECÍFICOS POR PÁGINA
+   ========================================= */
 
-table th {
-    color: var(--primary-color);
+/* --- Página: CLIENTES & CHECK-IN --- */
+.client-profile { display: flex; align-items: center; gap: 12px; }
+.avatar {
+    width: 40px; height: 40px; border-radius: 50%; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; font-size: 0.9rem; text-transform: uppercase;
 }
+.client-profile .info h4 { font-size: 0.95rem; margin-bottom: 2px; color: var(--secondary-color); }
+.client-profile .info span { font-size: 0.8rem; color: #888; }
+.pagination { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; margin-top: 10px; border-top: 1px solid #eee; }
+.pagination .pages button { border: 1px solid #ddd; background: #fff; padding: 5px 10px; margin: 0 2px; border-radius: 4px; cursor: pointer; }
+.pagination .pages button.active { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
 
-/* --- RESPONSIVIDADE (Mobile) --- */
+/* --- Página: PROFISSIONAIS (Cards de Foto) --- */
+.profissionais-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+.pro-card { background: #fff; border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.2s; border: 1px solid #eee; }
+.pro-card:hover { transform: translateY(-5px); }
+.pro-header { padding: 30px 20px; text-align: center; background: linear-gradient(to bottom, #f8f9fa 50%, #fff 50%); position: relative; border-bottom: 1px solid #f0f0f0; }
+.pro-avatar { width: 90px; height: 90px; border-radius: 50%; margin: 0 auto 10px; background-size: cover; background-position: center; border: 4px solid #fff; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
+.status-indicator { width: 12px; height: 12px; border-radius: 50%; position: absolute; top: 15px; right: 15px; border: 2px solid #fff; }
+.status-indicator.online { background-color: var(--success); }
+.status-indicator.busy { background-color: var(--danger); }
+.status-indicator.offline { background-color: #ccc; }
+.pro-body { padding: 20px; color: #666; font-size: 0.9rem; }
+.pro-body p { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.pro-body i { color: #bbb; width: 20px; text-align: center; }
+.pro-footer { padding: 15px; background: #fafafa; display: flex; gap: 10px; border-top: 1px solid #eee; }
+
+/* --- Página: AVALIAÇÕES (Prontuário) --- */
+.date-box { background: #f8f9fa; border: 1px solid #ddd; border-radius: 6px; padding: 5px; text-align: center; width: 50px; }
+.date-box .day { font-size: 1.2rem; font-weight: bold; color: var(--secondary-color); display: block; line-height: 1; }
+.date-box .month { font-size: 0.7rem; text-transform: uppercase; color: #888; }
+.clinical-summary { max-width: 400px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #555; font-size: 0.9rem; }
+.sub-text { font-size: 0.8rem; color: #7f8c8d; margin-top: 2px; }
+.input-group { position: relative; display: flex; align-items: center; }
+.input-group i { position: absolute; left: 10px; color: #aaa; }
+.input-group input { padding-left: 35px; }
+
+/* --- Página: FINANCEIRO & MENSALIDADES --- */
+.text-success { color: var(--success) !important; }
+.text-danger { color: var(--danger) !important; }
+.text-warning { color: var(--warning) !important; }
+.value-col { font-family: 'Consolas', monospace; text-align: right; font-weight: 600; }
+.tag { background: #f0f2f5; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; color: #666; border: 1px solid #ddd; }
+/* Barra de Progresso (Mensalidades) */
+.progress-wrapper { width: 140px; display: flex; flex-direction: column; gap: 4px; }
+.progress-text { font-size: 0.75rem; color: #666; }
+.progress-bar { width: 100%; height: 6px; background: #eee; border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 3px; transition: width 0.5s; }
+.plan-tag { background: #f0f2f5; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; color: var(--secondary-color); }
+
+/* --- Página: RELATÓRIOS (Gráficos CSS Puro) --- */
+.charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+.chart-box { background: #fff; padding: 25px; border-radius: var(--border-radius); box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #eee; }
+.chart-title { font-size: 1.1rem; color: var(--secondary-color); margin-bottom: 25px; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
+/* Gráfico de Barras */
+.bar-chart-container { display: flex; align-items: flex-end; justify-content: space-around; height: 200px; padding-top: 20px; border-bottom: 1px solid #ddd; }
+.bar-group { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.bar { width: 30px; background: #cbd5e0; border-radius: 4px 4px 0 0; transition: height 1s; position: relative; cursor: pointer; }
+.bar:hover, .bar.active { background: var(--primary-color); }
+.bar.projected { background: repeating-linear-gradient(45deg, #cbd5e0, #cbd5e0 10px, #e2e8f0 10px, #e2e8f0 20px); }
+.label { margin-top: 10px; font-size: 0.8rem; color: #666; font-weight: 600; }
+/* Lista Visual de Estatísticas */
+.stats-list { display: flex; flex-direction: column; gap: 20px; }
+.stat-info { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; color: #555; }
+.stat-bar-bg { width: 100%; height: 10px; background: #f0f2f5; border-radius: 5px; overflow: hidden; }
+.stat-bar-fill { height: 100%; border-radius: 5px; }
+
+/* --- Página: CONFIGURAÇÕES (Formulários e Switches) --- */
+.settings-container { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px; }
+.settings-card { padding: 0; overflow: hidden; }
+.settings-card .card-header { padding: 20px 25px; border-bottom: 1px solid #eee; background-color: #fafafa; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 25px; }
+.form-group label { display: block; font-size: 0.9rem; color: #555; margin-bottom: 8px; font-weight: 600; }
+.full-width { grid-column: 1 / -1; }
+.card-footer { padding: 15px 25px; background-color: #fff; border-top: 1px solid #eee; text-align: right; }
+/* Switch Toggle (Botão de deslizar) */
+.toggle-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; border-bottom: 1px solid #f0f0f0; }
+.toggle-info strong { display: block; color: var(--secondary-color); margin-bottom: 4px; }
+.toggle-info span { font-size: 0.85rem; color: #888; }
+.switch { position: relative; display: inline-block; width: 50px; height: 26px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: var(--primary-color); }
+input:checked + .slider:before { transform: translateX(24px); }
+
+/* =========================================
+   7. RESPONSIVIDADE (Mobile)
+   ========================================= */
 @media (max-width: 768px) {
     .dashboard-container {
         grid-template-columns: 1fr;
@@ -234,17 +392,21 @@ table th {
             "content";
     }
 
-    .sidebar {
-        display: none; /* Em um app real, faríamos um menu 'hambúrguer' */
-    }
+    .sidebar { display: none; /* Em um app real, usaríamos um menu hambúrguer */ }
 
-    /* Ajuste Header Mobile */
     .main-header {
         background-color: var(--primary-color);
         color: white;
     }
     
-    .main-header .user-info {
-        color: white;
+    .main-header .user-info { color: white; }
+
+    /* Ajustes de layout para telas pequenas */
+    .form-grid, .profissionais-grid, .charts-grid, .cards-grid {
+        grid-template-columns: 1fr; /* Tudo vira uma coluna só */
     }
+    
+    .action-bar { flex-direction: column; align-items: stretch; }
+    .filters, .buttons-right { width: 100%; }
+    .filters input, .filters select, .filters button { flex: 1; }
 }

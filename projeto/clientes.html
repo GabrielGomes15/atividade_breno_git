@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes - Fisioterapia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-placeholder"><i class="fas fa-heartbeat"></i></div> 
+                <img src="logo.png" alt="Logo">
+                <h2>FISI + TERAPIA</h2>
+            </div>
+
+            <div class="menu-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="agendamentos.html"><i class="fas fa-calendar-check"></i> Agendamentos</a></li>
+                    <li><a href="checkin.html"><i class="fas fa-check-double"></i> Check-in</a></li>
+                    <li><a href="clientes.html" class="active"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="profissionais.html"><i class="fas fa-user-md"></i> Profissionais</a></li>
+                    <li><a href="avaliacaoeprontuarios.html"><i class="fas fa-file-medical"></i> Avaliações e Prontuários</a></li>
+                    <li><a href="financeiro.html"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
+                    <li><a href="mensalidades.html"><i class="fas fa-file-invoice-dollar"></i> Mensalidades</a></li>
+                    <li><a href="relatorios.html"><i class="fas fa-chart-line"></i> Relatórios</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Configurações</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main-content-wrapper">
+            <header class="main-header">
+                <h3>Base de Clientes</h3>
+                <div class="user-info">
+                    <span>Dr(a). Silva</span> | <a href="login.html" style="color: var(--danger);">Sair</a>
+                </div>
+            </header>
+
+            <main class="content">
+                
+                <div class="action-bar">
+                    <div class="filters" style="flex: 1;">
+                        <input type="text" class="form-control" style="width: 100%; max-width: 400px;" placeholder="Buscar por nome, CPF ou telefone...">
+                        <button class="btn-search"><i class="fas fa-search"></i></button>
+                    </div>
+                    <button class="btn-primary"><i class="fas fa-user-plus"></i> Novo Paciente</button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Paciente</th>
+                                <th>Contato</th>
+                                <th>Última Visita</th>
+                                <th>Status</th>
+                                <th style="text-align: center;">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="client-profile">
+                                        <div class="avatar" style="background-color: #3498db;">AS</div>
+                                        <div class="info">
+                                            <h4>Ana Souza</h4>
+                                            <span>CPF: 123.456.789-00</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>(11) 99999-8888</div>
+                                    <span style="font-size: 0.8rem; color: #888;">ana.souza@email.com</span>
+                                </td>
+                                <td>25/10/2023</td>
+                                <td><span class="badge success">Ativo</span></td>
+                                <td class="actions-cell">
+                                    <button class="btn-icon" title="Ver Prontuário"><i class="fas fa-file-medical-alt"></i></button>
+                                    <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="client-profile">
+                                        <div class="avatar" style="background-color: #e67e22;">CL</div>
+                                        <div class="info">
+                                            <h4>Carlos Lima</h4>
+                                            <span>CPF: 222.333.444-55</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>(11) 97777-6666</div>
+                                    <span style="font-size: 0.8rem; color: #888;">carlos.lima@email.com</span>
+                                </td>
+                                <td>20/10/2023</td>
+                                <td><span class="badge warning">Em Alta</span></td>
+                                <td class="actions-cell">
+                                    <button class="btn-icon" title="Ver Prontuário"><i class="fas fa-file-medical-alt"></i></button>
+                                    <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="client-profile">
+                                        <div class="avatar" style="background-color: #9b59b6;">MO</div>
+                                        <div class="info">
+                                            <h4>Maria Oliveira</h4>
+                                            <span>CPF: 555.666.777-88</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>(11) 95555-4444</div>
+                                    <span style="font-size: 0.8rem; color: #888;">maria.o@email.com</span>
+                                </td>
+                                <td>15/09/2023</td>
+                                <td><span class="badge danger">Inativo</span></td>
+                                <td class="actions-cell">
+                                    <button class="btn-icon" title="Ver Prontuário"><i class="fas fa-file-medical-alt"></i></button>
+                                    <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pagination">
+                        <span>Mostrando 3 de 45 pacientes</span>
+                        <div class="pages">
+                            <button disabled>&lt;</button>
+                            <button class="active">1</button>
+                            <button>2</button>
+                            <button>3</button>
+                            <button>&gt;</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

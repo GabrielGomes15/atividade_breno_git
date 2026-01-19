@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - Fisioterapia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-placeholder"><i class="fas fa-heartbeat"></i></div> 
+                <img src="logo.png" alt="Logo">
+                <h2>FISI + TERAPIA</h2>
+            </div>
+
+            <div class="menu-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="agendamentos.html"><i class="fas fa-calendar-check"></i> Agendamentos</a></li>
+                    <li><a href="checkin.html"><i class="fas fa-check-double"></i> Check-in</a></li>
+                    <li><a href="clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="profissionais.html"><i class="fas fa-user-md"></i> Profissionais</a></li>
+                    <li><a href="avaliacaoeprontuarios.html"><i class="fas fa-file-medical"></i> Avaliações e Prontuários</a></li>
+                    <li><a href="financeiro.html"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
+                    <li><a href="mensalidades.html"><i class="fas fa-file-invoice-dollar"></i> Mensalidades</a></li>
+                    <li><a href="relatorios.html" class="active"><i class="fas fa-chart-line"></i> Relatórios</a></li>
+                    <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main-content-wrapper">
+            <header class="main-header">
+                <h3>Inteligência de Dados</h3>
+                <div class="user-info">
+                    <span>Dr(a). Silva</span> | <a href="login.html" style="color: var(--danger);">Sair</a>
+                </div>
+            </header>
+
+            <main class="content">
+                
+                <div class="action-bar">
+                    <div class="filters">
+                        <span style="font-weight: bold; color: #555;">Período:</span>
+                        <input type="date" class="form-control" value="2023-10-01">
+                        <span>até</span>
+                        <input type="date" class="form-control" value="2023-10-31">
+                        <button class="btn-primary" style="padding: 8px 15px;">Atualizar</button>
+                    </div>
+                    <div class="buttons-right">
+                        <button class="btn-outline"><i class="fas fa-file-pdf"></i> PDF</button>
+                        <button class="btn-outline"><i class="fas fa-file-excel"></i> Excel</button>
+                    </div>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Total Atendimentos</h3>
+                        <div class="number">142</div>
+                        <div class="sub-text text-success"><i class="fas fa-arrow-up"></i> 12% vs mês anterior</div>
+                    </div>
+                    <div class="card">
+                        <h3>Faturamento Bruto</h3>
+                        <div class="number">R$ 28.450</div>
+                        <div class="sub-text text-success"><i class="fas fa-arrow-up"></i> 5% meta batida</div>
+                    </div>
+                    <div class="card">
+                        <h3>Taxa de Ocupação</h3>
+                        <div class="number">78%</div>
+                        <div class="sub-text text-warning">Espaço para crescer</div>
+                    </div>
+                    <div class="card">
+                        <h3>Cancelamentos</h3>
+                        <div class="number text-danger">4</div>
+                        <div class="sub-text">3,5% do total</div>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    
+                    <div class="chart-box">
+                        <h3 class="chart-title">Desempenho Semestral (Atendimentos)</h3>
+                        <div class="bar-chart-container">
+                            <div class="bar-group">
+                                <div class="bar" style="height: 40%;" title="Jun: 80"></div>
+                                <span class="label">Jun</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 55%;" title="Jul: 110"></div>
+                                <span class="label">Jul</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 45%;" title="Ago: 90"></div>
+                                <span class="label">Ago</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 70%;" title="Set: 140"></div>
+                                <span class="label">Set</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar active" style="height: 85%;" title="Out: 170"></div>
+                                <span class="label">Out</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar projected" style="height: 95%;" title="Nov: 190"></div>
+                                <span class="label">Nov</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-box">
+                        <h3 class="chart-title">Top Procedimentos</h3>
+                        <div class="stats-list">
+                            <div class="stat-item">
+                                <div class="stat-info">
+                                    <span>Fisioterapia Motora</span>
+                                    <strong>45%</strong>
+                                </div>
+                                <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: 45%; background: var(--primary-color);"></div></div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-info">
+                                    <span>Pilates Solo/Studio</span>
+                                    <strong>30%</strong>
+                                </div>
+                                <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: 30%; background: var(--success);"></div></div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-info">
+                                    <span>Acupuntura</span>
+                                    <strong>15%</strong>
+                                </div>
+                                <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: 15%; background: var(--warning);"></div></div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-info">
+                                    <span>RPG</span>
+                                    <strong>10%</strong>
+                                </div>
+                                <div class="stat-bar-bg"><div class="stat-bar-fill" style="width: 10%; background: var(--danger);"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-container" style="margin-top: 30px;">
+                    <h3 style="margin-bottom: 20px; color: var(--secondary-color);">Produtividade por Profissional</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Profissional</th>
+                                <th>Pacientes Atendidos</th>
+                                <th>Faturamento Gerado</th>
+                                <th>Ticket Médio</th>
+                                <th>Nota Média</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dr. Pedro Santos</td>
+                                <td>68</td>
+                                <td>R$ 12.500,00</td>
+                                <td>R$ 183,00</td>
+                                <td><i class="fas fa-star" style="color: gold;"></i> 4.9</td>
+                            </tr>
+                            <tr>
+                                <td>Dra. Julia Costa</td>
+                                <td>54</td>
+                                <td>R$ 9.800,00</td>
+                                <td>R$ 181,00</td>
+                                <td><i class="fas fa-star" style="color: gold;"></i> 5.0</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Rafael Ferreira</td>
+                                <td>20</td>
+                                <td>R$ 6.150,00</td>
+                                <td>R$ 307,00</td>
+                                <td><i class="fas fa-star" style="color: gold;"></i> 4.8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </main>
+        </div>
+    </div>
+</body>
+</html>

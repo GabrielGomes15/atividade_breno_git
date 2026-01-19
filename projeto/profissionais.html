@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profissionais - Fisioterapia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-placeholder"><i class="fas fa-heartbeat"></i></div> 
+                <img src="logo.png" alt="Logo">
+                <h2>FISI + TERAPIA</h2>
+            </div>
+
+            <div class="menu-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="agendamentos.html"><i class="fas fa-calendar-check"></i> Agendamentos</a></li>
+                    <li><a href="checkin.html"><i class="fas fa-check-double"></i> Check-in</a></li>
+                    <li><a href="clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="profissionais.html" class="active"><i class="fas fa-user-md"></i> Profissionais</a></li>
+                    <li><a href="avaliacaoeprontuarios.html"><i class="fas fa-file-medical"></i> Avaliações e Prontuários</a></li>
+                    <li><a href="financeiro.html"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
+                    <li><a href="mensalidades.html"><i class="fas fa-file-invoice-dollar"></i> Mensalidades</a></li>
+                    <li><a href="relatorios.html"><i class="fas fa-chart-line"></i> Relatórios</a></li>
+                    <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main-content-wrapper">
+            <header class="main-header">
+                <h3>Corpo Clínico</h3>
+                <div class="user-info">
+                    <span>Dr(a). Silva</span> | <a href="login.html" style="color: var(--danger);">Sair</a>
+                </div>
+            </header>
+
+            <main class="content">
+                
+                <div class="action-bar">
+                    <div class="filters" style="gap: 15px;">
+                        <input type="text" class="form-control" placeholder="Buscar profissional...">
+                        <select class="form-control">
+                            <option value="">Todas as Especialidades</option>
+                            <option value="fisio">Fisioterapia</option>
+                            <option value="pilates">Pilates</option>
+                            <option value="acupuntura">Acupuntura</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary"><i class="fas fa-plus"></i> Cadastrar Profissional</button>
+                </div>
+
+                <div class="profissionais-grid">
+                    
+                    <div class="pro-card">
+                        <div class="pro-header">
+                            <div class="status-indicator online" title="Disponível"></div>
+                            <div class="pro-avatar" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg');"></div>
+                            <h3>Dr. Pedro Santos</h3>
+                            <span class="specialty">Fisioterapia Desportiva</span>
+                        </div>
+                        <div class="pro-body">
+                            <p><i class="fas fa-id-card"></i> CREFITO: 12345-F</p>
+                            <p><i class="fas fa-envelope"></i> pedro.s@fisio.com</p>
+                            <div class="pro-stats">
+                                <div>
+                                    <strong>8</strong>
+                                    <span>Hoje</span>
+                                </div>
+                                <div>
+                                    <strong>98%</strong>
+                                    <span>Avaliação</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pro-footer">
+                            <button class="btn-outline">Agenda</button>
+                            <button class="btn-outline">Perfil</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-card">
+                        <div class="pro-header">
+                            <div class="status-indicator busy" title="Em atendimento"></div>
+                            <div class="pro-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
+                            <h3>Dra. Julia Costa</h3>
+                            <span class="specialty">Pilates e RPG</span>
+                        </div>
+                        <div class="pro-body">
+                            <p><i class="fas fa-id-card"></i> CREFITO: 67890-F</p>
+                            <p><i class="fas fa-envelope"></i> julia.c@fisio.com</p>
+                            <div class="pro-stats">
+                                <div>
+                                    <strong>12</strong>
+                                    <span>Hoje</span>
+                                </div>
+                                <div>
+                                    <strong>100%</strong>
+                                    <span>Avaliação</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pro-footer">
+                            <button class="btn-outline">Agenda</button>
+                            <button class="btn-outline">Perfil</button>
+                        </div>
+                    </div>
+
+                    <div class="pro-card">
+                        <div class="pro-header">
+                            <div class="status-indicator offline" title="Offline"></div>
+                            <div class="pro-avatar" style="background-color: #95a5a6; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #fff;">RF</div>
+                            <h3>Dr. Rafael Ferreira</h3>
+                            <span class="specialty">Osteopatia</span>
+                        </div>
+                        <div class="pro-body">
+                            <p><i class="fas fa-id-card"></i> CREFITO: 54321-F</p>
+                            <p><i class="fas fa-envelope"></i> rafael.f@fisio.com</p>
+                            <div class="pro-stats">
+                                <div>
+                                    <strong>0</strong>
+                                    <span>Hoje</span>
+                                </div>
+                                <div>
+                                    <strong>--</strong>
+                                    <span>Avaliação</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pro-footer">
+                            <button class="btn-outline">Agenda</button>
+                            <button class="btn-outline">Perfil</button>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

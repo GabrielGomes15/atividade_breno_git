@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensalidades - Fisioterapia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-placeholder"><i class="fas fa-heartbeat"></i></div> 
+                <img src="logo.png" alt="Logo">
+                <h2>FISI + TERAPIA</h2>
+            </div>
+
+            <div class="menu-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="agendamentos.html"><i class="fas fa-calendar-check"></i> Agendamentos</a></li>
+                    <li><a href="checkin.html"><i class="fas fa-check-double"></i> Check-in</a></li>
+                    <li><a href="clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="profissionais.html"><i class="fas fa-user-md"></i> Profissionais</a></li>
+                    <li><a href="avaliacaoeprontuarios.html"><i class="fas fa-file-medical"></i> Avaliações e Prontuários</a></li>
+                    <li><a href="financeiro.html"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
+                    <li><a href="mensalidades.html" class="active"><i class="fas fa-file-invoice-dollar"></i> Mensalidades</a></li>
+                    <li><a href="relatorios.html"><i class="fas fa-chart-line"></i> Relatórios</a></li>
+                    <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main-content-wrapper">
+            <header class="main-header">
+                <h3>Controle de Pacotes e Mensalidades</h3>
+                <div class="user-info">
+                    <span>Dr(a). Silva</span> | <a href="login.html" style="color: var(--danger);">Sair</a>
+                </div>
+            </header>
+
+            <main class="content">
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Planos Ativos</h3>
+                        <div class="number">45</div>
+                    </div>
+                    <div class="card">
+                        <h3>A Vencer (Hoje/Amanhã)</h3>
+                        <div class="number text-warning">5</div>
+                    </div>
+                    <div class="card" style="border-left-color: var(--danger);">
+                        <h3>Inadimplentes</h3>
+                        <div class="number text-danger">3</div>
+                    </div>
+                    <div class="card" style="border-left-color: var(--success);">
+                        <h3>Receita Recorrente</h3>
+                        <div class="number text-success">R$ 12.400</div>
+                    </div>
+                </div>
