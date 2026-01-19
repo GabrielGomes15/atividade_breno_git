@@ -410,3 +410,30 @@ input:checked + .slider:before { transform: translateX(24px); }
     .filters, .buttons-right { width: 100%; }
     .filters input, .filters select, .filters button { flex: 1; }
 }
+
+/* --- EXTRA: Estilos para Tela de Cadastro/Login --- */
+
+.auth-footer {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.auth-footer a {
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.auth-footer a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Garante que o checkbox não fique esticado */
+.checkbox-group input[type="checkbox"] {
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}

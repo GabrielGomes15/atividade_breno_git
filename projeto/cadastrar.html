@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - Fisioterapia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-card">
+            
+            <div class="logo-placeholder" style="margin: 0 auto 20px; width: 60px; height: 60px; font-size: 2rem; color: #fff; background-color: var(--primary-color);">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            
+            <h2 style="color: var(--primary-color); margin-bottom: 10px;">Crie sua Conta</h2>
+            <p style="color: #777; font-size: 0.9rem; margin-bottom: 25px;">Gerencie sua clínica de forma simples.</p>
+
+            <form action="index.html">
+                
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" class="form-control" placeholder="Ex: Dr. Silva" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Nome da Clínica (Opcional)</label>
+                    <input type="text" class="form-control" placeholder="Ex: Fisi + Terapia">
+                </div>
+
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" class="form-control" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" class="form-control" placeholder="Mínimo 6 caracteres" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Confirmar Senha</label>
+                    <input type="password" class="form-control" placeholder="Repita a senha" required>
+                </div>
+
+                <div class="checkbox-group" style="text-align: left; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                    <input type="checkbox" id="terms" required style="width: auto;">
+                    <label for="terms" style="margin: 0; font-weight: normal; font-size: 0.85rem;">Li e aceito os <a href="#" style="text-decoration: underline;">Termos de Uso</a>.</label>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%;">Criar Conta Grátis</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Já tem uma conta? <a href="login.html">Faça Login</a></p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
