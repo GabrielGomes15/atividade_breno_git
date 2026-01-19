@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-in - Fisioterapia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-placeholder"><i class="fas fa-heartbeat"></i></div> 
+                <h2>FISI + TERAPIA</h2>
+            </div>
+
+            <div class="menu-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="agendamentos.html"><i class="fas fa-calendar-check"></i> Agendamentos</a></li>
+                    <li><a href="checkin.html" class="active"><i class="fas fa-check-double"></i> Check-in</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="#"><i class="fas fa-user-md"></i> Profissionais</a></li>
+                    <li><a href="#"><i class="fas fa-file-medical"></i> Avaliações e Prontuários</a></li>
+                    <li><a href="#"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
+                    <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Mensalidades</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Relatórios</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Configurações</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main-content-wrapper">
+            <header class="main-header">
+                <h3>Check-in e Recepção</h3>
+                <div class="user-info">
+                    <span>Dr(a). Silva</span> | <a href="login.html" style="color: var(--danger);">Sair</a>
+                </div>
+            </header>
+
+            <main class="content">
+                
+                <div class="cards-grid">
+                    <div class="card" style="border-left-color: var(--primary-color);">
+                        <h3>Agendados Hoje</h3>
+                        <div class="number">12</div>
+                    </div>
+                    <div class="card" style="border-left-color: var(--success);">
+                        <h3>Já Presentes</h3>
+                        <div class="number">4</div>
+                    </div>
+                    <div class="card" style="border-left-color: var(--warning);">
+                        <h3>Aguardando</h3>
+                        <div class="number">8</div>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <div class="filters" style="width: 100%;">
+                        <i class="fas fa-search" style="color: #aaa; padding: 10px;"></i>
+                        <input type="text" class="form-control" style="width: 100%; border: none;" placeholder="Buscar paciente por nome ou CPF para check-in rápido...">
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <h3 style="margin-bottom: 20px; color: var(--secondary-color);">Fila de Atendimento - 27/10/2023</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Horário</th>
+                                <th>Paciente</th>
+                                <th>Profissional</th>
+                                <th>Status Atual</th>
+                                <th>Tempo de Espera</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background-color: rgba(39, 174, 96, 0.05);">
+                                <td>09:00</td>
+                                <td><strong>Ana Souza</strong></td>
+                                <td>Dr. Pedro</td>
+                                <td><span class="badge success">Na Recepção</span></td>
+                                <td style="color: var(--danger); font-weight: bold;">15 min</td>
+                                <td>
+                                    <button class="btn-action btn-call"><i class="fas fa-bullhorn"></i> Chamar</button>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>10:00</td>
+                                <td>Carlos Lima</td>
+                                <td>Dra. Julia</td>
+                                <td><span class="badge warning">Aguardando Chegada</span></td>
+                                <td>-</td>
+                                <td>
+                                    <button class="btn-action btn-confirm"><i class="fas fa-check"></i> Confirmar Chegada</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="color: var(--danger);">09:30</td>
+                                <td>Marcos Paulo</td>
+                                <td>Dr. Pedro</td>
+                                <td><span class="badge danger">Atrasado</span></td>
+                                <td>-</td>
+                                <td>
+                                    <button class="btn-icon"><i class="fas fa-phone"></i></button>
+                                    <button class="btn-action btn-confirm">Chegou Agora</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>11:00</td>
+                                <td>Fernanda Montenegro</td>
+                                <td>Dra. Julia</td>
+                                <td><span class="badge" style="background: #eee; color: #555;">Agendado</span></td>
+                                <td>-</td>
+                                <td>
+                                    <button class="btn-action btn-confirm"><i class="fas fa-check"></i> Confirmar Chegada</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
