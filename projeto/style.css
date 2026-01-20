@@ -761,3 +761,18 @@ input:checked + .slider:before { transform: translateX(24px); }
     .stats-row { justify-content: center; }
     .mockup-card { width: 100%; max-width: 350px; margin: 0 auto; }
 }
+
+/* --- Botão extra para "Ver/Detalhes" --- */
+.btn-view {
+    background-color: #6c757d; /* Cinza Neutro */
+    color: white;
+}
+.btn-view:hover { background-color: #5a6268; }
+
+/* --- Botão extra para "Iniciar Atendimento" --- */
+.btn-start {
+    background-color: var(--primary-color); /* Azul Petróleo */
+    color: white;
+}
+.btn-start:hover { background-color: var(--secondary-color); }
+
