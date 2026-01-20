@@ -79,48 +79,60 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="background-color: rgba(39, 174, 96, 0.05);">
+                            <tr>
                                 <td>09:00</td>
                                 <td><strong>Ana Souza</strong></td>
                                 <td>Dr. Pedro</td>
                                 <td><span class="badge success">Na Recepção</span></td>
                                 <td style="color: var(--danger); font-weight: bold;">15 min</td>
-                                <td>
-                                    <button class="btn-action btn-call"><i class="fas fa-bullhorn"></i> Chamar</button>
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>10:00</td>
-                                <td>Carlos Lima</td>
-                                <td>Dra. Julia</td>
-                                <td><span class="badge warning">Aguardando Chegada</span></td>
-                                <td>-</td>
-                                <td>
-                                    <button class="btn-action btn-confirm"><i class="fas fa-check"></i> Confirmar Chegada</button>
+                                <td style="text-align: right;">
+                                    <button class="btn-table btn-call">
+                                        <i class="fas fa-bullhorn"></i> Chamar
+                                    </button>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td style="color: var(--danger);">09:30</td>
-                                <td>Marcos Paulo</td>
+                                <td>10:00</td>
+                                <td><strong>Carlos Lima</strong></td>
+                                <td>Dra. Julia</td>
+                                <td><span class="badge warning">Aguardando</span></td>
+                                <td>-</td>
+                                <td style="text-align: right;">
+                                    <button class="btn-table btn-check">
+                                        <i class="fas fa-check-circle"></i> Confirmar Chegada
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>09:30</td>
+                                <td><strong>Marcos Paulo</strong></td>
                                 <td>Dr. Pedro</td>
                                 <td><span class="badge danger">Atrasado</span></td>
                                 <td>-</td>
-                                <td>
-                                    <button class="btn-icon"><i class="fas fa-phone"></i></button>
-                                    <button class="btn-action btn-confirm">Chegou Agora</button>
+                                <td style="text-align: right;">
+                                    <div class="action-group">
+                                        <button class="btn-table btn-wait">
+                                            <i class="fas fa-phone"></i> Contatar
+                                        </button>
+                                        <button class="btn-table btn-check">
+                                            <i class="fas fa-check"></i> Chegou
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
 
                             <tr>
                                 <td>11:00</td>
-                                <td>Fernanda Montenegro</td>
+                                <td><strong>Fernanda Montenegro</strong></td>
                                 <td>Dra. Julia</td>
-                                <td><span class="badge" style="background: #eee; color: #555;">Agendado</span></td>
+                                <td><span class="tag">Agendado</span></td>
                                 <td>-</td>
-                                <td>
-                                    <button class="btn-action btn-confirm"><i class="fas fa-check"></i> Confirmar Chegada</button>
+                                <td style="text-align: right;">
+                                    <button class="btn-table btn-check">
+                                        <i class="fas fa-check-circle"></i> Confirmar Chegada
+                                    </button>
                                 </td>
                             </tr>
                         </tbody>

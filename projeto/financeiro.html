@@ -13,7 +13,6 @@
         <nav class="sidebar">
             <div class="sidebar-header">
                 <div class="logo-placeholder"><i class="fas fa-heartbeat"></i></div> 
-                <img src="logo.png" alt="Logo">
                 <h2>FISI + TERAPIA</h2>
             </div>
 
@@ -44,18 +43,21 @@
             <main class="content">
                 
                 <div class="cards-grid">
-                    <div class="card">
-                        <h3><i class="fas fa-arrow-up" style="color: var(--success);"></i> Entradas (Out)</h3>
+                    <div class="card" style="border-left-color: var(--success);">
+                        <h3><i class="fas fa-arrow-up text-success"></i> Entradas (Out)</h3>
                         <div class="number text-success">R$ 28.450,00</div>
                     </div>
-                    <div class="card">
-                        <h3><i class="fas fa-arrow-down" style="color: var(--danger);"></i> Saídas (Out)</h3>
+                    
+                    <div class="card" style="border-left-color: var(--danger);">
+                        <h3><i class="fas fa-arrow-down text-danger"></i> Saídas (Out)</h3>
                         <div class="number text-danger">R$ 12.100,00</div>
                     </div>
+
                     <div class="card" style="border-left-color: var(--primary-color);">
                         <h3>Saldo Líquido</h3>
                         <div class="number" style="color: var(--primary-color);">R$ 16.350,00</div>
                     </div>
+
                     <div class="card" style="border-left-color: var(--warning);">
                         <h3>A Receber (Pendentes)</h3>
                         <div class="number text-warning">R$ 3.200,00</div>
@@ -64,12 +66,115 @@
 
                 <div class="action-bar">
                     <div class="filters">
-                        <input type="month" class="form-control" value="2023-10">
-                        <select class="form-control">
-                            <option value="all">Todas as Transações</option>
-                            <option value="in">Receitas</option>
-                            <option value="out">Despesas</option>
+                        <div style="position: relative; width: 200px;">
+                            <input type="month" class="form-control" value="2023-10">
+                        </div>
+                        
+                        <select class="form-control" style="width: 200px;">
+                            <option>Todas as Transações</option>
+                            <option>Apenas Entradas</option>
+                            <option>Apenas Saídas</option>
+                            <option>Pendentes</option>
                         </select>
-                        <button class="btn-search"><i class="fas fa-filter"></i> Filtrar</button>
+                        
+                        <button class="btn-outline"><i class="fas fa-filter"></i> Filtrar</button>
                     </div>
-                    <div class
+                    
+                    <div class="buttons-right">
+                        <button class="btn-primary"><i class="fas fa-plus"></i> Nova Transação</button>
+                        <button class="btn-outline"><i class="fas fa-file-export"></i> Exportar PDF</button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Descrição</th>
+                                <th>Categoria</th>
+                                <th>Status</th>
+                                <th style="text-align: right;">Valor</th>
+                                <th style="text-align: center;">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>20/10/2023</td>
+                                <td>
+                                    <strong>Consulta - Ana Souza</strong><br>
+                                    <span class="sub-text">Sessão avulsa de Fisioterapia</span>
+                                </td>
+                                <td><span class="tag">Atendimento</span></td>
+                                <td><span class="badge success">Pago</span></td>
+                                <td class="value-col text-success">+ R$ 250,00</td>
+                                <td style="text-align: center;">
+                                    <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>18/10/2023</td>
+                                <td>
+                                    <strong>Conta de Luz (Enel)</strong><br>
+                                    <span class="sub-text">Referente ao mês 09/2023</span>
+                                </td>
+                                <td><span class="tag">Infraestrutura</span></td>
+                                <td><span class="badge success">Pago</span></td>
+                                <td class="value-col text-danger">- R$ 450,00</td>
+                                <td style="text-align: center;">
+                                    <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>15/10/2023</td>
+                                <td>
+                                    <strong>Mensalidade - Plano Silver</strong><br>
+                                    <span class="sub-text">Paciente: Carlos Lima</span>
+                                </td>
+                                <td><span class="tag">Planos</span></td>
+                                <td><span class="badge success">Pago</span></td>
+                                <td class="value-col text-success">+ R$ 800,00</td>
+                                <td style="text-align: center;">
+                                    <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>12/10/2023</td>
+                                <td>
+                                    <strong>Compra de Faixas Elásticas</strong><br>
+                                    <span class="sub-text">Fornecedor: FisioShop</span>
+                                </td>
+                                <td><span class="tag">Equipamentos</span></td>
+                                <td><span class="badge success">Pago</span></td>
+                                <td class="value-col text-danger">- R$ 180,00</td>
+                                <td style="text-align: center;">
+                                    <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>10/10/2023</td>
+                                <td>
+                                    <strong>Avaliação Postural - Roberto</strong><br>
+                                    <span class="sub-text">Agendado via WhatsApp</span>
+                                </td>
+                                <td><span class="tag">Atendimento</span></td>
+                                <td><span class="badge warning">Pendente</span></td>
+                                <td class="value-col text-warning">R$ 150,00</td>
+                                <td style="text-align: center;">
+                                    <button class="btn-icon"><i class="fas fa-check" style="color: var(--success);" title="Confirmar Pagamento"></i></button>
+                                    <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </main>
+        </div>
+    </div>
+</body>
+</html>

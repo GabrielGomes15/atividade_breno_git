@@ -13,7 +13,6 @@
         <nav class="sidebar">
             <div class="sidebar-header">
                 <div class="logo-placeholder"><i class="fas fa-heartbeat"></i></div> 
-                <img src="logo.png" alt="Logo">
                 <h2>FISI + TERAPIA</h2>
             </div>
 
@@ -24,7 +23,7 @@
                     <li><a href="checkin.html"><i class="fas fa-check-double"></i> Check-in</a></li>
                     <li><a href="clientes.html"><i class="fas fa-users"></i> Clientes</a></li>
                     <li><a href="profissionais.html"><i class="fas fa-user-md"></i> Profissionais</a></li>
-                    <li><a href="avaliacaoeprontuarios.html"><i class="fas fa-file-medical"></i> Avaliações e Prontuários</a></li>
+                    <li><a href="avaliacoes.html"><i class="fas fa-file-medical"></i> Avaliações e Prontuários</a></li>
                     <li><a href="financeiro.html"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
                     <li><a href="mensalidades.html" class="active"><i class="fas fa-file-invoice-dollar"></i> Mensalidades</a></li>
                     <li><a href="relatorios.html"><i class="fas fa-chart-line"></i> Relatórios</a></li>
@@ -44,20 +43,142 @@
             <main class="content">
                 
                 <div class="cards-grid">
-                    <div class="card">
+                    <div class="card" style="border-left-color: var(--primary-color);">
                         <h3>Planos Ativos</h3>
                         <div class="number">45</div>
                     </div>
-                    <div class="card">
+                    
+                    <div class="card" style="border-left-color: var(--warning);">
                         <h3>A Vencer (Hoje/Amanhã)</h3>
                         <div class="number text-warning">5</div>
                     </div>
+
                     <div class="card" style="border-left-color: var(--danger);">
                         <h3>Inadimplentes</h3>
                         <div class="number text-danger">3</div>
                     </div>
+
                     <div class="card" style="border-left-color: var(--success);">
                         <h3>Receita Recorrente</h3>
                         <div class="number text-success">R$ 12.400</div>
                     </div>
                 </div>
+
+                <div class="action-bar">
+                    <div class="filters">
+                        <div class="input-group" style="width: 300px;">
+                            <i class="fas fa-search"></i>
+                            <input type="text" class="form-control" placeholder="Buscar por paciente...">
+                        </div>
+                        
+                        <select class="form-control" style="width: 200px;">
+                            <option>Todos os Status</option>
+                            <option>Ativos</option>
+                            <option>Vencendo</option>
+                            <option>Finalizados</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-primary"><i class="fas fa-plus"></i> Novo Contrato</button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Paciente</th>
+                                <th>Plano / Pacote</th>
+                                <th>Progresso (Sessões)</th>
+                                <th>Vencimento</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                                <th style="text-align: center;">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>
+                                    <strong>Ana Souza</strong><br>
+                                    <span class="sub-text">ana.souza@email.com</span>
+                                </td>
+                                <td>
+                                    <span class="plan-tag">Pilates 2x</span>
+                                    <div class="sub-text">Mensal</div>
+                                </td>
+                                <td>
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 25%; background: var(--success);"></div>
+                                        </div>
+                                        <span class="progress-text">2/8 Utilizadas</span>
+                                    </div>
+                                </td>
+                                <td>25/11/2023</td>
+                                <td class="value-col">R$ 350,00</td>
+                                <td><span class="badge success">Em dia</span></td>
+                                <td style="text-align: center;">
+                                    <button class="btn-icon" title="Renovar"><i class="fas fa-sync-alt"></i></button>
+                                    <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>Carlos Lima</strong><br>
+                                    <span class="sub-text">carlos.lima@email.com</span>
+                                </td>
+                                <td>
+                                    <span class="plan-tag">Fisioterapia (Pacote 10)</span>
+                                    <div class="sub-text">Avulso</div>
+                                </td>
+                                <td>
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 90%; background: var(--warning);"></div>
+                                        </div>
+                                        <span class="progress-text">9/10 Utilizadas</span>
+                                    </div>
+                                </td>
+                                <td><span class="text-warning">22/10/2023</span></td>
+                                <td class="value-col">R$ 900,00</td>
+                                <td><span class="badge warning">Acabando</span></td>
+                                <td style="text-align: center;">
+                                    <button class="btn-primary" style="padding: 5px 10px; font-size: 0.8rem;">Renovar</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>Marcos Santos</strong><br>
+                                    <span class="sub-text">11 99999-9999</span>
+                                </td>
+                                <td>
+                                    <span class="plan-tag">RPG Semanal</span>
+                                    <div class="sub-text">Trimestral</div>
+                                </td>
+                                <td>
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 100%; background: var(--danger);"></div>
+                                        </div>
+                                        <span class="progress-text">12/12 Utilizadas</span>
+                                    </div>
+                                </td>
+                                <td><span class="text-danger font-weight-bold">15/10/2023</span></td>
+                                <td class="value-col">R$ 1.200,00</td>
+                                <td><span class="badge danger">Vencido</span></td>
+                                <td style="text-align: center;">
+                                    <button class="btn-outline" style="color: var(--success); border-color: var(--success); padding: 5px 10px; font-size: 0.8rem;"><i class="fab fa-whatsapp"></i> Cobrar</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </main>
+        </div>
+    </div>
+</body>
+</html>
