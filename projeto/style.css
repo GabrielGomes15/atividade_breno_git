@@ -740,3 +740,83 @@ input:checked + .slider:before { transform: translateX(24px); }
     background-color: transparent !important;
     box-shadow: none !important;
 }
+
+/* =========================================
+   NOVO CSS MOBILE (Limpo e Profissional)
+   ========================================= */
+
+/* 1. NO COMPUTADOR (Desktop) */
+/* Esconde a barra mobile para não atrapalhar quem usa PC */
+.mobile-header {
+    display: none; 
+}
+
+/* 2. NO CELULAR (Telas até 768px) */
+@media (max-width: 768px) {
+
+    /* --- A Barra Superior --- */
+    .mobile-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Botão na esquerda, logo na direita */
+        background-color: #ffffff;
+        height: 60px;
+        padding: 0 20px;
+        position: fixed; /* Fixa no topo */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2000; /* Fica acima de tudo */
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Sombra suave elegante */
+        box-sizing: border-box;
+    }
+
+    .btn-hamburger {
+        background: transparent;
+        border: none;
+        font-size: 22px;
+        color: #1a404b; /* Azul da sua marca */
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .mobile-brand span {
+        font-weight: 700;
+        color: #1a404b;
+        font-size: 16px;
+    }
+    
+    /* Se usar imagem na barra mobile, descomente aqui: */
+    /* .mobile-brand img { height: 30px; width: auto; } */
+
+    /* --- O Menu Lateral (Sidebar) --- */
+    .sidebar {
+        position: fixed;
+        top: 60px; /* Começa logo abaixo da barra branca */
+        left: -100%; /* Escondido para a esquerda */
+        height: calc(100vh - 60px); /* Altura total menos a barra */
+        width: 260px; /* Largura do menu */
+        z-index: 1999;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Animação suave */
+        box-shadow: 4px 0 15px rgba(0,0,0,0.1); /* Sombra na lateral do menu */
+        /* Importante: manter as cores originais da sidebar aqui */
+    }
+
+    /* Classe ativa para mostrar o menu */
+    .sidebar.active {
+        left: 0; /* Traz o menu para a tela */
+    }
+
+    /* --- Ajuste do Conteúdo Principal --- */
+    /* Empurra o conteúdo para baixo para não ficar escondido atrás da barra */
+    .main-content, .dashboard-container {
+        padding-top: 60px !important; 
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    /* Oculta o botão de "Sair" do rodapé da sidebar se atrapalhar no mobile */
+    .sidebar-footer {
+        padding-bottom: 80px;
+    }
+}
