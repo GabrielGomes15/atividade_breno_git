@@ -9,11 +9,20 @@
 </head>
 <body>
 
-        <div class="dashboard-container">
+    <header class="mobile-header">
+        <button id="btn-mobile-toggle" class="btn-hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="mobile-brand">
+            <span>FISI + TERAPIA</span>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        
         <nav class="sidebar">
             <div class="sidebar-brand">
                 <img src="logo.png" alt="Logo Fisi Terapia" class="sidebar-logo-img">
-                
                 <h2>FISI + TERAPIA</h2>
             </div>
 
@@ -31,9 +40,15 @@
                     <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
                 </ul>
             </div>
+
+            <div class="sidebar-footer" style="padding: 20px; margin-top: auto;">
+                <a href="login.html" style="color: rgba(255,255,255,0.7); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                   <i class="fas fa-sign-out-alt"></i> Sair
+                </a>
+           </div>
         </nav>
 
-        <div class="main-content-wrapper">
+        <div class="main-content-wrapper main-content">
             <header class="main-header">
                 <h3>Inteligência de Dados</h3>
                 <div class="user-info">
@@ -43,15 +58,15 @@
 
             <main class="content">
                 
-                <div class="action-bar">
-                    <div class="filters">
-                        <span style="font-weight: bold; color: #555;">Período:</span>
+                <div class="action-bar" style="flex-wrap: wrap;">
+                    <div class="filters" style="flex-wrap: wrap; gap: 10px;">
+                        <span style="font-weight: bold; color: #555; align-self: center;">Período:</span>
                         <input type="date" class="form-control" value="2023-10-01">
-                        <span>até</span>
+                        <span style="align-self: center;">até</span>
                         <input type="date" class="form-control" value="2023-10-31">
                         <button class="btn-primary" style="padding: 8px 15px;">Atualizar</button>
                     </div>
-                    <div class="buttons-right">
+                    <div class="buttons-right" style="margin-top: 10px;">
                         <button class="btn-outline"><i class="fas fa-file-pdf"></i> PDF</button>
                         <button class="btn-outline"><i class="fas fa-file-excel"></i> Excel</button>
                     </div>
@@ -149,44 +164,80 @@
 
                 <div class="table-container" style="margin-top: 30px;">
                     <h3 style="margin-bottom: 20px; color: var(--secondary-color);">Produtividade por Profissional</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Profissional</th>
-                                <th>Pacientes Atendidos</th>
-                                <th>Faturamento Gerado</th>
-                                <th>Ticket Médio</th>
-                                <th>Nota Média</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Dr. Pedro Santos</td>
-                                <td>68</td>
-                                <td>R$ 12.500,00</td>
-                                <td>R$ 183,00</td>
-                                <td><i class="fas fa-star" style="color: gold;"></i> 4.9</td>
-                            </tr>
-                            <tr>
-                                <td>Dra. Julia Costa</td>
-                                <td>54</td>
-                                <td>R$ 9.800,00</td>
-                                <td>R$ 181,00</td>
-                                <td><i class="fas fa-star" style="color: gold;"></i> 5.0</td>
-                            </tr>
-                            <tr>
-                                <td>Dr. Rafael Ferreira</td>
-                                <td>20</td>
-                                <td>R$ 6.150,00</td>
-                                <td>R$ 307,00</td>
-                                <td><i class="fas fa-star" style="color: gold;"></i> 4.8</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Profissional</th>
+                                    <th>Pacientes Atendidos</th>
+                                    <th>Faturamento Gerado</th>
+                                    <th>Ticket Médio</th>
+                                    <th>Nota Média</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Dr. Pedro Santos</td>
+                                    <td>68</td>
+                                    <td>R$ 12.500,00</td>
+                                    <td>R$ 183,00</td>
+                                    <td><i class="fas fa-star" style="color: gold;"></i> 4.9</td>
+                                </tr>
+                                <tr>
+                                    <td>Dra. Julia Costa</td>
+                                    <td>54</td>
+                                    <td>R$ 9.800,00</td>
+                                    <td>R$ 181,00</td>
+                                    <td><i class="fas fa-star" style="color: gold;"></i> 5.0</td>
+                                </tr>
+                                <tr>
+                                    <td>Dr. Rafael Ferreira</td>
+                                    <td>20</td>
+                                    <td>R$ 6.150,00</td>
+                                    <td>R$ 307,00</td>
+                                    <td><i class="fas fa-star" style="color: gold;"></i> 4.8</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </main>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnMobile = document.getElementById('btn-mobile-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            if (btnMobile && sidebar) {
+                // Abrir e fechar menu
+                btnMobile.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    sidebar.classList.toggle('active');
+                    
+                    const icon = btnMobile.querySelector('i');
+                    if (sidebar.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Fechar ao clicar fora
+                document.addEventListener('click', function(e) {
+                    if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && !btnMobile.contains(e.target)) {
+                        sidebar.classList.remove('active');
+                        const icon = btnMobile.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

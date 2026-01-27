@@ -9,11 +9,20 @@
 </head>
 <body>
 
+    <header class="mobile-header">
+        <button id="btn-mobile-toggle" class="btn-hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="mobile-brand">
+            <span>FISI + TERAPIA</span>
+        </div>
+    </header>
+
     <div class="dashboard-container">
+        
         <nav class="sidebar">
             <div class="sidebar-brand">
                 <img src="logo.png" alt="Logo Fisi Terapia" class="sidebar-logo-img">
-                
                 <h2>FISI + TERAPIA</h2>
             </div>
 
@@ -31,9 +40,15 @@
                     <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
                 </ul>
             </div>
+
+            <div class="sidebar-footer" style="padding: 20px; margin-top: auto;">
+                <a href="login.html" style="color: rgba(255,255,255,0.7); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                   <i class="fas fa-sign-out-alt"></i> Sair
+                </a>
+           </div>
         </nav>
 
-        <div class="main-content-wrapper">
+        <div class="main-content-wrapper main-content">
             <header class="main-header">
                 <h3>Prontuário Eletrônico</h3>
                 <div class="user-info">
@@ -64,106 +79,142 @@
                 </div>
 
                 <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th width="10%">Data</th>
-                                <th width="20%">Paciente</th>
-                                <th width="15%">Tipo</th>
-                                <th width="35%">Resumo Clínico / Queixa</th>
-                                <th width="15%">Profissional</th>
-                                <th width="5%">Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="row-highlight">
-                                <td>
-                                    <div class="date-box">
-                                        <span class="day">27</span>
-                                        <span class="month">Out</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <strong>Ana Souza</strong>
-                                    <div class="sub-text">CID M54.5 (Dor lombar)</div>
-                                </td>
-                                <td><span class="badge badge-blue"><i class="fas fa-clipboard-list"></i> Avaliação Inicial</span></td>
-                                <td>
-                                    <div class="clinical-summary">
-                                        Paciente relata dor aguda na região lombar irradiando para o glúteo direito. Nível de dor 8/10. Teste de Lasègue positivo a 45º. Iniciado protocolo de analgesia e...
-                                    </div>
-                                </td>
-                                <td>Dr. Pedro</td>
-                                <td><button class="btn-icon"><i class="fas fa-folder-open"></i></button></td>
-                            </tr>
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="10%">Data</th>
+                                    <th width="20%">Paciente</th>
+                                    <th width="15%">Tipo</th>
+                                    <th width="35%">Resumo Clínico / Queixa</th>
+                                    <th width="15%">Profissional</th>
+                                    <th width="5%">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="row-highlight">
+                                    <td>
+                                        <div class="date-box">
+                                            <span class="day">27</span>
+                                            <span class="month">Out</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong>Ana Souza</strong>
+                                        <div class="sub-text">CID M54.5 (Dor lombar)</div>
+                                    </td>
+                                    <td><span class="badge badge-blue"><i class="fas fa-clipboard-list"></i> Avaliação Inicial</span></td>
+                                    <td>
+                                        <div class="clinical-summary">
+                                            Paciente relata dor aguda na região lombar irradiando para o glúteo direito. Nível de dor 8/10. Teste de Lasègue positivo a 45º. Iniciado protocolo de analgesia e...
+                                        </div>
+                                    </td>
+                                    <td>Dr. Pedro</td>
+                                    <td><button class="btn-icon"><i class="fas fa-folder-open"></i></button></td>
+                                </tr>
 
-                            <tr>
-                                <td>
-                                    <div class="date-box">
-                                        <span class="day">26</span>
-                                        <span class="month">Out</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <strong>Carlos Lima</strong>
-                                    <div class="sub-text">Pós-Op Joelho</div>
-                                </td>
-                                <td><span class="badge badge-green"><i class="fas fa-walking"></i> Evolução</span></td>
-                                <td>
-                                    <div class="clinical-summary">
-                                        Paciente apresenta melhora na amplitude de movimento. Realizou exercícios de fortalecimento de quadríceps sem queixas álgicas. Ganho de 5º na flexão.
-                                    </div>
-                                </td>
-                                <td>Dra. Julia</td>
-                                <td><button class="btn-icon"><i class="fas fa-folder-open"></i></button></td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <div class="date-box">
+                                            <span class="day">26</span>
+                                            <span class="month">Out</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong>Carlos Lima</strong>
+                                        <div class="sub-text">Pós-Op Joelho</div>
+                                    </td>
+                                    <td><span class="badge badge-green"><i class="fas fa-walking"></i> Evolução</span></td>
+                                    <td>
+                                        <div class="clinical-summary">
+                                            Paciente apresenta melhora na amplitude de movimento. Realizou exercícios de fortalecimento de quadríceps sem queixas álgicas. Ganho de 5º na flexão.
+                                        </div>
+                                    </td>
+                                    <td>Dra. Julia</td>
+                                    <td><button class="btn-icon"><i class="fas fa-folder-open"></i></button></td>
+                                </tr>
 
-                            <tr>
-                                <td>
-                                    <div class="date-box">
-                                        <span class="day">25</span>
-                                        <span class="month">Out</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <strong>Ana Souza</strong>
-                                    <div class="sub-text">Ressonância Magnética</div>
-                                </td>
-                                <td><span class="badge badge-purple"><i class="fas fa-file-image"></i> Exame</span></td>
-                                <td>
-                                    <div class="clinical-summary">
-                                        <i class="fas fa-paperclip"></i> Anexo: RM_Lombar_25102023.pdf - Hérnia discal L4-L5 com compressão radicular.
-                                    </div>
-                                </td>
-                                <td>Dr. Pedro</td>
-                                <td><button class="btn-icon"><i class="fas fa-download"></i></button></td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <div class="date-box">
+                                            <span class="day">25</span>
+                                            <span class="month">Out</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong>Ana Souza</strong>
+                                        <div class="sub-text">Ressonância Magnética</div>
+                                    </td>
+                                    <td><span class="badge badge-purple"><i class="fas fa-file-image"></i> Exame</span></td>
+                                    <td>
+                                        <div class="clinical-summary">
+                                            <i class="fas fa-paperclip"></i> Anexo: RM_Lombar_25102023.pdf - Hérnia discal L4-L5 com compressão radicular.
+                                        </div>
+                                    </td>
+                                    <td>Dr. Pedro</td>
+                                    <td><button class="btn-icon"><i class="fas fa-download"></i></button></td>
+                                </tr>
 
-                            <tr>
-                                <td>
-                                    <div class="date-box">
-                                        <span class="day">24</span>
-                                        <span class="month">Out</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <strong>Roberto Almeida</strong>
-                                    <div class="sub-text">Tendinite Ombro</div>
-                                </td>
-                                <td><span class="badge badge-green"><i class="fas fa-walking"></i> Evolução</span></td>
-                                <td>
-                                    <div class="clinical-summary">
-                                        Aplicação de ultrassom terapêutico e TENS. Paciente relata diminuição da dor noturna. Mantida conduta conservadora.
-                                    </div>
-                                </td>
-                                <td>Dr. Pedro</td>
-                                <td><button class="btn-icon"><i class="fas fa-folder-open"></i></button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                <tr>
+                                    <td>
+                                        <div class="date-box">
+                                            <span class="day">24</span>
+                                            <span class="month">Out</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong>Roberto Almeida</strong>
+                                        <div class="sub-text">Tendinite Ombro</div>
+                                    </td>
+                                    <td><span class="badge badge-green"><i class="fas fa-walking"></i> Evolução</span></td>
+                                    <td>
+                                        <div class="clinical-summary">
+                                            Aplicação de ultrassom terapêutico e TENS. Paciente relata diminuição da dor noturna. Mantida conduta conservadora.
+                                        </div>
+                                    </td>
+                                    <td>Dr. Pedro</td>
+                                    <td><button class="btn-icon"><i class="fas fa-folder-open"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </main>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnMobile = document.getElementById('btn-mobile-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            if (btnMobile && sidebar) {
+                // Abrir e fechar menu
+                btnMobile.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    sidebar.classList.toggle('active');
+                    
+                    const icon = btnMobile.querySelector('i');
+                    if (sidebar.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Fechar ao clicar fora
+                document.addEventListener('click', function(e) {
+                    if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && !btnMobile.contains(e.target)) {
+                        sidebar.classList.remove('active');
+                        const icon = btnMobile.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

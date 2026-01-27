@@ -9,11 +9,20 @@
 </head>
 <body>
 
+    <header class="mobile-header">
+        <button id="btn-mobile-toggle" class="btn-hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="mobile-brand">
+            <span>FISI + TERAPIA</span>
+        </div>
+    </header>
+
     <div class="dashboard-container">
+        
         <nav class="sidebar">
             <div class="sidebar-brand">
                 <img src="logo.png" alt="Logo Fisi Terapia" class="sidebar-logo-img">
-                
                 <h2>FISI + TERAPIA</h2>
             </div>
 
@@ -31,9 +40,15 @@
                     <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
                 </ul>
             </div>
+
+            <div class="sidebar-footer" style="padding: 20px; margin-top: auto;">
+                <a href="login.html" style="color: rgba(255,255,255,0.7); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                   <i class="fas fa-sign-out-alt"></i> Sair
+                </a>
+           </div>
         </nav>
 
-        <div class="main-content-wrapper">
+        <div class="main-content-wrapper main-content">
             <header class="main-header">
                 <h3>Check-in e Recepção</h3>
                 <div class="user-info">
@@ -67,79 +82,114 @@
 
                 <div class="table-container">
                     <h3 style="margin-bottom: 20px; color: var(--secondary-color);">Fila de Atendimento - 27/10/2023</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Horário</th>
-                                <th>Paciente</th>
-                                <th>Profissional</th>
-                                <th>Status Atual</th>
-                                <th>Tempo de Espera</th>
-                                <th>Ação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>09:00</td>
-                                <td><strong>Ana Souza</strong></td>
-                                <td>Dr. Pedro</td>
-                                <td><span class="badge success">Na Recepção</span></td>
-                                <td style="color: var(--danger); font-weight: bold;">15 min</td>
-                                <td style="text-align: right;">
-                                    <button class="btn-table btn-call">
-                                        <i class="fas fa-bullhorn"></i> Chamar
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>10:00</td>
-                                <td><strong>Carlos Lima</strong></td>
-                                <td>Dra. Julia</td>
-                                <td><span class="badge warning">Aguardando</span></td>
-                                <td>-</td>
-                                <td style="text-align: right;">
-                                    <button class="btn-table btn-check">
-                                        <i class="fas fa-check-circle"></i> Confirmar Chegada
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>09:30</td>
-                                <td><strong>Marcos Paulo</strong></td>
-                                <td>Dr. Pedro</td>
-                                <td><span class="badge danger">Atrasado</span></td>
-                                <td>-</td>
-                                <td style="text-align: right;">
-                                    <div class="action-group">
-                                        <button class="btn-table btn-wait">
-                                            <i class="fas fa-phone"></i> Contatar
+                    <div style="overflow-x: auto;"> <table>
+                            <thead>
+                                <tr>
+                                    <th>Horário</th>
+                                    <th>Paciente</th>
+                                    <th>Profissional</th>
+                                    <th>Status Atual</th>
+                                    <th>Tempo de Espera</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>09:00</td>
+                                    <td><strong>Ana Souza</strong></td>
+                                    <td>Dr. Pedro</td>
+                                    <td><span class="badge success">Na Recepção</span></td>
+                                    <td style="color: var(--danger); font-weight: bold;">15 min</td>
+                                    <td style="text-align: right;">
+                                        <button class="btn-table btn-call">
+                                            <i class="fas fa-bullhorn"></i> Chamar
                                         </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>10:00</td>
+                                    <td><strong>Carlos Lima</strong></td>
+                                    <td>Dra. Julia</td>
+                                    <td><span class="badge warning">Aguardando</span></td>
+                                    <td>-</td>
+                                    <td style="text-align: right;">
                                         <button class="btn-table btn-check">
-                                            <i class="fas fa-check"></i> Chegou
+                                            <i class="fas fa-check-circle"></i> Confirmar Chegada
                                         </button>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td>11:00</td>
-                                <td><strong>Fernanda Montenegro</strong></td>
-                                <td>Dra. Julia</td>
-                                <td><span class="tag">Agendado</span></td>
-                                <td>-</td>
-                                <td style="text-align: right;">
-                                    <button class="btn-table btn-check">
-                                        <i class="fas fa-check-circle"></i> Confirmar Chegada
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                <tr>
+                                    <td>09:30</td>
+                                    <td><strong>Marcos Paulo</strong></td>
+                                    <td>Dr. Pedro</td>
+                                    <td><span class="badge danger">Atrasado</span></td>
+                                    <td>-</td>
+                                    <td style="text-align: right;">
+                                        <div class="action-group">
+                                            <button class="btn-table btn-wait">
+                                                <i class="fas fa-phone"></i> Contatar
+                                            </button>
+                                            <button class="btn-table btn-check">
+                                                <i class="fas fa-check"></i> Chegou
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>11:00</td>
+                                    <td><strong>Fernanda Montenegro</strong></td>
+                                    <td>Dra. Julia</td>
+                                    <td><span class="tag">Agendado</span></td>
+                                    <td>-</td>
+                                    <td style="text-align: right;">
+                                        <button class="btn-table btn-check">
+                                            <i class="fas fa-check-circle"></i> Confirmar Chegada
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </main>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnMobile = document.getElementById('btn-mobile-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            if (btnMobile && sidebar) {
+                // Abrir e fechar menu
+                btnMobile.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    sidebar.classList.toggle('active');
+                    
+                    const icon = btnMobile.querySelector('i');
+                    if (sidebar.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Fechar ao clicar fora
+                document.addEventListener('click', function(e) {
+                    if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && !btnMobile.contains(e.target)) {
+                        sidebar.classList.remove('active');
+                        const icon = btnMobile.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

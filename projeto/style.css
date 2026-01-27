@@ -741,82 +741,122 @@ input:checked + .slider:before { transform: translateX(24px); }
     box-shadow: none !important;
 }
 
-/* =========================================
-   NOVO CSS MOBILE (Limpo e Profissional)
-   ========================================= */
-
-/* 1. NO COMPUTADOR (Desktop) */
-/* Esconde a barra mobile para não atrapalhar quem usa PC */
-.mobile-header {
-    display: none; 
+:root {
+    --primary-color: #1a404b; /* Azul Petróleo */
+    --secondary-color: #2b6cb0;
+    --bg-color: #f4f6f9;
+    --text-color: #333;
+    --white: #ffffff;
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
 }
 
-/* 2. NO CELULAR (Telas até 768px) */
-@media (max-width: 768px) {
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
-    /* --- A Barra Superior --- */
+body { background-color: var(--bg-color); color: var(--text-color); }
+
+/* Layout Desktop Padrão */
+.dashboard-container {
+    display: flex; /* Sidebar ao lado do Conteúdo */
+    min-height: 100vh;
+}
+
+/* Sidebar (Menu Lateral) */
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Fixo na esquerda */
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+.sidebar-header { padding: 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.sidebar-header h2 { font-size: 1.2rem; margin-top: 10px; }
+
+.menu-nav ul { list-style: none; padding-top: 20px; }
+.menu-nav li a {
+    display: block; padding: 15px 20px; color: rgba(255,255,255,0.8); text-decoration: none; transition: 0.3s;
+}
+.menu-nav li a:hover, .menu-nav li a.active { background-color: rgba(255,255,255,0.1); color: var(--white); border-left: 4px solid var(--secondary-color); }
+.menu-nav i { margin-right: 10px; width: 20px; text-align: center; }
+
+/* Conteúdo Principal */
+.main-content {
+    margin-left: 250px; /* Espaço da Sidebar */
+    padding: 30px;
+    width: calc(100% - 250px);
+    transition: 0.3s;
+}
+
+/* Cards */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 30px; }
+.card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.card h3 { font-size: 0.9rem; color: #666; margin-bottom: 10px; }
+.card .number { font-size: 1.8rem; font-weight: bold; color: var(--primary-color); }
+
+/* Tabela */
+table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+th { background-color: #f8f9fa; color: #555; font-weight: 600; }
+
+/* Botões */
+.btn-table { border: none; padding: 8px 12px; border-radius: 20px; font-size: 0.85rem; cursor: pointer; color: white; display: inline-flex; align-items: center; gap: 5px; }
+.btn-view { background-color: #6c757d; }
+.btn-check { background-color: var(--success); }
+.btn-start { background-color: var(--secondary-color); }
+
+/* =========================================
+   2. O CÓDIGO DO MENU MOBILE (O Segredo)
+   ========================================= */
+
+/* O cabeçalho mobile começa INVISÍVEL no PC */
+.mobile-header { display: none; }
+
+/* QUANDO A TELA FOR MENOR QUE 768px (CELULAR/TABLET) */
+@media (max-width: 768px) {
+    
+    /* 1. Mostra a barra branca no topo */
     .mobile-header {
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        justify-content: space-between; /* Botão na esquerda, logo na direita */
-        background-color: #ffffff;
-        height: 60px;
-        padding: 0 20px;
-        position: fixed; /* Fixa no topo */
+        background: white;
+        padding: 15px 20px;
+        position: sticky;
         top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 2000; /* Fica acima de tudo */
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Sombra suave elegante */
-        box-sizing: border-box;
+        z-index: 1001;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .btn-hamburger {
-        background: transparent;
-        border: none;
-        font-size: 22px;
-        color: #1a404b; /* Azul da sua marca */
-        cursor: pointer;
-        padding: 5px;
-    }
+    .mobile-brand { font-weight: bold; color: var(--primary-color); font-size: 1.2rem; }
+    .btn-hamburger { background: none; border: none; font-size: 1.5rem; color: var(--primary-color); cursor: pointer; }
 
-    .mobile-brand span {
-        font-weight: 700;
-        color: #1a404b;
-        font-size: 16px;
-    }
-    
-    /* Se usar imagem na barra mobile, descomente aqui: */
-    /* .mobile-brand img { height: 30px; width: auto; } */
+    /* 2. Muda o layout principal de Lado-a-Lado para Bloco */
+    .dashboard-container { display: block; }
 
-    /* --- O Menu Lateral (Sidebar) --- */
+    /* 3. A Sidebar sai da tela (vai para a esquerda) */
     .sidebar {
-        position: fixed;
-        top: 60px; /* Começa logo abaixo da barra branca */
-        left: -100%; /* Escondido para a esquerda */
-        height: calc(100vh - 60px); /* Altura total menos a barra */
-        width: 260px; /* Largura do menu */
-        z-index: 1999;
-        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Animação suave */
-        box-shadow: 4px 0 15px rgba(0,0,0,0.1); /* Sombra na lateral do menu */
-        /* Importante: manter as cores originais da sidebar aqui */
+        left: -100%; /* Esconde */
+        width: 260px; /* Largura no celular */
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
     }
 
-    /* Classe ativa para mostrar o menu */
+    /* 4. Quando o JS adicionar a classe 'active', a sidebar volta */
     .sidebar.active {
-        left: 0; /* Traz o menu para a tela */
+        left: 0; 
     }
 
-    /* --- Ajuste do Conteúdo Principal --- */
-    /* Empurra o conteúdo para baixo para não ficar escondido atrás da barra */
-    .main-content, .dashboard-container {
-        padding-top: 60px !important; 
-        margin-left: 0 !important;
-        width: 100% !important;
-    }
-    
-    /* Oculta o botão de "Sair" do rodapé da sidebar se atrapalhar no mobile */
-    .sidebar-footer {
-        padding-bottom: 80px;
+    /* 5. Ajusta o conteúdo principal para ocupar 100% da tela */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
     }
 }

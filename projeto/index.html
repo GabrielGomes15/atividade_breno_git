@@ -22,7 +22,7 @@
         
         <nav class="sidebar">
             <div class="sidebar-header">
-                <img src="logo.png" alt="Logo">
+                <img src="logo.png" alt="Logo" style="max-width: 50px; margin-bottom: 10px;"> 
                 <h2>FISI + TERAPIA</h2>
             </div>
 
@@ -116,7 +116,7 @@
                             <td>13:00</td>
                             <td>Maria Oliveira</td>
                             <td>Dr. Pedro</td>
-                            <td><span class="tag">Avaliação</span></td>
+                            <td><span class="badge ">Avaliação</span></td>
                             <td style="text-align: right;">
                                 <button class="btn-table btn-start">
                                     <i class="fas fa-play"></i> Iniciar
@@ -134,13 +134,15 @@
             const btnMobile = document.getElementById('btn-mobile-toggle');
             const sidebar = document.querySelector('.sidebar');
             
+            // Só executa se os elementos existirem na tela
             if (btnMobile && sidebar) {
-                // Abrir e fechar menu ao clicar no botão
+                
+                // Evento de clique no botão hambúrguer
                 btnMobile.addEventListener('click', function(e) {
-                    e.stopPropagation();
+                    e.stopPropagation(); // Evita que o clique feche imediatamente
                     sidebar.classList.toggle('active');
                     
-                    // Troca o ícone de Barras para X
+                    // Troca o ícone de Barras (fa-bars) para X (fa-times)
                     const icon = btnMobile.querySelector('i');
                     if (sidebar.classList.contains('active')) {
                         icon.classList.remove('fa-bars');
@@ -151,10 +153,12 @@
                     }
                 });
 
-                // Fechar ao clicar fora do menu
+                // Fechar o menu se clicar FORA dele (na parte cinza ou conteúdo)
                 document.addEventListener('click', function(e) {
                     if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && !btnMobile.contains(e.target)) {
                         sidebar.classList.remove('active');
+                        
+                        // Reseta o ícone para barras
                         const icon = btnMobile.querySelector('i');
                         icon.classList.remove('fa-times');
                         icon.classList.add('fa-bars');
@@ -163,6 +167,5 @@
             }
         });
     </script>
-
 </body>
 </html>

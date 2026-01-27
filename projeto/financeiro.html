@@ -9,11 +9,20 @@
 </head>
 <body>
 
+    <header class="mobile-header">
+        <button id="btn-mobile-toggle" class="btn-hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="mobile-brand">
+            <span>FISI + TERAPIA</span>
+        </div>
+    </header>
+
     <div class="dashboard-container">
+        
         <nav class="sidebar">
             <div class="sidebar-brand">
                 <img src="logo.png" alt="Logo Fisi Terapia" class="sidebar-logo-img">
-                
                 <h2>FISI + TERAPIA</h2>
             </div>
 
@@ -31,9 +40,15 @@
                     <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
                 </ul>
             </div>
+
+            <div class="sidebar-footer" style="padding: 20px; margin-top: auto;">
+                <a href="login.html" style="color: rgba(255,255,255,0.7); text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                   <i class="fas fa-sign-out-alt"></i> Sair
+                </a>
+           </div>
         </nav>
 
-        <div class="main-content-wrapper">
+        <div class="main-content-wrapper main-content">
             <header class="main-header">
                 <h3>Gestão Financeira</h3>
                 <div class="user-info">
@@ -65,13 +80,13 @@
                     </div>
                 </div>
 
-                <div class="action-bar">
-                    <div class="filters">
-                        <div style="position: relative; width: 200px;">
+                <div class="action-bar" style="flex-wrap: wrap;">
+                    <div class="filters" style="flex-wrap: wrap;">
+                        <div style="position: relative; min-width: 150px;">
                             <input type="month" class="form-control" value="2023-10">
                         </div>
                         
-                        <select class="form-control" style="width: 200px;">
+                        <select class="form-control" style="min-width: 150px;">
                             <option>Todas as Transações</option>
                             <option>Apenas Entradas</option>
                             <option>Apenas Saídas</option>
@@ -81,101 +96,137 @@
                         <button class="btn-outline"><i class="fas fa-filter"></i> Filtrar</button>
                     </div>
                     
-                    <div class="buttons-right">
+                    <div class="buttons-right" style="margin-top: 10px;">
                         <button class="btn-primary"><i class="fas fa-plus"></i> Nova Transação</button>
-                        <button class="btn-outline"><i class="fas fa-file-export"></i> Exportar PDF</button>
+                        <button class="btn-outline"><i class="fas fa-file-export"></i> PDF</button>
                     </div>
                 </div>
 
                 <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Data</th>
-                                <th>Descrição</th>
-                                <th>Categoria</th>
-                                <th>Status</th>
-                                <th style="text-align: right;">Valor</th>
-                                <th style="text-align: center;">Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>20/10/2023</td>
-                                <td>
-                                    <strong>Consulta - Ana Souza</strong><br>
-                                    <span class="sub-text">Sessão avulsa de Fisioterapia</span>
-                                </td>
-                                <td><span class="tag">Atendimento</span></td>
-                                <td><span class="badge success">Pago</span></td>
-                                <td class="value-col text-success">+ R$ 250,00</td>
-                                <td style="text-align: center;">
-                                    <button class="btn-icon"><i class="fas fa-edit"></i></button>
-                                </td>
-                            </tr>
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Descrição</th>
+                                    <th>Categoria</th>
+                                    <th>Status</th>
+                                    <th style="text-align: right;">Valor</th>
+                                    <th style="text-align: center;">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>20/10/2023</td>
+                                    <td>
+                                        <strong>Consulta - Ana Souza</strong><br>
+                                        <span class="sub-text">Sessão avulsa de Fisioterapia</span>
+                                    </td>
+                                    <td><span class="tag">Atendimento</span></td>
+                                    <td><span class="badge success">Pago</span></td>
+                                    <td class="value-col text-success">+ R$ 250,00</td>
+                                    <td style="text-align: center;">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td>18/10/2023</td>
-                                <td>
-                                    <strong>Conta de Luz (Enel)</strong><br>
-                                    <span class="sub-text">Referente ao mês 09/2023</span>
-                                </td>
-                                <td><span class="tag">Infraestrutura</span></td>
-                                <td><span class="badge success">Pago</span></td>
-                                <td class="value-col text-danger">- R$ 450,00</td>
-                                <td style="text-align: center;">
-                                    <button class="btn-icon"><i class="fas fa-edit"></i></button>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>18/10/2023</td>
+                                    <td>
+                                        <strong>Conta de Luz (Enel)</strong><br>
+                                        <span class="sub-text">Referente ao mês 09/2023</span>
+                                    </td>
+                                    <td><span class="tag">Infraestrutura</span></td>
+                                    <td><span class="badge success">Pago</span></td>
+                                    <td class="value-col text-danger">- R$ 450,00</td>
+                                    <td style="text-align: center;">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td>15/10/2023</td>
-                                <td>
-                                    <strong>Mensalidade - Plano Silver</strong><br>
-                                    <span class="sub-text">Paciente: Carlos Lima</span>
-                                </td>
-                                <td><span class="tag">Planos</span></td>
-                                <td><span class="badge success">Pago</span></td>
-                                <td class="value-col text-success">+ R$ 800,00</td>
-                                <td style="text-align: center;">
-                                    <button class="btn-icon"><i class="fas fa-edit"></i></button>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>15/10/2023</td>
+                                    <td>
+                                        <strong>Mensalidade - Plano Silver</strong><br>
+                                        <span class="sub-text">Paciente: Carlos Lima</span>
+                                    </td>
+                                    <td><span class="tag">Planos</span></td>
+                                    <td><span class="badge success">Pago</span></td>
+                                    <td class="value-col text-success">+ R$ 800,00</td>
+                                    <td style="text-align: center;">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td>12/10/2023</td>
-                                <td>
-                                    <strong>Compra de Faixas Elásticas</strong><br>
-                                    <span class="sub-text">Fornecedor: FisioShop</span>
-                                </td>
-                                <td><span class="tag">Equipamentos</span></td>
-                                <td><span class="badge success">Pago</span></td>
-                                <td class="value-col text-danger">- R$ 180,00</td>
-                                <td style="text-align: center;">
-                                    <button class="btn-icon"><i class="fas fa-edit"></i></button>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>12/10/2023</td>
+                                    <td>
+                                        <strong>Compra de Faixas Elásticas</strong><br>
+                                        <span class="sub-text">Fornecedor: FisioShop</span>
+                                    </td>
+                                    <td><span class="tag">Equipamentos</span></td>
+                                    <td><span class="badge success">Pago</span></td>
+                                    <td class="value-col text-danger">- R$ 180,00</td>
+                                    <td style="text-align: center;">
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td>10/10/2023</td>
-                                <td>
-                                    <strong>Avaliação Postural - Roberto</strong><br>
-                                    <span class="sub-text">Agendado via WhatsApp</span>
-                                </td>
-                                <td><span class="tag">Atendimento</span></td>
-                                <td><span class="badge warning">Pendente</span></td>
-                                <td class="value-col text-warning">R$ 150,00</td>
-                                <td style="text-align: center;">
-                                    <button class="btn-icon"><i class="fas fa-check" style="color: var(--success);" title="Confirmar Pagamento"></i></button>
-                                    <button class="btn-icon"><i class="fas fa-edit"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                <tr>
+                                    <td>10/10/2023</td>
+                                    <td>
+                                        <strong>Avaliação Postural - Roberto</strong><br>
+                                        <span class="sub-text">Agendado via WhatsApp</span>
+                                    </td>
+                                    <td><span class="tag">Atendimento</span></td>
+                                    <td><span class="badge warning">Pendente</span></td>
+                                    <td class="value-col text-warning">R$ 150,00</td>
+                                    <td style="text-align: center;">
+                                        <button class="btn-icon"><i class="fas fa-check" style="color: var(--success);" title="Confirmar Pagamento"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </main>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnMobile = document.getElementById('btn-mobile-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            if (btnMobile && sidebar) {
+                // Abrir e fechar menu
+                btnMobile.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    sidebar.classList.toggle('active');
+                    
+                    const icon = btnMobile.querySelector('i');
+                    if (sidebar.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Fechar ao clicar fora
+                document.addEventListener('click', function(e) {
+                    if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && !btnMobile.contains(e.target)) {
+                        sidebar.classList.remove('active');
+                        const icon = btnMobile.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
