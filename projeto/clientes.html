@@ -6,6 +6,54 @@
     <title>Clientes - Fisioterapia</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px; /* Um pouco mais largo para os dados do cliente */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            max-height: 90vh; /* Evita que estoure a tela se tiver muitos campos */
+            overflow-y: auto;
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .close-modal {
+            background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #666;
+        }
+        .modal-footer {
+            margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px;
+        }
+    </style>
 </head>
 <body>
 
@@ -22,7 +70,7 @@
         
         <nav class="sidebar">
             <div class="sidebar-brand">
-                <img src="logo.png" alt="Logo Fisi Terapia" class="sidebar-logo-img">
+                <img src="logo3.png" alt="Logo Fisi Terapia" style="width: 110px; height: 110px; border-radius: 70%;" class="sidebar-logo-img">
                 <h2>FISI + TERAPIA</h2>
             </div>
 
@@ -40,7 +88,6 @@
                     <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
                 </ul>
             </div>
-
             <div class="sidebar-footer" style="padding: 20px; margin-top: auto;">
                 <a href="login.html" style="color: rgba(255,255,255,0.7); text-decoration: none; display: flex; align-items: center; gap: 10px;">
                    <i class="fas fa-sign-out-alt"></i> Sair
@@ -63,7 +110,7 @@
                         <input type="text" class="form-control" style="width: 100%; max-width: 400px;" placeholder="Buscar por nome, CPF ou telefone...">
                         <button class="btn-search"><i class="fas fa-search"></i></button>
                     </div>
-                    <button class="btn-primary"><i class="fas fa-user-plus"></i> Novo Paciente</button>
+                    <button class="btn-primary" id="btn-novo-paciente"><i class="fas fa-user-plus"></i> Novo Paciente</button>
                 </div>
 
                 <div class="table-container">
@@ -163,37 +210,103 @@
         </div>
     </div>
 
+    <div id="modal-paciente" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Cadastrar Novo Paciente</h3>
+                <button class="close-modal" id="btn-close-modal">&times;</button>
+            </div>
+            
+            <form>
+                <div class="form-grid" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div class="form-group">
+                        <label>Nome Completo</label>
+                        <input type="text" class="form-control" placeholder="Digite o nome completo" required>
+                    </div>
+                    
+                    <div class="form-group" style="display: flex; gap: 10px;">
+                        <div style="flex: 1;">
+                            <label>CPF</label>
+                            <input type="text" class="form-control" placeholder="000.000.000-00">
+                        </div>
+                        <div style="flex: 1;">
+                            <label>Data de Nascimento</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display: flex; gap: 10px;">
+                        <div style="flex: 1;">
+                            <label>Telefone / WhatsApp</label>
+                            <input type="tel" class="form-control" placeholder="(00) 00000-0000">
+                        </div>
+                        <div style="flex: 1;">
+                            <label>E-mail</label>
+                            <input type="email" class="form-control" placeholder="cliente@email.com">
+                        </div>
+                    </div>
+
+                     <div class="form-group">
+                        <label>Endereço</label>
+                        <input type="text" class="form-control" placeholder="Rua, número, bairro...">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline" id="btn-cancel-modal">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar Paciente</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- Lógica do Menu Mobile (MANTIDA) ---
             const btnMobile = document.getElementById('btn-mobile-toggle');
             const sidebar = document.querySelector('.sidebar');
             
             if (btnMobile && sidebar) {
-                // Abrir e fechar menu
                 btnMobile.addEventListener('click', function(e) {
                     e.stopPropagation();
                     sidebar.classList.toggle('active');
-                    
                     const icon = btnMobile.querySelector('i');
                     if (sidebar.classList.contains('active')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
+                        icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
                     } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
                     }
                 });
-
-                // Fechar ao clicar fora
                 document.addEventListener('click', function(e) {
                     if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && !btnMobile.contains(e.target)) {
                         sidebar.classList.remove('active');
                         const icon = btnMobile.querySelector('i');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
                     }
                 });
             }
+
+            // --- Lógica do MODAL DE PACIENTE (NOVA) ---
+            const modal = document.getElementById('modal-paciente');
+            const btnOpen = document.getElementById('btn-novo-paciente');
+            const btnClose = document.getElementById('btn-close-modal');
+            const btnCancel = document.getElementById('btn-cancel-modal');
+
+            // Abrir
+            if (btnOpen) {
+                btnOpen.addEventListener('click', () => { modal.classList.add('active'); });
+            }
+
+            // Fechar
+            function closeModal() { modal.classList.remove('active'); }
+
+            if (btnClose) btnClose.addEventListener('click', closeModal);
+            if (btnCancel) btnCancel.addEventListener('click', closeModal);
+
+            // Fechar ao clicar fora
+            window.addEventListener('click', (e) => {
+                if (e.target == modal) closeModal();
+            });
         });
     </script>
 </body>

@@ -6,6 +6,57 @@
     <title>Mensalidades - Fisioterapia</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px; /* Um pouco mais largo para contratos */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .close-modal {
+            background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #666;
+        }
+        .modal-footer {
+            margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px;
+        }
+        .form-row {
+            display: flex; gap: 15px; margin-bottom: 15px;
+        }
+        .col { flex: 1; }
+        @media (max-width: 600px) { .form-row { flex-direction: column; gap: 10px; } }
+    </style>
 </head>
 <body>
 
@@ -22,7 +73,7 @@
         
         <nav class="sidebar">
             <div class="sidebar-brand">
-                <img src="logo.png" alt="Logo Fisi Terapia" class="sidebar-logo-img">
+                <img src="logo3.png" alt="Logo Fisi Terapia" style="width: 110px; height: 110px; border-radius: 70%;" class="sidebar-logo-img">
                 <h2>FISI + TERAPIA</h2>
             </div>
 
@@ -95,7 +146,9 @@
                         </select>
                     </div>
                     
-                    <button class="btn-primary" style="margin-top: 10px;"><i class="fas fa-plus"></i> Novo Contrato</button>
+                    <button class="btn-primary" id="btn-novo-contrato" style="margin-top: 10px;">
+                        <i class="fas fa-plus"></i> Novo Contrato
+                    </button>
                 </div>
 
                 <div class="table-container">
@@ -199,37 +252,133 @@
         </div>
     </div>
 
+    <div id="modal-contrato" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-file-signature"></i> Novo Contrato / Plano</h3>
+                <button class="close-modal" id="btn-close-modal">&times;</button>
+            </div>
+            
+            <form>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label>Paciente</label>
+                    <div style="display: flex; gap: 5px;">
+                        <input type="text" class="form-control" placeholder="Buscar paciente...">
+                        <button type="button" class="btn-outline"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <label>Tipo de Serviço</label>
+                        <select class="form-control">
+                            <option>Fisioterapia Motora</option>
+                            <option>Pilates</option>
+                            <option>RPG</option>
+                            <option>Acupuntura</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label>Formato</label>
+                        <select class="form-control">
+                            <option>Mensal (Recorrente)</option>
+                            <option>Trimestral</option>
+                            <option>Pacote Avulso</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <label>Qtd. Sessões</label>
+                        <input type="number" class="form-control" placeholder="Ex: 8, 10..." value="8">
+                    </div>
+                    <div class="col">
+                        <label>Valor Total (R$)</label>
+                        <input type="number" class="form-control" placeholder="0,00">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <label>Data de Início</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label>Vencimento</label>
+                        <input type="date" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" checked>
+                        <span>Gerar cobrança no Financeiro automaticamente</span>
+                    </label>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline" id="btn-cancel-modal">Cancelar</button>
+                    <button type="submit" class="btn-primary">Criar Contrato</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- Lógica Menu Mobile ---
             const btnMobile = document.getElementById('btn-mobile-toggle');
             const sidebar = document.querySelector('.sidebar');
             
             if (btnMobile && sidebar) {
-                // Abrir e fechar menu
                 btnMobile.addEventListener('click', function(e) {
                     e.stopPropagation();
                     sidebar.classList.toggle('active');
-                    
                     const icon = btnMobile.querySelector('i');
                     if (sidebar.classList.contains('active')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
+                        icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
                     } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
                     }
                 });
 
-                // Fechar ao clicar fora
                 document.addEventListener('click', function(e) {
                     if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && !btnMobile.contains(e.target)) {
                         sidebar.classList.remove('active');
                         const icon = btnMobile.querySelector('i');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
                     }
                 });
             }
+
+            // --- Lógica MODAL NOVO CONTRATO ---
+            const modal = document.getElementById('modal-contrato');
+            const btnOpen = document.getElementById('btn-novo-contrato');
+            const btnClose = document.getElementById('btn-close-modal');
+            const btnCancel = document.getElementById('btn-cancel-modal');
+
+            // Abrir
+            if (btnOpen) {
+                btnOpen.addEventListener('click', () => {
+                    modal.classList.add('active');
+                });
+            }
+
+            // Função Fechar
+            function closeModal() {
+                modal.classList.remove('active');
+            }
+
+            if (btnClose) btnClose.addEventListener('click', closeModal);
+            if (btnCancel) btnCancel.addEventListener('click', closeModal);
+
+            // Fechar ao clicar fora
+            window.addEventListener('click', (e) => {
+                if (e.target == modal) {
+                    closeModal();
+                }
+            });
         });
     </script>
 </body>
