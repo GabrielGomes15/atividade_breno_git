@@ -1,23 +1,17 @@
-/* =========================================
-   1. VARIÁVEIS E RESET
-   ========================================= */
 :root {
-    /* --- Suas Cores Originais --- */
-    --primary-color: #1a404b;   /* Azul Petróleo Escuro da Logo */
-    --secondary-color: #2c6e80; /* Tom mais claro para hover */
-    --bg-color: #e8e6e1;        /* Fundo bege claro sólido */
+    --primary-color: #1a404b;   
+    --secondary-color: #2c6e80;
+    --bg-color: #e8e6e1;       
     --white: #ffffff;
     --text-color: #333333;
     --text-light: #777777;
-    
-    /* --- Cores Funcionais Adicionais (Usadas nas novas abas) --- */
-    --danger: #e74c3c;          /* Vermelho (Erro/Despesa/Ocupado) */
-    --success: #2ecc71;         /* Verde (Sucesso/Receita/Disponível) */
-    --warning: #f39c12;         /* Laranja (Pendente/Atenção) */
-    --border-radius: 8px;       /* Arredondamento padrão dos cards */
+
+    --danger: #e74c3c;    
+    --success: #2ecc71;    
+    --warning: #f39c12;         
+    --border-radius: 8px;     
 }
 
-/* Reset Básico e Tipografia */
 * {
     margin: 0;
     padding: 0;
@@ -26,21 +20,14 @@
 }
 
 body {
-    /* Garante o fundo bege sólido, sem imagem de logo gigante */
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
 }
 
-/* Utilitários */
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
-/* =========================================
-   2. COMPONENTES GERAIS (Botões, Inputs, Badges)
-   ========================================= */
-
-/* Botão Primário (Azul Petróleo) */
 .btn-primary {
     background-color: var(--primary-color);
     color: var(--white);
@@ -61,7 +48,7 @@ ul { list-style: none; }
     background-color: var(--secondary-color);
 }
 
-/* Botão Outline (Borda colorida, fundo transparente) */
+
 .btn-outline {
     background-color: transparent;
     border: 1px solid #ccc;
@@ -82,7 +69,7 @@ ul { list-style: none; }
     background-color: rgba(26, 64, 75, 0.05);
 }
 
-/* Botão Ícone Pequeno (Usado em tabelas) */
+
 .btn-icon {
     background: none;
     border: none;
@@ -94,7 +81,6 @@ ul { list-style: none; }
 }
 .btn-icon:hover { color: var(--primary-color); }
 
-/* Inputs e Selects Padrão do Sistema */
 .form-control {
     width: 100%;
     padding: 10px;
@@ -105,7 +91,6 @@ ul { list-style: none; }
 }
 .form-control:focus { border-color: var(--primary-color); }
 
-/* Badges (Etiquetas coloridas de status) */
 .badge {
     padding: 4px 10px;
     border-radius: 12px;
@@ -118,7 +103,6 @@ ul { list-style: none; }
 .badge.danger { background-color: #f8d7da; color: #721c24; }
 .badge.warning { background-color: #fff3cd; color: #856404; }
 
-/* Barra de Ações no Topo das Páginas (Filtros e Botões) */
 .action-bar {
     display: flex;
     justify-content: space-between;
@@ -135,9 +119,7 @@ ul { list-style: none; }
     flex-wrap: wrap;
 }
 
-/* =========================================
-   3. TELA DE LOGIN (Centralizada)
-   ========================================= */
+
 .login-container {
     display: flex;
     justify-content: center;
@@ -160,20 +142,17 @@ ul { list-style: none; }
 .form-group { margin-bottom: 15px; text-align: left; }
 .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: var(--primary-color); }
 
-/* =========================================
-   4. LAYOUT PRINCIPAL DO DASHBOARD (Grid)
-   ========================================= */
+
 .dashboard-container {
     display: grid;
-    grid-template-columns: 260px 1fr; /* Sidebar fixa | Conteúdo fluido */
-    grid-template-rows: 60px 1fr; /* Header fixo | Conteúdo fluido */
+    grid-template-columns: 260px 1fr; 
+    grid-template-rows: 60px 1fr; 
     grid-template-areas: 
         "sidebar header"
         "sidebar content";
     min-height: 100vh;
 }
 
-/* --- Sidebar (Menu Lateral) --- */
 .sidebar {
     grid-area: sidebar;
     background-color: var(--primary-color);
@@ -190,7 +169,6 @@ ul { list-style: none; }
     margin-bottom: 40px;
 }
 
-/* Placeholder para logo se não tiver imagem */
 .logo-placeholder {
     font-size: 1.5rem;
     background: rgba(255,255,255,0.1);
@@ -204,7 +182,7 @@ ul { list-style: none; }
 
 .sidebar-header img {
     width: 40px; height: auto;
-    filter: brightness(0) invert(1); /* Torna a logo branca se for imagem */
+    filter: brightness(0) invert(1); 
 }
 
 .sidebar-header h2 { font-size: 1.2rem; font-weight: bold; }
@@ -212,7 +190,7 @@ ul { list-style: none; }
 .menu-nav ul li { margin-bottom: 10px; }
 
 .menu-nav ul li a {
-    color: #bdc3c7; /* Cinza claro para itens inativos */
+    color: #bdc3c7; 
     display: flex;
     align-items: center;
     gap: 12px;
@@ -223,11 +201,10 @@ ul { list-style: none; }
 }
 
 .menu-nav ul li a:hover, .menu-nav ul li a.active {
-    background-color: rgba(255,255,255,0.15); /* Fundo translúcido ao passar o mouse */
+    background-color: rgba(255,255,255,0.15); 
     color: var(--white);
 }
 
-/* --- Header Superior --- */
 .main-header {
     grid-area: header;
     background-color: var(--white);
@@ -241,20 +218,15 @@ ul { list-style: none; }
 
 .user-info { font-weight: bold; color: var(--primary-color); }
 
-/* --- Área de Conteúdo Principal --- */
 .content {
     grid-area: content;
     padding: 30px;
-    overflow-y: auto; /* Permite rolagem apenas no conteúdo */
+    overflow-y: auto; 
 }
 
 .page-title { margin-bottom: 25px; color: var(--primary-color); }
 
-/* =========================================
-   5. ESTILOS GERAIS DE CARDS E TABELAS
-   ========================================= */
 
-/* Grid de Cards (Resumo do Dashboard) */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -267,7 +239,7 @@ ul { list-style: none; }
     padding: 25px;
     border-radius: var(--border-radius);
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    border-left: 5px solid var(--primary-color); /* Borda colorida à esquerda */
+    border-left: 5px solid var(--primary-color); 
     position: relative;
 }
 
@@ -275,13 +247,12 @@ ul { list-style: none; }
 .card .number { font-size: 1.8rem; font-weight: bold; color: var(--text-color); }
 .card .sub-text { font-size: 0.8rem; margin-top: 5px; color: #888; }
 
-/* Estilos de Tabela Padrão */
 .table-container {
     background: var(--white);
     padding: 20px;
     border-radius: var(--border-radius);
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    overflow-x: auto; /* Rolagem horizontal se a tabela for muito larga */
+    overflow-x: auto; 
 }
 
 table { width: 100%; border-collapse: collapse; margin-top: 10px; }
@@ -289,11 +260,6 @@ table th, table td { text-align: left; padding: 15px; border-bottom: 1px solid #
 table th { color: var(--primary-color); font-weight: 600; font-size: 0.9rem; }
 table tr:hover { background-color: #f9f9f9; }
 
-/* =========================================
-   6. ESTILOS ESPECÍFICOS POR PÁGINA
-   ========================================= */
-
-/* --- Página: CLIENTES & CHECK-IN --- */
 .client-profile { display: flex; align-items: center; gap: 12px; }
 .avatar {
     width: 40px; height: 40px; border-radius: 50%; color: #fff;
@@ -306,7 +272,6 @@ table tr:hover { background-color: #f9f9f9; }
 .pagination .pages button { border: 1px solid #ddd; background: #fff; padding: 5px 10px; margin: 0 2px; border-radius: 4px; cursor: pointer; }
 .pagination .pages button.active { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
 
-/* --- Página: PROFISSIONAIS (Cards de Foto) --- */
 .profissionais-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
 .pro-card { background: #fff; border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.2s; border: 1px solid #eee; }
 .pro-card:hover { transform: translateY(-5px); }
@@ -321,7 +286,6 @@ table tr:hover { background-color: #f9f9f9; }
 .pro-body i { color: #bbb; width: 20px; text-align: center; }
 .pro-footer { padding: 15px; background: #fafafa; display: flex; gap: 10px; border-top: 1px solid #eee; }
 
-/* --- Página: AVALIAÇÕES (Prontuário) --- */
 .date-box { background: #f8f9fa; border: 1px solid #ddd; border-radius: 6px; padding: 5px; text-align: center; width: 50px; }
 .date-box .day { font-size: 1.2rem; font-weight: bold; color: var(--secondary-color); display: block; line-height: 1; }
 .date-box .month { font-size: 0.7rem; text-transform: uppercase; color: #888; }
@@ -331,37 +295,34 @@ table tr:hover { background-color: #f9f9f9; }
 .input-group i { position: absolute; left: 10px; color: #aaa; }
 .input-group input { padding-left: 35px; }
 
-/* --- Página: FINANCEIRO & MENSALIDADES --- */
 .text-success { color: var(--success) !important; }
 .text-danger { color: var(--danger) !important; }
 .text-warning { color: var(--warning) !important; }
 .value-col { font-family: 'Consolas', monospace; text-align: right; font-weight: 600; }
 .tag { background: #f0f2f5; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; color: #666; border: 1px solid #ddd; }
-/* Barra de Progresso (Mensalidades) */
+
 .progress-wrapper { width: 140px; display: flex; flex-direction: column; gap: 4px; }
 .progress-text { font-size: 0.75rem; color: #666; }
 .progress-bar { width: 100%; height: 6px; background: #eee; border-radius: 3px; overflow: hidden; }
 .progress-fill { height: 100%; border-radius: 3px; transition: width 0.5s; }
 .plan-tag { background: #f0f2f5; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; color: var(--secondary-color); }
 
-/* --- Página: RELATÓRIOS (Gráficos CSS Puro) --- */
 .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
 .chart-box { background: #fff; padding: 25px; border-radius: var(--border-radius); box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #eee; }
 .chart-title { font-size: 1.1rem; color: var(--secondary-color); margin-bottom: 25px; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
-/* Gráfico de Barras */
+
 .bar-chart-container { display: flex; align-items: flex-end; justify-content: space-around; height: 200px; padding-top: 20px; border-bottom: 1px solid #ddd; }
 .bar-group { display: flex; flex-direction: column; align-items: center; width: 100%; }
 .bar { width: 30px; background: #cbd5e0; border-radius: 4px 4px 0 0; transition: height 1s; position: relative; cursor: pointer; }
 .bar:hover, .bar.active { background: var(--primary-color); }
 .bar.projected { background: repeating-linear-gradient(45deg, #cbd5e0, #cbd5e0 10px, #e2e8f0 10px, #e2e8f0 20px); }
 .label { margin-top: 10px; font-size: 0.8rem; color: #666; font-weight: 600; }
-/* Lista Visual de Estatísticas */
+
 .stats-list { display: flex; flex-direction: column; gap: 20px; }
 .stat-info { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; color: #555; }
 .stat-bar-bg { width: 100%; height: 10px; background: #f0f2f5; border-radius: 5px; overflow: hidden; }
 .stat-bar-fill { height: 100%; border-radius: 5px; }
 
-/* --- Página: CONFIGURAÇÕES (Formulários e Switches) --- */
 .settings-container { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px; }
 .settings-card { padding: 0; overflow: hidden; }
 .settings-card .card-header { padding: 20px 25px; border-bottom: 1px solid #eee; background-color: #fafafa; }
@@ -369,7 +330,7 @@ table tr:hover { background-color: #f9f9f9; }
 .form-group label { display: block; font-size: 0.9rem; color: #555; margin-bottom: 8px; font-weight: 600; }
 .full-width { grid-column: 1 / -1; }
 .card-footer { padding: 15px 25px; background-color: #fff; border-top: 1px solid #eee; text-align: right; }
-/* Switch Toggle (Botão de deslizar) */
+
 .toggle-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; border-bottom: 1px solid #f0f0f0; }
 .toggle-info strong { display: block; color: var(--secondary-color); margin-bottom: 4px; }
 .toggle-info span { font-size: 0.85rem; color: #888; }
@@ -380,9 +341,6 @@ table tr:hover { background-color: #f9f9f9; }
 input:checked + .slider { background-color: var(--primary-color); }
 input:checked + .slider:before { transform: translateX(24px); }
 
-/* =========================================
-   7. RESPONSIVIDADE (Mobile)
-   ========================================= */
 @media (max-width: 768px) {
     .dashboard-container {
         grid-template-columns: 1fr;
@@ -392,7 +350,7 @@ input:checked + .slider:before { transform: translateX(24px); }
             "content";
     }
 
-    .sidebar { display: none; /* Em um app real, usaríamos um menu hambúrguer */ }
+    .sidebar { display: none; }
 
     .main-header {
         background-color: var(--primary-color);
@@ -401,9 +359,8 @@ input:checked + .slider:before { transform: translateX(24px); }
     
     .main-header .user-info { color: white; }
 
-    /* Ajustes de layout para telas pequenas */
     .form-grid, .profissionais-grid, .charts-grid, .cards-grid {
-        grid-template-columns: 1fr; /* Tudo vira uma coluna só */
+        grid-template-columns: 1fr;
     }
     
     .action-bar { flex-direction: column; align-items: stretch; }
@@ -411,7 +368,6 @@ input:checked + .slider:before { transform: translateX(24px); }
     .filters input, .filters select, .filters button { flex: 1; }
 }
 
-/* --- EXTRA: Estilos para Tela de Cadastro/Login --- */
 
 .auth-footer {
     margin-top: 25px;
@@ -432,27 +388,20 @@ input:checked + .slider:before { transform: translateX(24px); }
     text-decoration: underline;
 }
 
-/* Garante que o checkbox não fique esticado */
 .checkbox-group input[type="checkbox"] {
     accent-color: var(--primary-color);
     cursor: pointer;
 }
 
-/* =========================================
-   ESTILO DOS BOTÕES DE AÇÃO (TABELA)
-   ========================================= */
-
-/* Container para alinhar botões se houver mais de um */
 .action-group {
     display: flex;
     gap: 8px;
-    justify-content: flex-end; /* Alinha à direita ou center se preferir */
+    justify-content: flex-end; 
 }
 
-/* Estilo Base do Botão de Tabela */
 .btn-table {
     padding: 6px 14px;
-    border-radius: 20px; /* Borda bem arredondada (Pílula) */
+    border-radius: 20px; 
     font-size: 0.8rem;
     font-weight: 600;
     border: none;
@@ -461,13 +410,13 @@ input:checked + .slider:before { transform: translateX(24px); }
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Sombra suave */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .btn-table:hover {
-    transform: translateY(-2px); /* Leve subida ao passar o mouse */
+    transform: translateY(-2px); 
     box-shadow: 0 4px 8px rgba(0,0,0,0.12);
 }
 
@@ -475,30 +424,24 @@ input:checked + .slider:before { transform: translateX(24px); }
     transform: translateY(0);
 }
 
-/* --- Cores Específicas das Ações --- */
-
-/* 1. Botão CHAMAR (Azul/Primary) - Para chamar na TV/Painel */
 .btn-call {
-    background-color: var(--primary-color); /* Azul Petróleo */
+    background-color: var(--primary-color);
     color: white;
 }
 .btn-call:hover { background-color: var(--secondary-color); }
 
-/* 2. Botão CONFIRMAR (Verde/Success) - Para dar Check-in */
 .btn-check {
-    background-color: var(--success); /* Verde */
+    background-color: var(--success); 
     color: white;
 }
 .btn-check:hover { background-color: #27ae60; }
 
-/* 3. Botão AGUARDAR/TRIAGEM (Laranja/Warning) */
 .btn-wait {
-    background-color: var(--warning); /* Laranja */
+    background-color: var(--warning); 
     color: #fff;
 }
 .btn-wait:hover { background-color: #e67e22; }
 
-/* 4. Botão INATIVO/JÁ CHEGOU (Cinza) */
 .btn-disabled {
     background-color: #e0e0e0;
     color: #888;
@@ -507,13 +450,8 @@ input:checked + .slider:before { transform: translateX(24px); }
 }
 .btn-disabled:hover { transform: none; }
 
-/* =========================================
-   ESTILOS DA LANDING PAGE (TELA INICIAL)
-   ========================================= */
-
-/* Layout Base da Landing */
 .landing-body {
-    background-color: var(--bg-color); /* Fundo Bege */
+    background-color: var(--bg-color); 
     overflow-x: hidden;
 }
 
@@ -523,7 +461,6 @@ input:checked + .slider:before { transform: translateX(24px); }
     padding: 0 20px;
 }
 
-/* --- Navbar Transparente --- */
 .navbar {
     padding: 20px 0;
     position: absolute;
@@ -561,14 +498,13 @@ input:checked + .slider:before { transform: translateX(24px); }
 .btn-text:hover { text-decoration: underline; }
 
 .btn-rounded {
-    border-radius: 50px; /* Botão bem redondo */
+    border-radius: 50px; 
     padding: 10px 25px;
     box-shadow: 0 4px 10px rgba(26, 64, 75, 0.2);
 }
 
-/* --- Hero Section (Destaque) --- */
 .hero-section {
-    padding: 140px 0 80px; /* Espaço pro topo */
+    padding: 140px 0 80px; 
     min-height: 90vh;
     display: flex;
     align-items: center;
@@ -594,7 +530,6 @@ input:checked + .slider:before { transform: translateX(24px); }
     position: relative;
     z-index: 1;
 }
-/* Sublinhado criativo */
 .highlight::after {
     content: '';
     position: absolute;
@@ -633,7 +568,6 @@ input:checked + .slider:before { transform: translateX(24px); }
     display: inline-block;
 }
 
-/* Estatísticas Rápidas */
 .stats-row {
     display: flex;
     gap: 40px;
@@ -643,7 +577,6 @@ input:checked + .slider:before { transform: translateX(24px); }
 .stat-item strong { display: block; font-size: 1.5rem; color: var(--primary-color); }
 .stat-item span { font-size: 0.9rem; color: #888; }
 
-/* --- Mockup (Ilustração do Sistema feita com CSS) --- */
 .hero-image {
     position: relative;
     display: flex;
@@ -658,7 +591,7 @@ input:checked + .slider:before { transform: translateX(24px); }
     box-shadow: 0 20px 50px rgba(0,0,0,0.1);
     border: 1px solid rgba(255,255,255,0.5);
     position: relative;
-    transform: rotate(-3deg); /* Leve inclinação estilosa */
+    transform: rotate(-3deg);
     transition: transform 0.3s;
 }
 
@@ -669,7 +602,7 @@ input:checked + .slider:before { transform: translateX(24px); }
 }
 .dots { display: flex; gap: 6px; }
 .dots span { width: 10px; height: 10px; border-radius: 50%; background: #ddd; }
-.dots span:nth-child(1) { background: #ff5f56; } /* Mac style */
+.dots span:nth-child(1) { background: #ff5f56; } 
 .dots span:nth-child(2) { background: #ffbd2e; }
 .dots span:nth-child(3) { background: #27c93f; }
 
@@ -698,14 +631,12 @@ input:checked + .slider:before { transform: translateX(24px); }
     display: flex; align-items: center; gap: 8px;
 }
 
-/* Gráficozinho CSS */
 .mockup-chart {
     display: flex; align-items: flex-end; justify-content: space-between; height: 60px; margin-top: 20px; padding: 0 20px;
 }
 .mockup-chart .bar { width: 15px; background: #eee; border-radius: 3px 3px 0 0; }
 .mockup-chart .bar.active { background: var(--secondary-color); }
 
-/* --- Seção de Recursos --- */
 .features-section {
     padding: 80px 0;
     background: white;
@@ -740,7 +671,6 @@ input:checked + .slider:before { transform: translateX(24px); }
 .feature-card h3 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.2rem; }
 .feature-card p { color: #777; font-size: 0.95rem; }
 
-/* --- Footer --- */
 .main-footer {
     padding: 30px 0;
     background: var(--bg-color);
@@ -753,7 +683,6 @@ input:checked + .slider:before { transform: translateX(24px); }
 .socials a { margin-left: 15px; color: var(--primary-color); font-size: 1.2rem; transition: 0.2s; }
 .socials a:hover { color: var(--secondary-color); }
 
-/* Responsividade da Landing */
 @media (max-width: 768px) {
     .hero-content { grid-template-columns: 1fr; text-align: center; gap: 40px; }
     .hero-text { margin-bottom: 20px; }
@@ -762,39 +691,44 @@ input:checked + .slider:before { transform: translateX(24px); }
     .mockup-card { width: 100%; max-width: 350px; margin: 0 auto; }
 }
 
-/* --- Botão extra para "Ver/Detalhes" --- */
 .btn-view {
-    background-color: #6c757d; /* Cinza Neutro */
+    background-color: #6c757d; 
     color: white;
 }
 .btn-view:hover { background-color: #5a6268; }
 
-/* --- Botão extra para "Iniciar Atendimento" --- */
 .btn-start {
-    background-color: var(--primary-color); /* Azul Petróleo */
+    background-color: var(--primary-color); 
     color: white;
 }
 .btn-start:hover { background-color: var(--secondary-color); }
 
-/* ==================================================
-   CORREÇÃO ESPECÍFICA PARA OS INPUTS DE LOGIN
-   ================================================== */
-
-/* Força o input a ocupar 100% da largura disponível */
 .form-control {
     width: 100%; 
-    padding: 12px 15px;       /* Espaço interno para o texto não colar na borda */
-    margin-top: 5px;          /* Um respiro entre o título e a caixa */
-    border: 1px solid #ccc;   /* Borda cinza suave */
-    border-radius: 8px;       /* Cantos arredondados */
-    box-sizing: border-box;   /* CRUCIAL: Impede que o padding estoure o tamanho da caixa */
-    font-size: 1rem;          /* Tamanho da letra legível */
+    padding: 12px 15px;      
+    margin-top: 5px;          
+    border: 1px solid #ccc;   
+    border-radius: 8px;       
+    box-sizing: border-box;  
+    font-size: 1rem;          
     background-color: #fff;
     outline: none;
 }
 
-/* Efeito ao clicar na caixa (Fica com borda azul/verde) */
 .form-control:focus {
-    border-color: #1a404b;    /* Sua cor primária */
+    border-color: #1a404b;    
     box-shadow: 0 0 5px rgba(26, 64, 75, 0.3);
+}
+/* --- Ajuste da Logo na Landing Page --- */
+.logo-img {
+    height: 50px;       /* Altura fixa para manter o padrão */
+    width: auto;        /* Largura se ajusta proporcionalmente */
+    vertical-align: middle; /* Alinha com os botões ao lado */
+    display: block;     /* Garante que não tenha espaços estranhos */
+}
+
+/* Opcional: Se precisar ajustar a margem do container da logo */
+.logo {
+    display: flex;
+    align-items: center;
 }
