@@ -719,16 +719,30 @@ input:checked + .slider:before { transform: translateX(24px); }
     border-color: #1a404b;    
     box-shadow: 0 0 5px rgba(26, 64, 75, 0.3);
 }
-/* --- Ajuste da Logo na Landing Page --- */
-.logo-img {
-    height: 50px;       /* Altura fixa para manter o padrão */
-    width: auto;        /* Largura se ajusta proporcionalmente */
-    vertical-align: middle; /* Alinha com os botões ao lado */
-    display: block;     /* Garante que não tenha espaços estranhos */
-}
 
-/* Opcional: Se precisar ajustar a margem do container da logo */
-.logo {
+/* --- Ajuste da Logo na Barra Lateral (Sidebar) --- */
+
+/* Remove qualquer fundo branco antigo se houver */
+.sidebar-brand {
     display: flex;
     align-items: center;
+    padding-left: 10px; /* Ajuste conforme necessário */
+}
+
+/* Estilo da nova imagem da logo */
+.sidebar-logo-img {
+    width: 40px;        /* Tamanho ideal para o menu lateral */
+    height: auto;       /* Mantém a proporção */
+    margin-right: 10px; /* Espaço entre a logo e o texto "FISI + TERAPIA" */
+    object-fit: contain;
+    background-color: transparent !important; /* Garante fundo transparente */
+    border-radius: 0;   /* Remove bordas arredondadas se não quiser */
+    border: none;       /* Remove bordas sólidas */
+}
+
+/* SE você ainda tiver um código .logo-circle no CSS atrapalhando, 
+   podemos forçar ele a sumir ou ficar transparente assim: */
+.logo-circle {
+    background-color: transparent !important;
+    box-shadow: none !important;
 }
