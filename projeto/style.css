@@ -720,28 +720,22 @@ input:checked + .slider:before { transform: translateX(24px); }
     box-shadow: 0 0 5px rgba(26, 64, 75, 0.3);
 }
 
-/* --- Ajuste da Logo na Barra Lateral (Sidebar) --- */
-
-/* Remove qualquer fundo branco antigo se houver */
 .sidebar-brand {
     display: flex;
     align-items: center;
-    padding-left: 10px; /* Ajuste conforme necessário */
+    padding-left: 10px; 
 }
 
-/* Estilo da nova imagem da logo */
 .sidebar-logo-img {
-    width: 40px;        /* Tamanho ideal para o menu lateral */
-    height: auto;       /* Mantém a proporção */
-    margin-right: 10px; /* Espaço entre a logo e o texto "FISI + TERAPIA" */
+    width: 40px;        
+    height: auto;      
+    margin-right: 10px; 
     object-fit: contain;
-    background-color: transparent !important; /* Garante fundo transparente */
-    border-radius: 0;   /* Remove bordas arredondadas se não quiser */
-    border: none;       /* Remove bordas sólidas */
+    background-color: transparent !important; 
+    border-radius: 0;   
+    border: none;       
 }
 
-/* SE você ainda tiver um código .logo-circle no CSS atrapalhando, 
-   podemos forçar ele a sumir ou ficar transparente assim: */
 .logo-circle {
     background-color: transparent !important;
     box-shadow: none !important;
