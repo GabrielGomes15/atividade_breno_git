@@ -776,3 +776,25 @@ input:checked + .slider:before { transform: translateX(24px); }
 }
 .btn-start:hover { background-color: var(--secondary-color); }
 
+/* ==================================================
+   CORREÇÃO ESPECÍFICA PARA OS INPUTS DE LOGIN
+   ================================================== */
+
+/* Força o input a ocupar 100% da largura disponível */
+.form-control {
+    width: 100%; 
+    padding: 12px 15px;       /* Espaço interno para o texto não colar na borda */
+    margin-top: 5px;          /* Um respiro entre o título e a caixa */
+    border: 1px solid #ccc;   /* Borda cinza suave */
+    border-radius: 8px;       /* Cantos arredondados */
+    box-sizing: border-box;   /* CRUCIAL: Impede que o padding estoure o tamanho da caixa */
+    font-size: 1rem;          /* Tamanho da letra legível */
+    background-color: #fff;
+    outline: none;
+}
+
+/* Efeito ao clicar na caixa (Fica com borda azul/verde) */
+.form-control:focus {
+    border-color: #1a404b;    /* Sua cor primária */
+    box-shadow: 0 0 5px rgba(26, 64, 75, 0.3);
+}
