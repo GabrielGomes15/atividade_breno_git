@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos JavaScript</title>
+</head>
+<body>
+
+    <h1>Eventos em JavaScript</h1>
+
+    <section>
+        <h2>Parte 1 - onclick</h2>
+
+        <button onclick="boasVindas()">
+            Clique aqui
+        </button>
+
+        <p id="msgBoasVindas" class="mensagem"></p>
+    </section>
+
+    <section>
+        <h2>Parte 2 - keyup</h2>
+
+        <input
+            type="text"
+            id="texto"
+            placeholder="Digite alguma coisa..."
+            onkeyup="mostrarConsole()">
+    </section>
+
+    <section>
+        <h2>Parte 3 - change</h2>
+
+        <select id="curso" onchange="escolherCurso()">
+            <option value="">Selecione um curso</option>
+            <option>Informática</option>
+            <option>Agropecuária</option>
+            <option>Edificações</option>
+        </select>
+
+        <p id="cursoEscolhido" class="mensagem"></p>
+    </section>
+
+    <section>
+        <h2>Desafio - submit</h2>
+
+        <form onsubmit="return validarFormulario()">
+
+            <label>Nome:</label><br>
+            <input type="text" id="nome"><br><br>
+
+            <label>E-mail:</label><br>
+            <input type="email" id="email"><br><br>
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+
+        <p id="resultado" class="mensagem"></p>
+    </section>
+
+    <script>
+
+        function boasVindas() {
+            document.getElementById("msgBoasVindas").innerHTML =
+                "Bem-vindo à Programação Web!";
+        }
+
+        function mostrarConsole() {
+            let texto = document.getElementById("texto").value;
+            console.log(texto);
+        }
+
+        function escolherCurso() {
+            let curso = document.getElementById("curso").value;
+
+            if (curso !== "") {
+                document.getElementById("cursoEscolhido").innerHTML =
+                    "Curso escolhido: " + curso;
+            } else {
+                document.getElementById("cursoEscolhido").innerHTML = "";
+            }
+        }
+
+        function validarFormulario() {
+
+            let nome = document.getElementById("nome").value.trim();
+            let email = document.getElementById("email").value.trim();
+
+            if (nome === "" || email === "") {
+
+                document.getElementById("resultado").innerHTML =
+                    "Preencha os campos obrigatórios.";
+
+                return false;
+            }
+
+            document.getElementById("resultado").innerHTML =
+                "Cadastro realizado com sucesso!";
+
+            return false; 
+        }
+
+    </script>
+
+</body>
+</html>

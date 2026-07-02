@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade javascript</title>
+</head>
+<body>
+
+    <h1 id="titulo">Minha Página</h1>
+    <button onclick="alterarTitulo()">Alterar Título</button>
+
+    <hr>
+
+    <p id="paragrafo">parágrafo de exemplo</p>
+
+    <button onclick="alterarTexto()">Alterar Texto</button>
+    <button onclick="alterarEstilo()">Alterar Estilo</button>
+
+    <script>
+        function alterarTitulo() {
+            let titulo = document.getElementById("titulo");
+
+            titulo.innerHTML = "Bem-vindo ao JavaScript!";
+            titulo.style.color = "blue";
+            titulo.style.fontSize = "30px";
+        }
+
+        function alterarTexto() {
+            document.getElementById("paragrafo").innerHTML =
+                "O texto do parágrafo foi alterado";
+        }
+
+        function alterarEstilo() {
+            let p = document.getElementById("paragrafo");
+
+            p.style.color = "white";
+            p.style.backgroundColor = "green";
+            p.style.fontSize = "24px";
+        }
+    </script>
+
+</body>
+</html>

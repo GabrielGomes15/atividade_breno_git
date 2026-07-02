@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Cadastro</h2>
+
+    <form id="formCadastro">
+
+        <label>Nome</label>
+        <input type="text" id="nome">
+
+        <label>E-mail</label>
+        <input type="email" id="email">
+
+        <label>Senha</label>
+        <input type="password" id="senha">
+
+        <label>Confirmar Senha</label>
+        <input type="password" id="confirmarSenha">
+
+        <button type="submit">Cadastrar</button>
+
+    </form>
+
+    <p id="mensagem"></p>
+
+</div>
+
+<script>
+
+const form = document.getElementById("formCadastro");
+const mensagem = document.getElementById("mensagem");
+
+form.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const nome = document.getElementById("nome");
+    const email = document.getElementById("email");
+    const senha = document.getElementById("senha");
+    const confirmar = document.getElementById("confirmarSenha");
+
+    let valido = true;
+    mensagem.innerHTML = "";
+
+    const campos = [nome,email,senha,confirmar];
+
+    campos.forEach(campo=>{
+        campo.classList.remove("erro");
+        campo.classList.remove("sucesso");
+    });
+
+    if(nome.value.trim()==""){
+        nome.classList.add("erro");
+        valido=false;
+    }else{
+        nome.classList.add("sucesso");
+    }
+
+    if(email.value.trim()==""){
+        email.classList.add("erro");
+        valido=false;
+    }else{
+        email.classList.add("sucesso");
+    }
+
+    if(senha.value.length<8){
+        senha.classList.add("erro");
+        valido=false;
+    }else{
+        senha.classList.add("sucesso");
+    }
+
+    if(confirmar.value!==senha.value || confirmar.value==""){
+        confirmar.classList.add("erro");
+        valido=false;
+    }else{
+        confirmar.classList.add("sucesso");
+    }
+
+    if(!valido){
+
+        if(senha.value.length<8){
+            mensagem.style.color="red";
+            mensagem.innerHTML="A senha deve possuir pelo menos 8 caracteres.";
+        }
+        else if(confirmar.value!==senha.value){
+            mensagem.style.color="red";
+            mensagem.innerHTML="As senhas não coincidem.";
+        }
+        else{
+            mensagem.style.color="red";
+            mensagem.innerHTML="Preencha todos os campos obrigatórios.";
+        }
+
+    }else{
+
+        mensagem.style.color="green";
+        mensagem.innerHTML="Cadastro realizado com sucesso!";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
